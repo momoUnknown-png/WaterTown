@@ -1,0 +1,2421 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineSystem.cmake:212 (message)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      The system is: Windows - 10.0.26100 - AMD64
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/"
+    found: "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "E:\\Anaconda"
+        - "E:\\Anaconda\\Library\\mingw-w64\\bin"
+        - "E:\\Anaconda\\Library\\usr\\bin"
+        - "E:\\Anaconda\\Library\\bin"
+        - "E:\\Anaconda\\Scripts"
+        - "E:\\Anaconda\\bin"
+        - "E:\\Anaconda\\condabin"
+        - "c:\\Users\\chen_\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\chen_\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
+        - "C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0"
+        - "C:\\Windows\\System32\\OpenSSH"
+        - "C:\\Program Files\\dotnet"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "E:\\anaconda"
+        - "E:\\anaconda\\Scripts"
+        - "E:\\anaconda\\Library\\usr\\bin"
+        - "E:\\anaconda\\Library\\bin"
+        - "E:\\jdk-21.0.6+7\\bin"
+        - "E:\\anaconda\\Library\\mingw-w64\\bin"
+        - "C:\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\texlive\\2025\\bin\\windows"
+        - "e:\\cursor\\resources\\app\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Users\\chen_\\Downloads\\platform-tools-latest-windows\\platform-tools"
+        - "C:\\Program Files\\Graphviz\\bin"
+        - "C:\\Users\\chen_\\AppData\\Roaming\\Python\\Python312\\Scripts"
+        - "D:\\matlab\\bin"
+        - "C:\\Program Files\\Microsoft SQL Server\\170\\DTS\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn"
+        - "C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn"
+        - "C:\\Program Files (x86)\\ZeroTier\\One"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\Tailscale"
+        - "C:\\Users\\chen_\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\chen_\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "D:\\PyCharm Community Edition 2024.3.3\\bin"
+        - "."
+        - "E:\\cursor\\resources\\app\\bin"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      閫傜敤浜?.NET Framework MSBuild 鐗堟湰 17.14.23+b0019275e
+      鐢熸垚鍚姩鏃堕棿涓?2026/1/19 10:29:49銆?
+      
+      鑺傜偣 1 涓婄殑椤圭洰鈥淗:\\graphsis\\graphsis\\build\\CMakeFiles\\4.2.0-rc1\\CompilerIdCXX\\CompilerIdCXX.vcxproj鈥?榛樿鐩爣)銆?
+      PrepareForBuild:
+        姝ｅ湪鍒涘缓鐩綍鈥淒ebug\\鈥濄€?
+        宸插惎鐢ㄧ粨鏋勫寲杈撳嚭銆傜紪璇戝櫒璇婃柇鐨勬牸寮忚缃皢鍙嶆槧閿欒灞傛缁撴瀯銆傛湁鍏宠缁嗕俊鎭紝璇峰弬闃?https://aka.ms/cpp/structured-output銆?
+        姝ｅ湪鍒涘缓鐩綍鈥淒ebug\\CompilerIdCXX.tlog\\鈥濄€?
+      InitializeBuildStatus:
+        姝ｅ湪鍒涘缓鈥淒ebug\\CompilerIdCXX.tlog\\unsuccessfulbuild鈥濓紝鍥犱负宸叉寚瀹氣€淎lwaysCreate鈥濄€?
+        姝ｅ湪瀵光€淒ebug\\CompilerIdCXX.tlog\\unsuccessfulbuild鈥濇墽琛?Touch 浠诲姟銆?
+      ClCompile:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        CMakeCXXCompilerId.cpp
+      Link:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
+        CompilerIdCXX.vcxproj -> H:\\graphsis\\graphsis\\build\\CMakeFiles\\4.2.0-rc1\\CompilerIdCXX\\CompilerIdCXX.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_CXX_COMPILER=C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        姝ｅ湪鍒犻櫎鏂囦欢鈥淒ebug\\CompilerIdCXX.tlog\\unsuccessfulbuild鈥濄€?
+        姝ｅ湪瀵光€淒ebug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate鈥濇墽琛?Touch 浠诲姟銆?
+      宸插畬鎴愮敓鎴愰」鐩€淗:\\graphsis\\graphsis\\build\\CMakeFiles\\4.2.0-rc1\\CompilerIdCXX\\CompilerIdCXX.vcxproj鈥?榛樿鐩爣)鐨勬搷浣溿€?
+      
+      宸叉垚鍔熺敓鎴愩€?
+          0 涓鍛?
+          0 涓敊璇?
+      
+      宸茬敤鏃堕棿 00:00:00.42
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
+      
+      The CXX compiler identification is MSVC, found in:
+        H:/graphsis/graphsis/build/CMakeFiles/4.2.0-rc1/CompilerIdCXX/CompilerIdCXX.exe
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:37 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:103 (__resolve_linker_path)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "_CMAKE_TOOL_WITH_PATH"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "link"
+    candidate_directories:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
+      - "E:/anaconda/"
+      - "E:/anaconda/Library/mingw-w64/bin/"
+      - "E:/anaconda/Library/usr/bin/"
+      - "E:/anaconda/Library/bin/"
+      - "E:/anaconda/Scripts/"
+      - "E:/anaconda/bin/"
+      - "E:/anaconda/condabin/"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "C:/Program Files (x86)/Common Files/Intel/Shared Libraries/redist/intel64/compiler/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/"
+      - "E:/jdk-21.0.6+7/bin/"
+      - "C:/Dev-Cpp/MinGW64/bin/"
+      - "C:/texlive/2025/bin/windows/"
+      - "E:/cursor/resources/app/bin/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Users/chen_/Downloads/platform-tools-latest-windows/platform-tools/"
+      - "C:/Program Files/Graphviz/bin/"
+      - "C:/Users/chen_/AppData/Roaming/Python/Python312/Scripts/"
+      - "D:/matlab/bin/"
+      - "C:/Program Files/Microsoft SQL Server/170/DTS/Binn/"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/"
+      - "C:/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/"
+      - "C:/Program Files/Microsoft SQL Server/150/Tools/Binn/"
+      - "C:/Program Files/Microsoft SQL Server/150/DTS/Binn/"
+      - "C:/Program Files (x86)/ZeroTier/One/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/Docker/Docker/resources/bin/"
+      - "C:/Program Files/Tailscale/"
+      - "C:/Users/chen_/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/chen_/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "D:/PyCharm Community Edition 2024.3.3/bin/"
+      - "H:/graphsis/graphsis/build/"
+    searched_directories:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.com"
+    found: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.exe"
+    search_context:
+      ENV{PATH}:
+        - "E:\\Anaconda"
+        - "E:\\Anaconda\\Library\\mingw-w64\\bin"
+        - "E:\\Anaconda\\Library\\usr\\bin"
+        - "E:\\Anaconda\\Library\\bin"
+        - "E:\\Anaconda\\Scripts"
+        - "E:\\Anaconda\\bin"
+        - "E:\\Anaconda\\condabin"
+        - "c:\\Users\\chen_\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\chen_\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
+        - "C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0"
+        - "C:\\Windows\\System32\\OpenSSH"
+        - "C:\\Program Files\\dotnet"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "E:\\anaconda"
+        - "E:\\anaconda\\Scripts"
+        - "E:\\anaconda\\Library\\usr\\bin"
+        - "E:\\anaconda\\Library\\bin"
+        - "E:\\jdk-21.0.6+7\\bin"
+        - "E:\\anaconda\\Library\\mingw-w64\\bin"
+        - "C:\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\texlive\\2025\\bin\\windows"
+        - "e:\\cursor\\resources\\app\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Users\\chen_\\Downloads\\platform-tools-latest-windows\\platform-tools"
+        - "C:\\Program Files\\Graphviz\\bin"
+        - "C:\\Users\\chen_\\AppData\\Roaming\\Python\\Python312\\Scripts"
+        - "D:\\matlab\\bin"
+        - "C:\\Program Files\\Microsoft SQL Server\\170\\DTS\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn"
+        - "C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn"
+        - "C:\\Program Files (x86)\\ZeroTier\\One"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\Tailscale"
+        - "C:\\Users\\chen_\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\chen_\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "D:\\PyCharm Community Edition 2024.3.3\\bin"
+        - "."
+        - "E:\\cursor\\resources\\app\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:37 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:104 (__resolve_linker_path)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "_CMAKE_TOOL_WITH_PATH"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "lld-link"
+    candidate_directories:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
+      - "E:/anaconda/"
+      - "E:/anaconda/Library/mingw-w64/bin/"
+      - "E:/anaconda/Library/usr/bin/"
+      - "E:/anaconda/Library/bin/"
+      - "E:/anaconda/Scripts/"
+      - "E:/anaconda/bin/"
+      - "E:/anaconda/condabin/"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "C:/Program Files (x86)/Common Files/Intel/Shared Libraries/redist/intel64/compiler/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/"
+      - "E:/jdk-21.0.6+7/bin/"
+      - "C:/Dev-Cpp/MinGW64/bin/"
+      - "C:/texlive/2025/bin/windows/"
+      - "E:/cursor/resources/app/bin/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Users/chen_/Downloads/platform-tools-latest-windows/platform-tools/"
+      - "C:/Program Files/Graphviz/bin/"
+      - "C:/Users/chen_/AppData/Roaming/Python/Python312/Scripts/"
+      - "D:/matlab/bin/"
+      - "C:/Program Files/Microsoft SQL Server/170/DTS/Binn/"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/"
+      - "C:/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/"
+      - "C:/Program Files/Microsoft SQL Server/150/Tools/Binn/"
+      - "C:/Program Files/Microsoft SQL Server/150/DTS/Binn/"
+      - "C:/Program Files (x86)/ZeroTier/One/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/Docker/Docker/resources/bin/"
+      - "C:/Program Files/Tailscale/"
+      - "C:/Users/chen_/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/chen_/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "D:/PyCharm Community Edition 2024.3.3/bin/"
+      - "H:/graphsis/graphsis/build/"
+    searched_directories:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link.com"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link.exe"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link"
+      - "E:/anaconda/lld-link.com"
+      - "E:/anaconda/lld-link.exe"
+      - "E:/anaconda/lld-link"
+      - "E:/anaconda/Library/mingw-w64/bin/lld-link.com"
+      - "E:/anaconda/Library/mingw-w64/bin/lld-link.exe"
+      - "E:/anaconda/Library/mingw-w64/bin/lld-link"
+      - "E:/anaconda/Library/usr/bin/lld-link.com"
+      - "E:/anaconda/Library/usr/bin/lld-link.exe"
+      - "E:/anaconda/Library/usr/bin/lld-link"
+      - "E:/anaconda/Library/bin/lld-link.com"
+      - "E:/anaconda/Library/bin/lld-link.exe"
+      - "E:/anaconda/Library/bin/lld-link"
+      - "E:/anaconda/Scripts/lld-link.com"
+      - "E:/anaconda/Scripts/lld-link.exe"
+      - "E:/anaconda/Scripts/lld-link"
+      - "E:/anaconda/bin/lld-link.com"
+      - "E:/anaconda/bin/lld-link.exe"
+      - "E:/anaconda/bin/lld-link"
+      - "E:/anaconda/condabin/lld-link.com"
+      - "E:/anaconda/condabin/lld-link.exe"
+      - "E:/anaconda/condabin/lld-link"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/lld-link.com"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/lld-link.exe"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/lld-link"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/lld-link.com"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/lld-link.exe"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/lld-link"
+      - "C:/Program Files (x86)/Common Files/Intel/Shared Libraries/redist/intel64/compiler/lld-link.com"
+      - "C:/Program Files (x86)/Common Files/Intel/Shared Libraries/redist/intel64/compiler/lld-link.exe"
+      - "C:/Program Files (x86)/Common Files/Intel/Shared Libraries/redist/intel64/compiler/lld-link"
+      - "C:/Windows/System32/lld-link.com"
+      - "C:/Windows/System32/lld-link.exe"
+      - "C:/Windows/System32/lld-link"
+      - "C:/Windows/lld-link.com"
+      - "C:/Windows/lld-link.exe"
+      - "C:/Windows/lld-link"
+      - "C:/Windows/System32/wbem/lld-link.com"
+      - "C:/Windows/System32/wbem/lld-link.exe"
+      - "C:/Windows/System32/wbem/lld-link"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link"
+      - "C:/Windows/System32/OpenSSH/lld-link.com"
+      - "C:/Windows/System32/OpenSSH/lld-link.exe"
+      - "C:/Windows/System32/OpenSSH/lld-link"
+      - "C:/Program Files/dotnet/lld-link.com"
+      - "C:/Program Files/dotnet/lld-link.exe"
+      - "C:/Program Files/dotnet/lld-link"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/lld-link.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/lld-link.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/lld-link"
+      - "E:/jdk-21.0.6+7/bin/lld-link.com"
+      - "E:/jdk-21.0.6+7/bin/lld-link.exe"
+      - "E:/jdk-21.0.6+7/bin/lld-link"
+      - "C:/Dev-Cpp/MinGW64/bin/lld-link.com"
+      - "C:/Dev-Cpp/MinGW64/bin/lld-link.exe"
+      - "C:/Dev-Cpp/MinGW64/bin/lld-link"
+      - "C:/texlive/2025/bin/windows/lld-link.com"
+      - "C:/texlive/2025/bin/windows/lld-link.exe"
+      - "C:/texlive/2025/bin/windows/lld-link"
+      - "E:/cursor/resources/app/bin/lld-link.com"
+      - "E:/cursor/resources/app/bin/lld-link.exe"
+      - "E:/cursor/resources/app/bin/lld-link"
+      - "C:/Program Files/Git/cmd/lld-link.com"
+      - "C:/Program Files/Git/cmd/lld-link.exe"
+      - "C:/Program Files/Git/cmd/lld-link"
+      - "C:/Users/chen_/Downloads/platform-tools-latest-windows/platform-tools/lld-link.com"
+      - "C:/Users/chen_/Downloads/platform-tools-latest-windows/platform-tools/lld-link.exe"
+      - "C:/Users/chen_/Downloads/platform-tools-latest-windows/platform-tools/lld-link"
+      - "C:/Program Files/Graphviz/bin/lld-link.com"
+      - "C:/Program Files/Graphviz/bin/lld-link.exe"
+      - "C:/Program Files/Graphviz/bin/lld-link"
+      - "C:/Users/chen_/AppData/Roaming/Python/Python312/Scripts/lld-link.com"
+      - "C:/Users/chen_/AppData/Roaming/Python/Python312/Scripts/lld-link.exe"
+      - "C:/Users/chen_/AppData/Roaming/Python/Python312/Scripts/lld-link"
+      - "D:/matlab/bin/lld-link.com"
+      - "D:/matlab/bin/lld-link.exe"
+      - "D:/matlab/bin/lld-link"
+      - "C:/Program Files/Microsoft SQL Server/170/DTS/Binn/lld-link.com"
+      - "C:/Program Files/Microsoft SQL Server/170/DTS/Binn/lld-link.exe"
+      - "C:/Program Files/Microsoft SQL Server/170/DTS/Binn/lld-link"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/lld-link.com"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/lld-link.exe"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/lld-link"
+      - "C:/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/lld-link.com"
+      - "C:/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/lld-link.exe"
+      - "C:/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/lld-link"
+      - "C:/Program Files/Microsoft SQL Server/150/Tools/Binn/lld-link.com"
+      - "C:/Program Files/Microsoft SQL Server/150/Tools/Binn/lld-link.exe"
+      - "C:/Program Files/Microsoft SQL Server/150/Tools/Binn/lld-link"
+      - "C:/Program Files/Microsoft SQL Server/150/DTS/Binn/lld-link.com"
+      - "C:/Program Files/Microsoft SQL Server/150/DTS/Binn/lld-link.exe"
+      - "C:/Program Files/Microsoft SQL Server/150/DTS/Binn/lld-link"
+      - "C:/Program Files (x86)/ZeroTier/One/lld-link.com"
+      - "C:/Program Files (x86)/ZeroTier/One/lld-link.exe"
+      - "C:/Program Files (x86)/ZeroTier/One/lld-link"
+      - "C:/Program Files/CMake/bin/lld-link.com"
+      - "C:/Program Files/CMake/bin/lld-link.exe"
+      - "C:/Program Files/CMake/bin/lld-link"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link"
+      - "C:/Program Files/Docker/Docker/resources/bin/lld-link.com"
+      - "C:/Program Files/Docker/Docker/resources/bin/lld-link.exe"
+      - "C:/Program Files/Docker/Docker/resources/bin/lld-link"
+      - "C:/Program Files/Tailscale/lld-link.com"
+      - "C:/Program Files/Tailscale/lld-link.exe"
+      - "C:/Program Files/Tailscale/lld-link"
+      - "C:/Users/chen_/AppData/Local/Microsoft/WindowsApps/lld-link.com"
+      - "C:/Users/chen_/AppData/Local/Microsoft/WindowsApps/lld-link.exe"
+      - "C:/Users/chen_/AppData/Local/Microsoft/WindowsApps/lld-link"
+      - "C:/Users/chen_/AppData/Local/Programs/Microsoft VS Code/bin/lld-link.com"
+      - "C:/Users/chen_/AppData/Local/Programs/Microsoft VS Code/bin/lld-link.exe"
+      - "C:/Users/chen_/AppData/Local/Programs/Microsoft VS Code/bin/lld-link"
+      - "D:/PyCharm Community Edition 2024.3.3/bin/lld-link.com"
+      - "D:/PyCharm Community Edition 2024.3.3/bin/lld-link.exe"
+      - "D:/PyCharm Community Edition 2024.3.3/bin/lld-link"
+      - "H:/graphsis/graphsis/build/lld-link.com"
+      - "H:/graphsis/graphsis/build/lld-link.exe"
+      - "H:/graphsis/graphsis/build/lld-link"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "E:\\Anaconda"
+        - "E:\\Anaconda\\Library\\mingw-w64\\bin"
+        - "E:\\Anaconda\\Library\\usr\\bin"
+        - "E:\\Anaconda\\Library\\bin"
+        - "E:\\Anaconda\\Scripts"
+        - "E:\\Anaconda\\bin"
+        - "E:\\Anaconda\\condabin"
+        - "c:\\Users\\chen_\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\chen_\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
+        - "C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0"
+        - "C:\\Windows\\System32\\OpenSSH"
+        - "C:\\Program Files\\dotnet"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "E:\\anaconda"
+        - "E:\\anaconda\\Scripts"
+        - "E:\\anaconda\\Library\\usr\\bin"
+        - "E:\\anaconda\\Library\\bin"
+        - "E:\\jdk-21.0.6+7\\bin"
+        - "E:\\anaconda\\Library\\mingw-w64\\bin"
+        - "C:\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\texlive\\2025\\bin\\windows"
+        - "e:\\cursor\\resources\\app\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Users\\chen_\\Downloads\\platform-tools-latest-windows\\platform-tools"
+        - "C:\\Program Files\\Graphviz\\bin"
+        - "C:\\Users\\chen_\\AppData\\Roaming\\Python\\Python312\\Scripts"
+        - "D:\\matlab\\bin"
+        - "C:\\Program Files\\Microsoft SQL Server\\170\\DTS\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn"
+        - "C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn"
+        - "C:\\Program Files (x86)\\ZeroTier\\One"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\Tailscale"
+        - "C:\\Users\\chen_\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\chen_\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "D:\\PyCharm Community Edition 2024.3.3\\bin"
+        - "."
+        - "E:\\cursor\\resources\\app\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_LINKER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "link"
+    candidate_directories:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
+      - "E:/anaconda/"
+      - "E:/anaconda/Library/mingw-w64/bin/"
+      - "E:/anaconda/Library/usr/bin/"
+      - "E:/anaconda/Library/bin/"
+      - "E:/anaconda/Scripts/"
+      - "E:/anaconda/bin/"
+      - "E:/anaconda/condabin/"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "C:/Program Files (x86)/Common Files/Intel/Shared Libraries/redist/intel64/compiler/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/"
+      - "E:/jdk-21.0.6+7/bin/"
+      - "C:/Dev-Cpp/MinGW64/bin/"
+      - "C:/texlive/2025/bin/windows/"
+      - "E:/cursor/resources/app/bin/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Users/chen_/Downloads/platform-tools-latest-windows/platform-tools/"
+      - "C:/Program Files/Graphviz/bin/"
+      - "C:/Users/chen_/AppData/Roaming/Python/Python312/Scripts/"
+      - "D:/matlab/bin/"
+      - "C:/Program Files/Microsoft SQL Server/170/DTS/Binn/"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/"
+      - "C:/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/"
+      - "C:/Program Files/Microsoft SQL Server/150/Tools/Binn/"
+      - "C:/Program Files/Microsoft SQL Server/150/DTS/Binn/"
+      - "C:/Program Files (x86)/ZeroTier/One/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/Docker/Docker/resources/bin/"
+      - "C:/Program Files/Tailscale/"
+      - "C:/Users/chen_/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/chen_/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "D:/PyCharm Community Edition 2024.3.3/bin/"
+      - "H:/graphsis/graphsis/build/"
+    searched_directories:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.com"
+    found: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.exe"
+    search_context:
+      ENV{PATH}:
+        - "E:\\Anaconda"
+        - "E:\\Anaconda\\Library\\mingw-w64\\bin"
+        - "E:\\Anaconda\\Library\\usr\\bin"
+        - "E:\\Anaconda\\Library\\bin"
+        - "E:\\Anaconda\\Scripts"
+        - "E:\\Anaconda\\bin"
+        - "E:\\Anaconda\\condabin"
+        - "c:\\Users\\chen_\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\chen_\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
+        - "C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0"
+        - "C:\\Windows\\System32\\OpenSSH"
+        - "C:\\Program Files\\dotnet"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "E:\\anaconda"
+        - "E:\\anaconda\\Scripts"
+        - "E:\\anaconda\\Library\\usr\\bin"
+        - "E:\\anaconda\\Library\\bin"
+        - "E:\\jdk-21.0.6+7\\bin"
+        - "E:\\anaconda\\Library\\mingw-w64\\bin"
+        - "C:\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\texlive\\2025\\bin\\windows"
+        - "e:\\cursor\\resources\\app\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Users\\chen_\\Downloads\\platform-tools-latest-windows\\platform-tools"
+        - "C:\\Program Files\\Graphviz\\bin"
+        - "C:\\Users\\chen_\\AppData\\Roaming\\Python\\Python312\\Scripts"
+        - "D:\\matlab\\bin"
+        - "C:\\Program Files\\Microsoft SQL Server\\170\\DTS\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn"
+        - "C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn"
+        - "C:\\Program Files (x86)\\ZeroTier\\One"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\Tailscale"
+        - "C:\\Users\\chen_\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\chen_\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "D:\\PyCharm Community Edition 2024.3.3\\bin"
+        - "."
+        - "E:\\cursor\\resources\\app\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_MT"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "mt"
+    candidate_directories:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
+      - "E:/anaconda/"
+      - "E:/anaconda/Library/mingw-w64/bin/"
+      - "E:/anaconda/Library/usr/bin/"
+      - "E:/anaconda/Library/bin/"
+      - "E:/anaconda/Scripts/"
+      - "E:/anaconda/bin/"
+      - "E:/anaconda/condabin/"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "C:/Program Files (x86)/Common Files/Intel/Shared Libraries/redist/intel64/compiler/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/"
+      - "E:/jdk-21.0.6+7/bin/"
+      - "C:/Dev-Cpp/MinGW64/bin/"
+      - "C:/texlive/2025/bin/windows/"
+      - "E:/cursor/resources/app/bin/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Users/chen_/Downloads/platform-tools-latest-windows/platform-tools/"
+      - "C:/Program Files/Graphviz/bin/"
+      - "C:/Users/chen_/AppData/Roaming/Python/Python312/Scripts/"
+      - "D:/matlab/bin/"
+      - "C:/Program Files/Microsoft SQL Server/170/DTS/Binn/"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/"
+      - "C:/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/"
+      - "C:/Program Files/Microsoft SQL Server/150/Tools/Binn/"
+      - "C:/Program Files/Microsoft SQL Server/150/DTS/Binn/"
+      - "C:/Program Files (x86)/ZeroTier/One/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/Docker/Docker/resources/bin/"
+      - "C:/Program Files/Tailscale/"
+      - "C:/Users/chen_/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/chen_/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "D:/PyCharm Community Edition 2024.3.3/bin/"
+      - "H:/graphsis/graphsis/build/"
+    searched_directories:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/mt.com"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/mt.exe"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/mt"
+      - "E:/anaconda/mt.com"
+      - "E:/anaconda/mt.exe"
+      - "E:/anaconda/mt"
+      - "E:/anaconda/Library/mingw-w64/bin/mt.com"
+      - "E:/anaconda/Library/mingw-w64/bin/mt.exe"
+      - "E:/anaconda/Library/mingw-w64/bin/mt"
+      - "E:/anaconda/Library/usr/bin/mt.com"
+      - "E:/anaconda/Library/usr/bin/mt.exe"
+      - "E:/anaconda/Library/usr/bin/mt"
+      - "E:/anaconda/Library/bin/mt.com"
+      - "E:/anaconda/Library/bin/mt.exe"
+      - "E:/anaconda/Library/bin/mt"
+      - "E:/anaconda/Scripts/mt.com"
+      - "E:/anaconda/Scripts/mt.exe"
+      - "E:/anaconda/Scripts/mt"
+      - "E:/anaconda/bin/mt.com"
+      - "E:/anaconda/bin/mt.exe"
+      - "E:/anaconda/bin/mt"
+      - "E:/anaconda/condabin/mt.com"
+      - "E:/anaconda/condabin/mt.exe"
+      - "E:/anaconda/condabin/mt"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/mt.com"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/mt.exe"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/mt"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/mt.com"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/mt.exe"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/mt"
+      - "C:/Program Files (x86)/Common Files/Intel/Shared Libraries/redist/intel64/compiler/mt.com"
+      - "C:/Program Files (x86)/Common Files/Intel/Shared Libraries/redist/intel64/compiler/mt.exe"
+      - "C:/Program Files (x86)/Common Files/Intel/Shared Libraries/redist/intel64/compiler/mt"
+      - "C:/Windows/System32/mt.com"
+      - "C:/Windows/System32/mt.exe"
+      - "C:/Windows/System32/mt"
+      - "C:/Windows/mt.com"
+      - "C:/Windows/mt.exe"
+      - "C:/Windows/mt"
+      - "C:/Windows/System32/wbem/mt.com"
+      - "C:/Windows/System32/wbem/mt.exe"
+      - "C:/Windows/System32/wbem/mt"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/mt.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/mt.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/mt"
+      - "C:/Windows/System32/OpenSSH/mt.com"
+      - "C:/Windows/System32/OpenSSH/mt.exe"
+      - "C:/Windows/System32/OpenSSH/mt"
+      - "C:/Program Files/dotnet/mt.com"
+      - "C:/Program Files/dotnet/mt.exe"
+      - "C:/Program Files/dotnet/mt"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/mt.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/mt.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/mt"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/mt.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/mt.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/mt"
+      - "E:/jdk-21.0.6+7/bin/mt.com"
+      - "E:/jdk-21.0.6+7/bin/mt.exe"
+      - "E:/jdk-21.0.6+7/bin/mt"
+      - "C:/Dev-Cpp/MinGW64/bin/mt.com"
+      - "C:/Dev-Cpp/MinGW64/bin/mt.exe"
+      - "C:/Dev-Cpp/MinGW64/bin/mt"
+      - "C:/texlive/2025/bin/windows/mt.com"
+      - "C:/texlive/2025/bin/windows/mt.exe"
+      - "C:/texlive/2025/bin/windows/mt"
+      - "E:/cursor/resources/app/bin/mt.com"
+      - "E:/cursor/resources/app/bin/mt.exe"
+      - "E:/cursor/resources/app/bin/mt"
+      - "C:/Program Files/Git/cmd/mt.com"
+      - "C:/Program Files/Git/cmd/mt.exe"
+      - "C:/Program Files/Git/cmd/mt"
+      - "C:/Users/chen_/Downloads/platform-tools-latest-windows/platform-tools/mt.com"
+      - "C:/Users/chen_/Downloads/platform-tools-latest-windows/platform-tools/mt.exe"
+      - "C:/Users/chen_/Downloads/platform-tools-latest-windows/platform-tools/mt"
+      - "C:/Program Files/Graphviz/bin/mt.com"
+      - "C:/Program Files/Graphviz/bin/mt.exe"
+      - "C:/Program Files/Graphviz/bin/mt"
+      - "C:/Users/chen_/AppData/Roaming/Python/Python312/Scripts/mt.com"
+      - "C:/Users/chen_/AppData/Roaming/Python/Python312/Scripts/mt.exe"
+      - "C:/Users/chen_/AppData/Roaming/Python/Python312/Scripts/mt"
+      - "D:/matlab/bin/mt.com"
+      - "D:/matlab/bin/mt.exe"
+      - "D:/matlab/bin/mt"
+      - "C:/Program Files/Microsoft SQL Server/170/DTS/Binn/mt.com"
+      - "C:/Program Files/Microsoft SQL Server/170/DTS/Binn/mt.exe"
+      - "C:/Program Files/Microsoft SQL Server/170/DTS/Binn/mt"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/mt.com"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/mt.exe"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/mt"
+      - "C:/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/mt.com"
+      - "C:/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/mt.exe"
+      - "C:/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/mt"
+      - "C:/Program Files/Microsoft SQL Server/150/Tools/Binn/mt.com"
+      - "C:/Program Files/Microsoft SQL Server/150/Tools/Binn/mt.exe"
+      - "C:/Program Files/Microsoft SQL Server/150/Tools/Binn/mt"
+      - "C:/Program Files/Microsoft SQL Server/150/DTS/Binn/mt.com"
+      - "C:/Program Files/Microsoft SQL Server/150/DTS/Binn/mt.exe"
+      - "C:/Program Files/Microsoft SQL Server/150/DTS/Binn/mt"
+      - "C:/Program Files (x86)/ZeroTier/One/mt.com"
+      - "C:/Program Files (x86)/ZeroTier/One/mt.exe"
+      - "C:/Program Files (x86)/ZeroTier/One/mt"
+      - "C:/Program Files/CMake/bin/mt.com"
+      - "C:/Program Files/CMake/bin/mt.exe"
+      - "C:/Program Files/CMake/bin/mt"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/mt.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/mt.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/mt"
+      - "C:/Program Files/Docker/Docker/resources/bin/mt.com"
+      - "C:/Program Files/Docker/Docker/resources/bin/mt.exe"
+      - "C:/Program Files/Docker/Docker/resources/bin/mt"
+      - "C:/Program Files/Tailscale/mt.com"
+      - "C:/Program Files/Tailscale/mt.exe"
+      - "C:/Program Files/Tailscale/mt"
+      - "C:/Users/chen_/AppData/Local/Microsoft/WindowsApps/mt.com"
+      - "C:/Users/chen_/AppData/Local/Microsoft/WindowsApps/mt.exe"
+      - "C:/Users/chen_/AppData/Local/Microsoft/WindowsApps/mt"
+      - "C:/Users/chen_/AppData/Local/Programs/Microsoft VS Code/bin/mt.com"
+      - "C:/Users/chen_/AppData/Local/Programs/Microsoft VS Code/bin/mt.exe"
+      - "C:/Users/chen_/AppData/Local/Programs/Microsoft VS Code/bin/mt"
+      - "D:/PyCharm Community Edition 2024.3.3/bin/mt.com"
+      - "D:/PyCharm Community Edition 2024.3.3/bin/mt.exe"
+      - "D:/PyCharm Community Edition 2024.3.3/bin/mt"
+      - "H:/graphsis/graphsis/build/mt.com"
+      - "H:/graphsis/graphsis/build/mt.exe"
+      - "H:/graphsis/graphsis/build/mt"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "E:\\Anaconda"
+        - "E:\\Anaconda\\Library\\mingw-w64\\bin"
+        - "E:\\Anaconda\\Library\\usr\\bin"
+        - "E:\\Anaconda\\Library\\bin"
+        - "E:\\Anaconda\\Scripts"
+        - "E:\\Anaconda\\bin"
+        - "E:\\Anaconda\\condabin"
+        - "c:\\Users\\chen_\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\chen_\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
+        - "C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0"
+        - "C:\\Windows\\System32\\OpenSSH"
+        - "C:\\Program Files\\dotnet"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "E:\\anaconda"
+        - "E:\\anaconda\\Scripts"
+        - "E:\\anaconda\\Library\\usr\\bin"
+        - "E:\\anaconda\\Library\\bin"
+        - "E:\\jdk-21.0.6+7\\bin"
+        - "E:\\anaconda\\Library\\mingw-w64\\bin"
+        - "C:\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\texlive\\2025\\bin\\windows"
+        - "e:\\cursor\\resources\\app\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Users\\chen_\\Downloads\\platform-tools-latest-windows\\platform-tools"
+        - "C:\\Program Files\\Graphviz\\bin"
+        - "C:\\Users\\chen_\\AppData\\Roaming\\Python\\Python312\\Scripts"
+        - "D:\\matlab\\bin"
+        - "C:\\Program Files\\Microsoft SQL Server\\170\\DTS\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn"
+        - "C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn"
+        - "C:\\Program Files (x86)\\ZeroTier\\One"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\Tailscale"
+        - "C:\\Users\\chen_\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\chen_\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "D:\\PyCharm Community Edition 2024.3.3\\bin"
+        - "."
+        - "E:\\cursor\\resources\\app\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_AR"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "lib"
+    candidate_directories:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
+      - "E:/anaconda/"
+      - "E:/anaconda/Library/mingw-w64/bin/"
+      - "E:/anaconda/Library/usr/bin/"
+      - "E:/anaconda/Library/bin/"
+      - "E:/anaconda/Scripts/"
+      - "E:/anaconda/bin/"
+      - "E:/anaconda/condabin/"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "C:/Program Files (x86)/Common Files/Intel/Shared Libraries/redist/intel64/compiler/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/"
+      - "E:/jdk-21.0.6+7/bin/"
+      - "C:/Dev-Cpp/MinGW64/bin/"
+      - "C:/texlive/2025/bin/windows/"
+      - "E:/cursor/resources/app/bin/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Users/chen_/Downloads/platform-tools-latest-windows/platform-tools/"
+      - "C:/Program Files/Graphviz/bin/"
+      - "C:/Users/chen_/AppData/Roaming/Python/Python312/Scripts/"
+      - "D:/matlab/bin/"
+      - "C:/Program Files/Microsoft SQL Server/170/DTS/Binn/"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/"
+      - "C:/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/"
+      - "C:/Program Files/Microsoft SQL Server/150/Tools/Binn/"
+      - "C:/Program Files/Microsoft SQL Server/150/DTS/Binn/"
+      - "C:/Program Files (x86)/ZeroTier/One/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/Docker/Docker/resources/bin/"
+      - "C:/Program Files/Tailscale/"
+      - "C:/Users/chen_/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/chen_/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "D:/PyCharm Community Edition 2024.3.3/bin/"
+      - "H:/graphsis/graphsis/build/"
+    searched_directories:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lib.com"
+    found: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lib.exe"
+    search_context:
+      ENV{PATH}:
+        - "E:\\Anaconda"
+        - "E:\\Anaconda\\Library\\mingw-w64\\bin"
+        - "E:\\Anaconda\\Library\\usr\\bin"
+        - "E:\\Anaconda\\Library\\bin"
+        - "E:\\Anaconda\\Scripts"
+        - "E:\\Anaconda\\bin"
+        - "E:\\Anaconda\\condabin"
+        - "c:\\Users\\chen_\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\chen_\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
+        - "C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0"
+        - "C:\\Windows\\System32\\OpenSSH"
+        - "C:\\Program Files\\dotnet"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "E:\\anaconda"
+        - "E:\\anaconda\\Scripts"
+        - "E:\\anaconda\\Library\\usr\\bin"
+        - "E:\\anaconda\\Library\\bin"
+        - "E:\\jdk-21.0.6+7\\bin"
+        - "E:\\anaconda\\Library\\mingw-w64\\bin"
+        - "C:\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\texlive\\2025\\bin\\windows"
+        - "e:\\cursor\\resources\\app\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Users\\chen_\\Downloads\\platform-tools-latest-windows\\platform-tools"
+        - "C:\\Program Files\\Graphviz\\bin"
+        - "C:\\Users\\chen_\\AppData\\Roaming\\Python\\Python312\\Scripts"
+        - "D:\\matlab\\bin"
+        - "C:\\Program Files\\Microsoft SQL Server\\170\\DTS\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn"
+        - "C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn"
+        - "C:\\Program Files (x86)\\ZeroTier\\One"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\Tailscale"
+        - "C:\\Users\\chen_\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\chen_\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "D:\\PyCharm Community Edition 2024.3.3\\bin"
+        - "."
+        - "E:\\cursor\\resources\\app\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineRCCompiler.cmake:40 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/Windows-MSVC.cmake:580 (enable_language)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/Windows-MSVC.cmake:553 (__windows_compiler_msvc_enable_rc)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/Windows-MSVC-CXX.cmake:6 (__windows_compiler_msvc)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeCXXInformation.cmake:48 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_RC_COMPILER"
+    description: "RC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "rc"
+    candidate_directories:
+      - "E:/anaconda/"
+      - "E:/anaconda/Library/mingw-w64/bin/"
+      - "E:/anaconda/Library/usr/bin/"
+      - "E:/anaconda/Library/bin/"
+      - "E:/anaconda/Scripts/"
+      - "E:/anaconda/bin/"
+      - "E:/anaconda/condabin/"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "C:/Program Files (x86)/Common Files/Intel/Shared Libraries/redist/intel64/compiler/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/"
+      - "E:/jdk-21.0.6+7/bin/"
+      - "C:/Dev-Cpp/MinGW64/bin/"
+      - "C:/texlive/2025/bin/windows/"
+      - "E:/cursor/resources/app/bin/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Users/chen_/Downloads/platform-tools-latest-windows/platform-tools/"
+      - "C:/Program Files/Graphviz/bin/"
+      - "C:/Users/chen_/AppData/Roaming/Python/Python312/Scripts/"
+      - "D:/matlab/bin/"
+      - "C:/Program Files/Microsoft SQL Server/170/DTS/Binn/"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/"
+      - "C:/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/"
+      - "C:/Program Files/Microsoft SQL Server/150/Tools/Binn/"
+      - "C:/Program Files/Microsoft SQL Server/150/DTS/Binn/"
+      - "C:/Program Files (x86)/ZeroTier/One/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/Docker/Docker/resources/bin/"
+      - "C:/Program Files/Tailscale/"
+      - "C:/Users/chen_/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/chen_/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "D:/PyCharm Community Edition 2024.3.3/bin/"
+      - "H:/graphsis/graphsis/build/"
+      - "C:/Program Files/bin/"
+      - "C:/Program Files/sbin/"
+      - "C:/Program Files/"
+      - "C:/Program Files (x86)/bin/"
+      - "C:/Program Files (x86)/sbin/"
+      - "C:/Program Files (x86)/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/CMake/sbin/"
+      - "C:/Program Files/CMake/"
+      - "C:/Program Files/WaterTown/bin/"
+      - "C:/Program Files/WaterTown/sbin/"
+      - "C:/Program Files/WaterTown/"
+    searched_directories:
+      - "E:/anaconda/rc.com"
+      - "E:/anaconda/rc.exe"
+      - "E:/anaconda/rc"
+      - "E:/anaconda/Library/mingw-w64/bin/rc.com"
+      - "E:/anaconda/Library/mingw-w64/bin/rc.exe"
+      - "E:/anaconda/Library/mingw-w64/bin/rc"
+      - "E:/anaconda/Library/usr/bin/rc.com"
+      - "E:/anaconda/Library/usr/bin/rc.exe"
+      - "E:/anaconda/Library/usr/bin/rc"
+      - "E:/anaconda/Library/bin/rc.com"
+      - "E:/anaconda/Library/bin/rc.exe"
+      - "E:/anaconda/Library/bin/rc"
+      - "E:/anaconda/Scripts/rc.com"
+      - "E:/anaconda/Scripts/rc.exe"
+      - "E:/anaconda/Scripts/rc"
+      - "E:/anaconda/bin/rc.com"
+      - "E:/anaconda/bin/rc.exe"
+      - "E:/anaconda/bin/rc"
+      - "E:/anaconda/condabin/rc.com"
+      - "E:/anaconda/condabin/rc.exe"
+      - "E:/anaconda/condabin/rc"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/rc.com"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/rc.exe"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/rc"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/rc.com"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/rc.exe"
+      - "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/rc"
+      - "C:/Program Files (x86)/Common Files/Intel/Shared Libraries/redist/intel64/compiler/rc.com"
+      - "C:/Program Files (x86)/Common Files/Intel/Shared Libraries/redist/intel64/compiler/rc.exe"
+      - "C:/Program Files (x86)/Common Files/Intel/Shared Libraries/redist/intel64/compiler/rc"
+      - "C:/Windows/System32/rc.com"
+      - "C:/Windows/System32/rc.exe"
+      - "C:/Windows/System32/rc"
+      - "C:/Windows/rc.com"
+      - "C:/Windows/rc.exe"
+      - "C:/Windows/rc"
+      - "C:/Windows/System32/wbem/rc.com"
+      - "C:/Windows/System32/wbem/rc.exe"
+      - "C:/Windows/System32/wbem/rc"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/rc.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/rc.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/rc"
+      - "C:/Windows/System32/OpenSSH/rc.com"
+      - "C:/Windows/System32/OpenSSH/rc.exe"
+      - "C:/Windows/System32/OpenSSH/rc"
+      - "C:/Program Files/dotnet/rc.com"
+      - "C:/Program Files/dotnet/rc.exe"
+      - "C:/Program Files/dotnet/rc"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/rc.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/rc.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/rc"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/rc.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/rc.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/rc"
+      - "E:/jdk-21.0.6+7/bin/rc.com"
+      - "E:/jdk-21.0.6+7/bin/rc.exe"
+      - "E:/jdk-21.0.6+7/bin/rc"
+      - "C:/Dev-Cpp/MinGW64/bin/rc.com"
+      - "C:/Dev-Cpp/MinGW64/bin/rc.exe"
+      - "C:/Dev-Cpp/MinGW64/bin/rc"
+      - "C:/texlive/2025/bin/windows/rc.com"
+      - "C:/texlive/2025/bin/windows/rc.exe"
+      - "C:/texlive/2025/bin/windows/rc"
+      - "E:/cursor/resources/app/bin/rc.com"
+      - "E:/cursor/resources/app/bin/rc.exe"
+      - "E:/cursor/resources/app/bin/rc"
+      - "C:/Program Files/Git/cmd/rc.com"
+      - "C:/Program Files/Git/cmd/rc.exe"
+      - "C:/Program Files/Git/cmd/rc"
+      - "C:/Users/chen_/Downloads/platform-tools-latest-windows/platform-tools/rc.com"
+      - "C:/Users/chen_/Downloads/platform-tools-latest-windows/platform-tools/rc.exe"
+      - "C:/Users/chen_/Downloads/platform-tools-latest-windows/platform-tools/rc"
+      - "C:/Program Files/Graphviz/bin/rc.com"
+      - "C:/Program Files/Graphviz/bin/rc.exe"
+      - "C:/Program Files/Graphviz/bin/rc"
+      - "C:/Users/chen_/AppData/Roaming/Python/Python312/Scripts/rc.com"
+      - "C:/Users/chen_/AppData/Roaming/Python/Python312/Scripts/rc.exe"
+      - "C:/Users/chen_/AppData/Roaming/Python/Python312/Scripts/rc"
+      - "D:/matlab/bin/rc.com"
+      - "D:/matlab/bin/rc.exe"
+      - "D:/matlab/bin/rc"
+      - "C:/Program Files/Microsoft SQL Server/170/DTS/Binn/rc.com"
+      - "C:/Program Files/Microsoft SQL Server/170/DTS/Binn/rc.exe"
+      - "C:/Program Files/Microsoft SQL Server/170/DTS/Binn/rc"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/rc.com"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/rc.exe"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/rc"
+      - "C:/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/rc.com"
+      - "C:/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/rc.exe"
+      - "C:/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/rc"
+      - "C:/Program Files/Microsoft SQL Server/150/Tools/Binn/rc.com"
+      - "C:/Program Files/Microsoft SQL Server/150/Tools/Binn/rc.exe"
+      - "C:/Program Files/Microsoft SQL Server/150/Tools/Binn/rc"
+      - "C:/Program Files/Microsoft SQL Server/150/DTS/Binn/rc.com"
+      - "C:/Program Files/Microsoft SQL Server/150/DTS/Binn/rc.exe"
+      - "C:/Program Files/Microsoft SQL Server/150/DTS/Binn/rc"
+      - "C:/Program Files (x86)/ZeroTier/One/rc.com"
+      - "C:/Program Files (x86)/ZeroTier/One/rc.exe"
+      - "C:/Program Files (x86)/ZeroTier/One/rc"
+      - "C:/Program Files/CMake/bin/rc.com"
+      - "C:/Program Files/CMake/bin/rc.exe"
+      - "C:/Program Files/CMake/bin/rc"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/rc.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/rc.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/rc"
+      - "C:/Program Files/Docker/Docker/resources/bin/rc.com"
+      - "C:/Program Files/Docker/Docker/resources/bin/rc.exe"
+      - "C:/Program Files/Docker/Docker/resources/bin/rc"
+      - "C:/Program Files/Tailscale/rc.com"
+      - "C:/Program Files/Tailscale/rc.exe"
+      - "C:/Program Files/Tailscale/rc"
+      - "C:/Users/chen_/AppData/Local/Microsoft/WindowsApps/rc.com"
+      - "C:/Users/chen_/AppData/Local/Microsoft/WindowsApps/rc.exe"
+      - "C:/Users/chen_/AppData/Local/Microsoft/WindowsApps/rc"
+      - "C:/Users/chen_/AppData/Local/Programs/Microsoft VS Code/bin/rc.com"
+      - "C:/Users/chen_/AppData/Local/Programs/Microsoft VS Code/bin/rc.exe"
+      - "C:/Users/chen_/AppData/Local/Programs/Microsoft VS Code/bin/rc"
+      - "D:/PyCharm Community Edition 2024.3.3/bin/rc.com"
+      - "D:/PyCharm Community Edition 2024.3.3/bin/rc.exe"
+      - "D:/PyCharm Community Edition 2024.3.3/bin/rc"
+      - "H:/graphsis/graphsis/build/rc.com"
+      - "H:/graphsis/graphsis/build/rc.exe"
+      - "H:/graphsis/graphsis/build/rc"
+      - "C:/Program Files/bin/rc.com"
+      - "C:/Program Files/bin/rc.exe"
+      - "C:/Program Files/bin/rc"
+      - "C:/Program Files/sbin/rc.com"
+      - "C:/Program Files/sbin/rc.exe"
+      - "C:/Program Files/sbin/rc"
+      - "C:/Program Files/rc.com"
+      - "C:/Program Files/rc.exe"
+      - "C:/Program Files/rc"
+      - "C:/Program Files (x86)/bin/rc.com"
+      - "C:/Program Files (x86)/bin/rc.exe"
+      - "C:/Program Files (x86)/bin/rc"
+      - "C:/Program Files (x86)/sbin/rc.com"
+      - "C:/Program Files (x86)/sbin/rc.exe"
+      - "C:/Program Files (x86)/sbin/rc"
+      - "C:/Program Files (x86)/rc.com"
+      - "C:/Program Files (x86)/rc.exe"
+      - "C:/Program Files (x86)/rc"
+      - "C:/Program Files/CMake/bin/rc.com"
+      - "C:/Program Files/CMake/bin/rc.exe"
+      - "C:/Program Files/CMake/bin/rc"
+      - "C:/Program Files/CMake/sbin/rc.com"
+      - "C:/Program Files/CMake/sbin/rc.exe"
+      - "C:/Program Files/CMake/sbin/rc"
+      - "C:/Program Files/CMake/rc.com"
+      - "C:/Program Files/CMake/rc.exe"
+      - "C:/Program Files/CMake/rc"
+      - "C:/Program Files/WaterTown/bin/rc.com"
+      - "C:/Program Files/WaterTown/bin/rc.exe"
+      - "C:/Program Files/WaterTown/bin/rc"
+      - "C:/Program Files/WaterTown/sbin/rc.com"
+      - "C:/Program Files/WaterTown/sbin/rc.exe"
+      - "C:/Program Files/WaterTown/sbin/rc"
+      - "C:/Program Files/WaterTown/rc.com"
+      - "C:/Program Files/WaterTown/rc.exe"
+      - "C:/Program Files/WaterTown/rc"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "E:\\Anaconda"
+        - "E:\\Anaconda\\Library\\mingw-w64\\bin"
+        - "E:\\Anaconda\\Library\\usr\\bin"
+        - "E:\\Anaconda\\Library\\bin"
+        - "E:\\Anaconda\\Scripts"
+        - "E:\\Anaconda\\bin"
+        - "E:\\Anaconda\\condabin"
+        - "c:\\Users\\chen_\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\chen_\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
+        - "C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0"
+        - "C:\\Windows\\System32\\OpenSSH"
+        - "C:\\Program Files\\dotnet"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "E:\\anaconda"
+        - "E:\\anaconda\\Scripts"
+        - "E:\\anaconda\\Library\\usr\\bin"
+        - "E:\\anaconda\\Library\\bin"
+        - "E:\\jdk-21.0.6+7\\bin"
+        - "E:\\anaconda\\Library\\mingw-w64\\bin"
+        - "C:\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\texlive\\2025\\bin\\windows"
+        - "e:\\cursor\\resources\\app\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Users\\chen_\\Downloads\\platform-tools-latest-windows\\platform-tools"
+        - "C:\\Program Files\\Graphviz\\bin"
+        - "C:\\Users\\chen_\\AppData\\Roaming\\Python\\Python312\\Scripts"
+        - "D:\\matlab\\bin"
+        - "C:\\Program Files\\Microsoft SQL Server\\170\\DTS\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn"
+        - "C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn"
+        - "C:\\Program Files (x86)\\ZeroTier\\One"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\Tailscale"
+        - "C:\\Users\\chen_\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\chen_\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "D:\\PyCharm Community Edition 2024.3.3\\bin"
+        - "."
+        - "E:\\cursor\\resources\\app\\bin"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files/WaterTown"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files/WaterTown"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:9 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "H:/graphsis/graphsis/build/CMakeFiles/CMakeScratch/TryCompile-i0olzj"
+      binary: "H:/graphsis/graphsis/build/CMakeFiles/CMakeScratch/TryCompile-i0olzj"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'H:/graphsis/graphsis/build/CMakeFiles/CMakeScratch/TryCompile-i0olzj'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_e6d73.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        閫傜敤浜?.NET Framework MSBuild 鐗堟湰 17.14.23+b0019275e
+        鐢熸垚鍚姩鏃堕棿涓?2026/1/19 10:29:49銆?
+        
+        鑺傜偣 1 涓婄殑椤圭洰鈥淗:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i0olzj\\cmTC_e6d73.vcxproj鈥?榛樿鐩爣)銆?
+        PrepareForBuild:
+          宸插惎鐢ㄧ粨鏋勫寲杈撳嚭銆傜紪璇戝櫒璇婃柇鐨勬牸寮忚缃皢鍙嶆槧閿欒灞傛缁撴瀯銆傛湁鍏宠缁嗕俊鎭紝璇峰弬闃?https://aka.ms/cpp/structured-output銆?
+          姝ｅ湪鍒涘缓鐩綍鈥淗:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i0olzj\\Debug\\鈥濄€?
+          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_e6d73.dir\\Debug\\cmTC_e6d73.tlog\\鈥濄€?
+        InitializeBuildStatus:
+          姝ｅ湪鍒涘缓鈥渃mTC_e6d73.dir\\Debug\\cmTC_e6d73.tlog\\unsuccessfulbuild鈥濓紝鍥犱负宸叉寚瀹氣€淎lwaysCreate鈥濄€?
+          姝ｅ湪瀵光€渃mTC_e6d73.dir\\Debug\\cmTC_e6d73.tlog\\unsuccessfulbuild鈥濇墽琛?Touch 浠诲姟銆?
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_e6d73.dir\\Debug\\\\" /Fd"H:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i0olzj\\cmTC_e6d73.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp"
+          鐢ㄤ簬 x64 鐨?Microsoft (R) C/C++ 浼樺寲缂栬瘧鍣?19.44.35219 鐗?
+          鐗堟潈鎵€鏈?C) Microsoft Corporation銆備繚鐣欐墍鏈夋潈鍒┿€?
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_e6d73.dir\\Debug\\\\" /Fd"H:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i0olzj\\cmTC_e6d73.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp"
+          CMakeCXXCompilerABI.cpp
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"H:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i0olzj\\Debug\\cmTC_e6d73.exe" /INCREMENTAL /ILK:"cmTC_e6d73.dir\\Debug\\cmTC_e6d73.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"H:/graphsis/graphsis/build/CMakeFiles/CMakeScratch/TryCompile-i0olzj/Debug/cmTC_e6d73.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"H:/graphsis/graphsis/build/CMakeFiles/CMakeScratch/TryCompile-i0olzj/Debug/cmTC_e6d73.lib" /MACHINE:X64  /machine:x64 cmTC_e6d73.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_e6d73.vcxproj -> H:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i0olzj\\Debug\\cmTC_e6d73.exe
+        FinalizeBuildStatus:
+          姝ｅ湪鍒犻櫎鏂囦欢鈥渃mTC_e6d73.dir\\Debug\\cmTC_e6d73.tlog\\unsuccessfulbuild鈥濄€?
+          姝ｅ湪瀵光€渃mTC_e6d73.dir\\Debug\\cmTC_e6d73.tlog\\cmTC_e6d73.lastbuildstate鈥濇墽琛?Touch 浠诲姟銆?
+        宸插畬鎴愮敓鎴愰」鐩€淗:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i0olzj\\cmTC_e6d73.vcxproj鈥?榛樿鐩爣)鐨勬搷浣溿€?
+        
+        宸叉垚鍔熺敓鎴愩€?
+            0 涓鍛?
+            0 涓敊璇?
+        
+        宸茬敤鏃堕棿 00:00:00.41
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'CXX': C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Running the CXX compiler's linker: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.44.35219.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+  -
+    kind: "find_package-v1"
+    backtrace:
+      - "CMakeLists.txt:26 (find_package)"
+    name: "glfw3"
+    configs:
+      -
+        filename: "glfw3Config.cmake"
+        kind: "cmake"
+      -
+        filename: "glfw3-config.cmake"
+        kind: "cmake"
+    version_request:
+      exact: false
+    settings:
+      required: "required_explicit"
+      quiet: false
+      global: false
+      policy_scope: true
+      bypass_provider: false
+      names:
+        - "glfw3"
+      path_suffixes:
+        - ""
+      paths:
+        CMAKE_FIND_USE_CMAKE_PATH: true
+        CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+        CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+        CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+        CMAKE_FIND_USE_INSTALL_PREFIX: true
+        CMAKE_FIND_USE_PACKAGE_ROOT_PATH: true
+        CMAKE_FIND_USE_CMAKE_PACKAGE_REGISTRY: true
+        CMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY: true
+        CMAKE_FIND_ROOT_PATH_MODE: "BOTH"
+    candidates:
+      -
+        path: "H:/graphsis/graphsis/build/CMakeFiles/pkgRedirects/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "H:/graphsis/graphsis/build/CMakeFiles/pkgRedirects/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "E:/anaconda/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "E:/anaconda/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "E:/anaconda/Library/mingw-w64/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "E:/anaconda/Library/mingw-w64/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "E:/anaconda/Library/usr/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "E:/anaconda/Library/usr/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "E:/anaconda/Library/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "E:/anaconda/Library/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "E:/anaconda/Library/cmake/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "E:/anaconda/Library/cmake/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "E:/anaconda/Scripts/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "E:/anaconda/Scripts/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "E:/anaconda/condabin/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "E:/anaconda/condabin/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Users/chen_/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/Common Files/Intel/Shared Libraries/redist/intel64/compiler/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/Common Files/Intel/Shared Libraries/redist/intel64/compiler/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/System32/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/System32/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/System32/wbem/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/System32/wbem/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/System32/WindowsPowerShell/v1.0/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/System32/WindowsPowerShell/v1.0/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/System32/OpenSSH/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Windows/System32/OpenSSH/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/dotnet/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/dotnet/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "E:/jdk-21.0.6+7/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "E:/jdk-21.0.6+7/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Dev-Cpp/MinGW64/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Dev-Cpp/MinGW64/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/texlive/2025/bin/windows/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/texlive/2025/bin/windows/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "E:/cursor/resources/app/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "E:/cursor/resources/app/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Git/cmd/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Git/cmd/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Graphviz/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Graphviz/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Users/chen_/AppData/Roaming/Python/Python312/Scripts/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Users/chen_/AppData/Roaming/Python/Python312/Scripts/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "D:/matlab/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "D:/matlab/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft SQL Server/150/Tools/Binn/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft SQL Server/150/Tools/Binn/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft SQL Server/150/DTS/Binn/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Microsoft SQL Server/150/DTS/Binn/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/ZeroTier/One/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/ZeroTier/One/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/CMake/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/CMake/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Docker/Docker/resources/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Docker/Docker/resources/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Tailscale/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/Tailscale/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Users/chen_/AppData/Local/Microsoft/WindowsApps/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Users/chen_/AppData/Local/Microsoft/WindowsApps/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Users/chen_/AppData/Local/Programs/Microsoft VS Code/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Users/chen_/AppData/Local/Programs/Microsoft VS Code/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "D:/PyCharm Community Edition 2024.3.3/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "D:/PyCharm Community Edition 2024.3.3/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "H:/graphsis/graphsis/build/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "H:/graphsis/graphsis/build/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/CMake/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files/CMake/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/glfw3Config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "C:/Program Files (x86)/glfw3-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+    found: null
+    search_context:
+      ENV{PATH}:
+        - "E:\\Anaconda"
+        - "E:\\Anaconda\\Library\\mingw-w64\\bin"
+        - "E:\\Anaconda\\Library\\usr\\bin"
+        - "E:\\Anaconda\\Library\\bin"
+        - "E:\\Anaconda\\Scripts"
+        - "E:\\Anaconda\\bin"
+        - "E:\\Anaconda\\condabin"
+        - "c:\\Users\\chen_\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\chen_\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
+        - "C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0"
+        - "C:\\Windows\\System32\\OpenSSH"
+        - "C:\\Program Files\\dotnet"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "E:\\anaconda"
+        - "E:\\anaconda\\Scripts"
+        - "E:\\anaconda\\Library\\usr\\bin"
+        - "E:\\anaconda\\Library\\bin"
+        - "E:\\jdk-21.0.6+7\\bin"
+        - "E:\\anaconda\\Library\\mingw-w64\\bin"
+        - "C:\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\texlive\\2025\\bin\\windows"
+        - "e:\\cursor\\resources\\app\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Users\\chen_\\Downloads\\platform-tools-latest-windows\\platform-tools"
+        - "C:\\Program Files\\Graphviz\\bin"
+        - "C:\\Users\\chen_\\AppData\\Roaming\\Python\\Python312\\Scripts"
+        - "D:\\matlab\\bin"
+        - "C:\\Program Files\\Microsoft SQL Server\\170\\DTS\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn"
+        - "C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn"
+        - "C:\\Program Files (x86)\\ZeroTier\\One"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\Tailscale"
+        - "C:\\Users\\chen_\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\chen_\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "D:\\PyCharm Community Edition 2024.3.3\\bin"
+        - "."
+        - "E:\\cursor\\resources\\app\\bin"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files/WaterTown"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files/WaterTown"
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckCXXSourceCompiles.cmake:103 (cmake_check_source_compiles)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/FindThreads.cmake:162 (check_cxx_source_compiles)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/FindThreads.cmake:226 (_threads_check_libc)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindDependencyMacro.cmake:93 (find_package)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindDependencyMacro.cmake:125 (__find_dependency_common)"
+      - "vcpkg_installed/x64-windows/share/glfw3/glfw3Config.cmake:2 (find_dependency)"
+      - "CMakeLists.txt:26 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "H:/graphsis/graphsis/build/CMakeFiles/CMakeScratch/TryCompile-q594gi"
+      binary: "H:/graphsis/graphsis/build/CMakeFiles/CMakeScratch/TryCompile-q594gi"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: 'H:/graphsis/graphsis/build/CMakeFiles/CMakeScratch/TryCompile-q594gi'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_c2f2a.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        閫傜敤浜?.NET Framework MSBuild 鐗堟湰 17.14.23+b0019275e
+        鐢熸垚鍚姩鏃堕棿涓?2026/1/19 10:29:57銆?
+        
+        鑺傜偣 1 涓婄殑椤圭洰鈥淗:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-q594gi\\cmTC_c2f2a.vcxproj鈥?榛樿鐩爣)銆?
+        PrepareForBuild:
+          宸插惎鐢ㄧ粨鏋勫寲杈撳嚭銆傜紪璇戝櫒璇婃柇鐨勬牸寮忚缃皢鍙嶆槧閿欒灞傛缁撴瀯銆傛湁鍏宠缁嗕俊鎭紝璇峰弬闃?https://aka.ms/cpp/structured-output銆?
+          姝ｅ湪鍒涘缓鐩綍鈥淗:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-q594gi\\Debug\\鈥濄€?
+          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_c2f2a.dir\\Debug\\cmTC_c2f2a.tlog\\鈥濄€?
+        InitializeBuildStatus:
+          姝ｅ湪鍒涘缓鈥渃mTC_c2f2a.dir\\Debug\\cmTC_c2f2a.tlog\\unsuccessfulbuild鈥濓紝鍥犱负宸叉寚瀹氣€淎lwaysCreate鈥濄€?
+          姝ｅ湪瀵光€渃mTC_c2f2a.dir\\Debug\\cmTC_c2f2a.tlog\\unsuccessfulbuild鈥濇墽琛?Touch 浠诲姟銆?
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /std:c++14 /Fo"cmTC_c2f2a.dir\\Debug\\\\" /Fd"H:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-q594gi\\cmTC_c2f2a.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "H:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-q594gi\\src.cxx"
+          鐢ㄤ簬 x64 鐨?Microsoft (R) C/C++ 浼樺寲缂栬瘧鍣?19.44.35219 鐗?
+          鐗堟潈鎵€鏈?C) Microsoft Corporation銆備繚鐣欐墍鏈夋潈鍒┿€?
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /std:c++14 /Fo"cmTC_c2f2a.dir\\Debug\\\\" /Fd"H:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-q594gi\\cmTC_c2f2a.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "H:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-q594gi\\src.cxx"
+          src.cxx
+        H:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-q594gi\\src.cxx(1,10): error C1083: 鏃犳硶鎵撳紑鍖呮嫭鏂囦欢: 鈥減thread.h鈥? No such file or directory [H:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-q594gi\\cmTC_c2f2a.vcxproj]
+        宸插畬鎴愮敓鎴愰」鐩€淗:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-q594gi\\cmTC_c2f2a.vcxproj鈥?榛樿鐩爣)鐨勬搷浣?- 澶辫触銆?
+        
+        鐢熸垚澶辫触銆?
+        
+        鈥淗:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-q594gi\\cmTC_c2f2a.vcxproj鈥?榛樿鐩爣) (1) ->
+        (ClCompile 鐩爣) -> 
+          H:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-q594gi\\src.cxx(1,10): error C1083: 鏃犳硶鎵撳紑鍖呮嫭鏂囦欢: 鈥減thread.h鈥? No such file or directory [H:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-q594gi\\cmTC_c2f2a.vcxproj]
+        
+            0 涓鍛?
+            1 涓敊璇?
+        
+        宸茬敤鏃堕棿 00:00:00.24
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckLibraryExists.cmake:154 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/FindThreads.cmake:175 (check_library_exists)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/FindThreads.cmake:238 (_threads_check_lib)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindDependencyMacro.cmake:93 (find_package)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindDependencyMacro.cmake:125 (__find_dependency_common)"
+      - "vcpkg_installed/x64-windows/share/glfw3/glfw3Config.cmake:2 (find_dependency)"
+      - "CMakeLists.txt:26 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthreads"
+    directories:
+      source: "H:/graphsis/graphsis/build/CMakeFiles/CMakeScratch/TryCompile-4i0cjx"
+      binary: "H:/graphsis/graphsis/build/CMakeFiles/CMakeScratch/TryCompile-4i0cjx"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREADS_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'H:/graphsis/graphsis/build/CMakeFiles/CMakeScratch/TryCompile-4i0cjx'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_87305.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        閫傜敤浜?.NET Framework MSBuild 鐗堟湰 17.14.23+b0019275e
+        鐢熸垚鍚姩鏃堕棿涓?2026/1/19 10:29:58銆?
+        
+        鑺傜偣 1 涓婄殑椤圭洰鈥淗:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4i0cjx\\cmTC_87305.vcxproj鈥?榛樿鐩爣)銆?
+        PrepareForBuild:
+          宸插惎鐢ㄧ粨鏋勫寲杈撳嚭銆傜紪璇戝櫒璇婃柇鐨勬牸寮忚缃皢鍙嶆槧閿欒灞傛缁撴瀯銆傛湁鍏宠缁嗕俊鎭紝璇峰弬闃?https://aka.ms/cpp/structured-output銆?
+          姝ｅ湪鍒涘缓鐩綍鈥淗:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4i0cjx\\Debug\\鈥濄€?
+          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_87305.dir\\Debug\\cmTC_87305.tlog\\鈥濄€?
+        InitializeBuildStatus:
+          姝ｅ湪鍒涘缓鈥渃mTC_87305.dir\\Debug\\cmTC_87305.tlog\\unsuccessfulbuild鈥濓紝鍥犱负宸叉寚瀹氣€淎lwaysCreate鈥濄€?
+          姝ｅ湪瀵光€渃mTC_87305.dir\\Debug\\cmTC_87305.tlog\\unsuccessfulbuild鈥濇墽琛?Touch 浠诲姟銆?
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /std:c++14 /Fo"cmTC_87305.dir\\Debug\\\\" /Fd"H:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4i0cjx\\cmTC_87305.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "H:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4i0cjx\\CheckFunctionExists.cxx"
+          鐢ㄤ簬 x64 鐨?Microsoft (R) C/C++ 浼樺寲缂栬瘧鍣?19.44.35219 鐗?
+          鐗堟潈鎵€鏈?C) Microsoft Corporation銆備繚鐣欐墍鏈夋潈鍒┿€?
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /std:c++14 /Fo"cmTC_87305.dir\\Debug\\\\" /Fd"H:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4i0cjx\\cmTC_87305.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "H:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4i0cjx\\CheckFunctionExists.cxx"
+          CheckFunctionExists.cxx
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"H:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4i0cjx\\Debug\\cmTC_87305.exe" /INCREMENTAL /ILK:"cmTC_87305.dir\\Debug\\cmTC_87305.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"H:/graphsis/graphsis/build/CMakeFiles/CMakeScratch/TryCompile-4i0cjx/Debug/cmTC_87305.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"H:/graphsis/graphsis/build/CMakeFiles/CMakeScratch/TryCompile-4i0cjx/Debug/cmTC_87305.lib" /MACHINE:X64  /machine:x64 cmTC_87305.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: 鏃犳硶鎵撳紑鏂囦欢鈥減threads.lib鈥?[H:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4i0cjx\\cmTC_87305.vcxproj]
+        宸插畬鎴愮敓鎴愰」鐩€淗:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4i0cjx\\cmTC_87305.vcxproj鈥?榛樿鐩爣)鐨勬搷浣?- 澶辫触銆?
+        
+        鐢熸垚澶辫触銆?
+        
+        鈥淗:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4i0cjx\\cmTC_87305.vcxproj鈥?榛樿鐩爣) (1) ->
+        (Link 鐩爣) -> 
+          LINK : fatal error LNK1104: 鏃犳硶鎵撳紑鏂囦欢鈥減threads.lib鈥?[H:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4i0cjx\\cmTC_87305.vcxproj]
+        
+            0 涓鍛?
+            1 涓敊璇?
+        
+        宸茬敤鏃堕棿 00:00:00.32
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CheckLibraryExists.cmake:154 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/FindThreads.cmake:175 (check_library_exists)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/FindThreads.cmake:239 (_threads_check_lib)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindDependencyMacro.cmake:93 (find_package)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindDependencyMacro.cmake:125 (__find_dependency_common)"
+      - "vcpkg_installed/x64-windows/share/glfw3/glfw3Config.cmake:2 (find_dependency)"
+      - "CMakeLists.txt:26 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthread"
+    directories:
+      source: "H:/graphsis/graphsis/build/CMakeFiles/CMakeScratch/TryCompile-13hv0g"
+      binary: "H:/graphsis/graphsis/build/CMakeFiles/CMakeScratch/TryCompile-13hv0g"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREAD_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'H:/graphsis/graphsis/build/CMakeFiles/CMakeScratch/TryCompile-13hv0g'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_bb58c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        閫傜敤浜?.NET Framework MSBuild 鐗堟湰 17.14.23+b0019275e
+        鐢熸垚鍚姩鏃堕棿涓?2026/1/19 10:29:58銆?
+        
+        鑺傜偣 1 涓婄殑椤圭洰鈥淗:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-13hv0g\\cmTC_bb58c.vcxproj鈥?榛樿鐩爣)銆?
+        PrepareForBuild:
+          宸插惎鐢ㄧ粨鏋勫寲杈撳嚭銆傜紪璇戝櫒璇婃柇鐨勬牸寮忚缃皢鍙嶆槧閿欒灞傛缁撴瀯銆傛湁鍏宠缁嗕俊鎭紝璇峰弬闃?https://aka.ms/cpp/structured-output銆?
+          姝ｅ湪鍒涘缓鐩綍鈥淗:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-13hv0g\\Debug\\鈥濄€?
+          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_bb58c.dir\\Debug\\cmTC_bb58c.tlog\\鈥濄€?
+        InitializeBuildStatus:
+          姝ｅ湪鍒涘缓鈥渃mTC_bb58c.dir\\Debug\\cmTC_bb58c.tlog\\unsuccessfulbuild鈥濓紝鍥犱负宸叉寚瀹氣€淎lwaysCreate鈥濄€?
+          姝ｅ湪瀵光€渃mTC_bb58c.dir\\Debug\\cmTC_bb58c.tlog\\unsuccessfulbuild鈥濇墽琛?Touch 浠诲姟銆?
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /std:c++14 /Fo"cmTC_bb58c.dir\\Debug\\\\" /Fd"H:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-13hv0g\\cmTC_bb58c.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "H:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-13hv0g\\CheckFunctionExists.cxx"
+          鐢ㄤ簬 x64 鐨?Microsoft (R) C/C++ 浼樺寲缂栬瘧鍣?19.44.35219 鐗?
+          鐗堟潈鎵€鏈?C) Microsoft Corporation銆備繚鐣欐墍鏈夋潈鍒┿€?
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /std:c++14 /Fo"cmTC_bb58c.dir\\Debug\\\\" /Fd"H:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-13hv0g\\cmTC_bb58c.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "H:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-13hv0g\\CheckFunctionExists.cxx"
+          CheckFunctionExists.cxx
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"H:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-13hv0g\\Debug\\cmTC_bb58c.exe" /INCREMENTAL /ILK:"cmTC_bb58c.dir\\Debug\\cmTC_bb58c.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"H:/graphsis/graphsis/build/CMakeFiles/CMakeScratch/TryCompile-13hv0g/Debug/cmTC_bb58c.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"H:/graphsis/graphsis/build/CMakeFiles/CMakeScratch/TryCompile-13hv0g/Debug/cmTC_bb58c.lib" /MACHINE:X64  /machine:x64 cmTC_bb58c.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: 鏃犳硶鎵撳紑鏂囦欢鈥減thread.lib鈥?[H:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-13hv0g\\cmTC_bb58c.vcxproj]
+        宸插畬鎴愮敓鎴愰」鐩€淗:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-13hv0g\\cmTC_bb58c.vcxproj鈥?榛樿鐩爣)鐨勬搷浣?- 澶辫触銆?
+        
+        鐢熸垚澶辫触銆?
+        
+        鈥淗:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-13hv0g\\cmTC_bb58c.vcxproj鈥?榛樿鐩爣) (1) ->
+        (Link 鐩爣) -> 
+          LINK : fatal error LNK1104: 鏃犳硶鎵撳紑鏂囦欢鈥減thread.lib鈥?[H:\\graphsis\\graphsis\\build\\CMakeFiles\\CMakeScratch\\TryCompile-13hv0g\\cmTC_bb58c.vcxproj]
+        
+            0 涓鍛?
+            1 涓敊璇?
+        
+        宸茬敤鏃堕棿 00:00:00.32
+        
+      exitCode: 1
+  -
+    kind: "find_package-v1"
+    backtrace:
+      - "CMakeLists.txt:27 (find_package)"
+    name: "glad"
+    configs:
+      -
+        filename: "gladConfig.cmake"
+        kind: "cmake"
+      -
+        filename: "glad-config.cmake"
+        kind: "cmake"
+    version_request:
+      exact: false
+    settings:
+      required: "required_explicit"
+      quiet: false
+      global: false
+      policy_scope: true
+      bypass_provider: false
+      names:
+        - "glad"
+      path_suffixes:
+        - ""
+      paths:
+        CMAKE_FIND_USE_CMAKE_PATH: true
+        CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+        CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+        CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+        CMAKE_FIND_USE_INSTALL_PREFIX: true
+        CMAKE_FIND_USE_PACKAGE_ROOT_PATH: true
+        CMAKE_FIND_USE_CMAKE_PACKAGE_REGISTRY: true
+        CMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY: true
+        CMAKE_FIND_ROOT_PATH_MODE: "BOTH"
+    candidates:
+      -
+        path: "H:/graphsis/graphsis/build/CMakeFiles/pkgRedirects/gladConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "H:/graphsis/graphsis/build/CMakeFiles/pkgRedirects/glad-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/gladConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/glad-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+    found:
+      path: "H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/share/glad/gladConfig.cmake"
+      mode: "config"
+      version: "0.1.36"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows"
+      ENV{PATH}:
+        - "E:\\Anaconda"
+        - "E:\\Anaconda\\Library\\mingw-w64\\bin"
+        - "E:\\Anaconda\\Library\\usr\\bin"
+        - "E:\\Anaconda\\Library\\bin"
+        - "E:\\Anaconda\\Scripts"
+        - "E:\\Anaconda\\bin"
+        - "E:\\Anaconda\\condabin"
+        - "c:\\Users\\chen_\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\chen_\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
+        - "C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0"
+        - "C:\\Windows\\System32\\OpenSSH"
+        - "C:\\Program Files\\dotnet"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "E:\\anaconda"
+        - "E:\\anaconda\\Scripts"
+        - "E:\\anaconda\\Library\\usr\\bin"
+        - "E:\\anaconda\\Library\\bin"
+        - "E:\\jdk-21.0.6+7\\bin"
+        - "E:\\anaconda\\Library\\mingw-w64\\bin"
+        - "C:\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\texlive\\2025\\bin\\windows"
+        - "e:\\cursor\\resources\\app\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Users\\chen_\\Downloads\\platform-tools-latest-windows\\platform-tools"
+        - "C:\\Program Files\\Graphviz\\bin"
+        - "C:\\Users\\chen_\\AppData\\Roaming\\Python\\Python312\\Scripts"
+        - "D:\\matlab\\bin"
+        - "C:\\Program Files\\Microsoft SQL Server\\170\\DTS\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn"
+        - "C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn"
+        - "C:\\Program Files (x86)\\ZeroTier\\One"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\Tailscale"
+        - "C:\\Users\\chen_\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\chen_\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "D:\\PyCharm Community Edition 2024.3.3\\bin"
+        - "."
+        - "E:\\cursor\\resources\\app\\bin"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files/WaterTown"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files/WaterTown"
+  -
+    kind: "find_package-v1"
+    backtrace:
+      - "CMakeLists.txt:28 (find_package)"
+    name: "glm"
+    configs:
+      -
+        filename: "glmConfig.cmake"
+        kind: "cmake"
+      -
+        filename: "glm-config.cmake"
+        kind: "cmake"
+    version_request:
+      exact: false
+    settings:
+      required: "required_explicit"
+      quiet: false
+      global: false
+      policy_scope: true
+      bypass_provider: false
+      names:
+        - "glm"
+      path_suffixes:
+        - ""
+      paths:
+        CMAKE_FIND_USE_CMAKE_PATH: true
+        CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+        CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+        CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+        CMAKE_FIND_USE_INSTALL_PREFIX: true
+        CMAKE_FIND_USE_PACKAGE_ROOT_PATH: true
+        CMAKE_FIND_USE_CMAKE_PACKAGE_REGISTRY: true
+        CMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY: true
+        CMAKE_FIND_ROOT_PATH_MODE: "BOTH"
+    candidates:
+      -
+        path: "H:/graphsis/graphsis/build/CMakeFiles/pkgRedirects/glmConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "H:/graphsis/graphsis/build/CMakeFiles/pkgRedirects/glm-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/glmConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/glm-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+    found:
+      path: "H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/share/glm/glmConfig.cmake"
+      mode: "config"
+      version: "1.0.2"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows"
+      ENV{PATH}:
+        - "E:\\Anaconda"
+        - "E:\\Anaconda\\Library\\mingw-w64\\bin"
+        - "E:\\Anaconda\\Library\\usr\\bin"
+        - "E:\\Anaconda\\Library\\bin"
+        - "E:\\Anaconda\\Scripts"
+        - "E:\\Anaconda\\bin"
+        - "E:\\Anaconda\\condabin"
+        - "c:\\Users\\chen_\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\chen_\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
+        - "C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0"
+        - "C:\\Windows\\System32\\OpenSSH"
+        - "C:\\Program Files\\dotnet"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "E:\\anaconda"
+        - "E:\\anaconda\\Scripts"
+        - "E:\\anaconda\\Library\\usr\\bin"
+        - "E:\\anaconda\\Library\\bin"
+        - "E:\\jdk-21.0.6+7\\bin"
+        - "E:\\anaconda\\Library\\mingw-w64\\bin"
+        - "C:\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\texlive\\2025\\bin\\windows"
+        - "e:\\cursor\\resources\\app\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Users\\chen_\\Downloads\\platform-tools-latest-windows\\platform-tools"
+        - "C:\\Program Files\\Graphviz\\bin"
+        - "C:\\Users\\chen_\\AppData\\Roaming\\Python\\Python312\\Scripts"
+        - "D:\\matlab\\bin"
+        - "C:\\Program Files\\Microsoft SQL Server\\170\\DTS\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn"
+        - "C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn"
+        - "C:\\Program Files (x86)\\ZeroTier\\One"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\Tailscale"
+        - "C:\\Users\\chen_\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\chen_\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "D:\\PyCharm Community Edition 2024.3.3\\bin"
+        - "."
+        - "E:\\cursor\\resources\\app\\bin"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files/WaterTown"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files/WaterTown"
+  -
+    kind: "find_package-v1"
+    backtrace:
+      - "CMakeLists.txt:29 (find_package)"
+    name: "imgui"
+    configs:
+      -
+        filename: "imguiConfig.cmake"
+        kind: "cmake"
+      -
+        filename: "imgui-config.cmake"
+        kind: "cmake"
+    version_request:
+      exact: false
+    settings:
+      required: "required_explicit"
+      quiet: false
+      global: false
+      policy_scope: true
+      bypass_provider: false
+      names:
+        - "imgui"
+      path_suffixes:
+        - ""
+      paths:
+        CMAKE_FIND_USE_CMAKE_PATH: true
+        CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+        CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+        CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+        CMAKE_FIND_USE_INSTALL_PREFIX: true
+        CMAKE_FIND_USE_PACKAGE_ROOT_PATH: true
+        CMAKE_FIND_USE_CMAKE_PACKAGE_REGISTRY: true
+        CMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY: true
+        CMAKE_FIND_ROOT_PATH_MODE: "BOTH"
+    candidates:
+      -
+        path: "H:/graphsis/graphsis/build/CMakeFiles/pkgRedirects/imguiConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "H:/graphsis/graphsis/build/CMakeFiles/pkgRedirects/imgui-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/imguiConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/imgui-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/share/imgui/imguiConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+    found:
+      path: "H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/share/imgui/imgui-config.cmake"
+      mode: "config"
+      version: ""
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows"
+      ENV{PATH}:
+        - "E:\\Anaconda"
+        - "E:\\Anaconda\\Library\\mingw-w64\\bin"
+        - "E:\\Anaconda\\Library\\usr\\bin"
+        - "E:\\Anaconda\\Library\\bin"
+        - "E:\\Anaconda\\Scripts"
+        - "E:\\Anaconda\\bin"
+        - "E:\\Anaconda\\condabin"
+        - "c:\\Users\\chen_\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\chen_\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
+        - "C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0"
+        - "C:\\Windows\\System32\\OpenSSH"
+        - "C:\\Program Files\\dotnet"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "E:\\anaconda"
+        - "E:\\anaconda\\Scripts"
+        - "E:\\anaconda\\Library\\usr\\bin"
+        - "E:\\anaconda\\Library\\bin"
+        - "E:\\jdk-21.0.6+7\\bin"
+        - "E:\\anaconda\\Library\\mingw-w64\\bin"
+        - "C:\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\texlive\\2025\\bin\\windows"
+        - "e:\\cursor\\resources\\app\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Users\\chen_\\Downloads\\platform-tools-latest-windows\\platform-tools"
+        - "C:\\Program Files\\Graphviz\\bin"
+        - "C:\\Users\\chen_\\AppData\\Roaming\\Python\\Python312\\Scripts"
+        - "D:\\matlab\\bin"
+        - "C:\\Program Files\\Microsoft SQL Server\\170\\DTS\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn"
+        - "C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn"
+        - "C:\\Program Files (x86)\\ZeroTier\\One"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\Tailscale"
+        - "C:\\Users\\chen_\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\chen_\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "D:\\PyCharm Community Edition 2024.3.3\\bin"
+        - "."
+        - "E:\\cursor\\resources\\app\\bin"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files/WaterTown"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files/WaterTown"
+  -
+    kind: "find_package-v1"
+    backtrace:
+      - "CMakeLists.txt:30 (find_package)"
+    name: "assimp"
+    configs:
+      -
+        filename: "assimpConfig.cmake"
+        kind: "cmake"
+      -
+        filename: "assimp-config.cmake"
+        kind: "cmake"
+    version_request:
+      exact: false
+    settings:
+      required: "required_explicit"
+      quiet: false
+      global: false
+      policy_scope: true
+      bypass_provider: false
+      names:
+        - "assimp"
+      path_suffixes:
+        - ""
+      paths:
+        CMAKE_FIND_USE_CMAKE_PATH: true
+        CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+        CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+        CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+        CMAKE_FIND_USE_INSTALL_PREFIX: true
+        CMAKE_FIND_USE_PACKAGE_ROOT_PATH: true
+        CMAKE_FIND_USE_CMAKE_PACKAGE_REGISTRY: true
+        CMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY: true
+        CMAKE_FIND_ROOT_PATH_MODE: "BOTH"
+    candidates:
+      -
+        path: "H:/graphsis/graphsis/build/CMakeFiles/pkgRedirects/assimpConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "H:/graphsis/graphsis/build/CMakeFiles/pkgRedirects/assimp-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/assimpConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/assimp-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+    found:
+      path: "H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/share/assimp/assimpConfig.cmake"
+      mode: "config"
+      version: "6.0.2"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows"
+      ENV{PATH}:
+        - "E:\\Anaconda"
+        - "E:\\Anaconda\\Library\\mingw-w64\\bin"
+        - "E:\\Anaconda\\Library\\usr\\bin"
+        - "E:\\Anaconda\\Library\\bin"
+        - "E:\\Anaconda\\Scripts"
+        - "E:\\Anaconda\\bin"
+        - "E:\\Anaconda\\condabin"
+        - "c:\\Users\\chen_\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\chen_\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
+        - "C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0"
+        - "C:\\Windows\\System32\\OpenSSH"
+        - "C:\\Program Files\\dotnet"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "E:\\anaconda"
+        - "E:\\anaconda\\Scripts"
+        - "E:\\anaconda\\Library\\usr\\bin"
+        - "E:\\anaconda\\Library\\bin"
+        - "E:\\jdk-21.0.6+7\\bin"
+        - "E:\\anaconda\\Library\\mingw-w64\\bin"
+        - "C:\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\texlive\\2025\\bin\\windows"
+        - "e:\\cursor\\resources\\app\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Users\\chen_\\Downloads\\platform-tools-latest-windows\\platform-tools"
+        - "C:\\Program Files\\Graphviz\\bin"
+        - "C:\\Users\\chen_\\AppData\\Roaming\\Python\\Python312\\Scripts"
+        - "D:\\matlab\\bin"
+        - "C:\\Program Files\\Microsoft SQL Server\\170\\DTS\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn"
+        - "C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn"
+        - "C:\\Program Files (x86)\\ZeroTier\\One"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\Tailscale"
+        - "C:\\Users\\chen_\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\chen_\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "D:\\PyCharm Community Edition 2024.3.3\\bin"
+        - "."
+        - "E:\\cursor\\resources\\app\\bin"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files/WaterTown"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files/WaterTown"
+...

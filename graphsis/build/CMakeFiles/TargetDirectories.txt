@@ -1,0 +1,3 @@
+H:/graphsis/graphsis/build/CMakeFiles/WaterTown.dir
+H:/graphsis/graphsis/build/CMakeFiles/ALL_BUILD.dir
+H:/graphsis/graphsis/build/CMakeFiles/ZERO_CHECK.dir

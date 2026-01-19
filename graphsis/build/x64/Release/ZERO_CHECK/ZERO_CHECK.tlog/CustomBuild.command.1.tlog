@@ -1,0 +1,10 @@
+^H:\GRAPHSIS\GRAPHSIS\BUILD\CMAKEFILES\60A47916E303590E8CF0DED0363B686C\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SH:/graphsis/graphsis/WaterTown -BH:/graphsis/graphsis/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file H:/graphsis/graphsis/build/WaterTown.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

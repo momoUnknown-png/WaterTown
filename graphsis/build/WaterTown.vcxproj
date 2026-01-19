@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5865507A-90FD-3C11-8491-9D69C038B242}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>WaterTown</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">H:\graphsis\graphsis\build\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">WaterTown.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">WaterTown</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">H:\graphsis\graphsis\build\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">WaterTown.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">WaterTown</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">H:\graphsis\graphsis\build\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">WaterTown.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">WaterTown</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">H:\graphsis\graphsis\build\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">WaterTown.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">WaterTown</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>H:\graphsis\graphsis\WaterTown\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/include" /utf-8</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <ConformanceMode>true</ConformanceMode>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;GLFW_DLL;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>H:\graphsis\graphsis\build\WaterTown.dir\Debug\</ProgramDataBaseFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;GLFW_DLL;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>H:\graphsis\graphsis\WaterTown\src;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>H:\graphsis\graphsis\WaterTown\src;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>Copying assets to build directory...</Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_directory H:/graphsis/graphsis/WaterTown/assets H:/graphsis/graphsis/build/assets
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\debug\lib\glad.lib;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\debug\lib\glm.lib;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\debug\lib\imguid.lib;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\debug\lib\assimp-vc143-mtd.lib;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\debug\lib\glfw3dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>H:/graphsis/graphsis/build/Debug/WaterTown.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>H:/graphsis/graphsis/build/WaterTown.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>H:\graphsis\graphsis\WaterTown\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/include" /utf-8</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <ConformanceMode>true</ConformanceMode>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GLFW_DLL;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ProgramDataBaseFileName>H:\graphsis\graphsis\build\WaterTown.dir\Release\</ProgramDataBaseFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GLFW_DLL;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>H:\graphsis\graphsis\WaterTown\src;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>H:\graphsis\graphsis\WaterTown\src;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>Copying assets to build directory...</Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_directory H:/graphsis/graphsis/WaterTown/assets H:/graphsis/graphsis/build/assets
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\lib\glad.lib;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\lib\glm.lib;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\lib\imgui.lib;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\lib\assimp-vc143-mt.lib;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\lib\glfw3dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>H:/graphsis/graphsis/build/Release/WaterTown.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>H:/graphsis/graphsis/build/WaterTown.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>H:\graphsis\graphsis\WaterTown\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/include" /utf-8</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <ConformanceMode>true</ConformanceMode>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GLFW_DLL;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ProgramDataBaseFileName>H:\graphsis\graphsis\build\WaterTown.dir\MinSizeRel\</ProgramDataBaseFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GLFW_DLL;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>H:\graphsis\graphsis\WaterTown\src;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>H:\graphsis\graphsis\WaterTown\src;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>Copying assets to build directory...</Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_directory H:/graphsis/graphsis/WaterTown/assets H:/graphsis/graphsis/build/assets
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\debug\lib\glad.lib;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\debug\lib\glm.lib;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\debug\lib\imguid.lib;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\debug\lib\assimp-vc143-mtd.lib;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\debug\lib\glfw3dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>H:/graphsis/graphsis/build/MinSizeRel/WaterTown.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>H:/graphsis/graphsis/build/MinSizeRel/WaterTown.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>H:\graphsis\graphsis\WaterTown\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/include" /utf-8</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <ConformanceMode>true</ConformanceMode>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GLFW_DLL;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>H:\graphsis\graphsis\build\WaterTown.dir\RelWithDebInfo\</ProgramDataBaseFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GLFW_DLL;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>H:\graphsis\graphsis\WaterTown\src;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>H:\graphsis\graphsis\WaterTown\src;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>Copying assets to build directory...</Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_directory H:/graphsis/graphsis/WaterTown/assets H:/graphsis/graphsis/build/assets
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\debug\lib\glad.lib;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\debug\lib\glm.lib;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\debug\lib\imguid.lib;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\debug\lib\assimp-vc143-mtd.lib;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\debug\lib\glfw3dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>H:/graphsis/graphsis/build/RelWithDebInfo/WaterTown.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>H:/graphsis/graphsis/build/RelWithDebInfo/WaterTown.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="H:\graphsis\graphsis\WaterTown\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule H:/graphsis/graphsis/WaterTown/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SH:/graphsis/graphsis/WaterTown -BH:/graphsis/graphsis/build --check-stamp-file H:/graphsis/graphsis/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeFindDependencyMacro.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\WindowsPaths.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\assimp\assimpConfig.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\assimp\assimpConfigVersion.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\assimp\assimpTargets-debug.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\assimp\assimpTargets-release.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\assimp\assimpTargets.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glad\gladConfig.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glad\gladConfigVersion.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glad\gladTargets-debug.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glad\gladTargets-release.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glad\gladTargets.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glfw3\glfw3Config.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glfw3\glfw3ConfigVersion.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glfw3\glfw3Targets-debug.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glfw3\glfw3Targets-release.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glfw3\glfw3Targets.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glm\glmConfig-debug.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glm\glmConfig-release.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glm\glmConfig.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glm\glmConfigVersion.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\imgui\imgui-config.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\imgui\imgui-targets-debug.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\imgui\imgui-targets-release.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\imgui\imgui-targets.cmake;H:\graphsis\graphsis\build\CMakeFiles\4.2.0-rc1\CMakeCXXCompiler.cmake;H:\graphsis\graphsis\build\CMakeFiles\4.2.0-rc1\CMakeRCCompiler.cmake;H:\graphsis\graphsis\build\CMakeFiles\4.2.0-rc1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">H:\graphsis\graphsis\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule H:/graphsis/graphsis/WaterTown/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SH:/graphsis/graphsis/WaterTown -BH:/graphsis/graphsis/build --check-stamp-file H:/graphsis/graphsis/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeFindDependencyMacro.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\WindowsPaths.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\assimp\assimpConfig.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\assimp\assimpConfigVersion.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\assimp\assimpTargets-debug.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\assimp\assimpTargets-release.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\assimp\assimpTargets.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glad\gladConfig.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glad\gladConfigVersion.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glad\gladTargets-debug.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glad\gladTargets-release.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glad\gladTargets.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glfw3\glfw3Config.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glfw3\glfw3ConfigVersion.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glfw3\glfw3Targets-debug.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glfw3\glfw3Targets-release.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glfw3\glfw3Targets.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glm\glmConfig-debug.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glm\glmConfig-release.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glm\glmConfig.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glm\glmConfigVersion.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\imgui\imgui-config.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\imgui\imgui-targets-debug.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\imgui\imgui-targets-release.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\imgui\imgui-targets.cmake;H:\graphsis\graphsis\build\CMakeFiles\4.2.0-rc1\CMakeCXXCompiler.cmake;H:\graphsis\graphsis\build\CMakeFiles\4.2.0-rc1\CMakeRCCompiler.cmake;H:\graphsis\graphsis\build\CMakeFiles\4.2.0-rc1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">H:\graphsis\graphsis\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule H:/graphsis/graphsis/WaterTown/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SH:/graphsis/graphsis/WaterTown -BH:/graphsis/graphsis/build --check-stamp-file H:/graphsis/graphsis/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeFindDependencyMacro.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\WindowsPaths.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\assimp\assimpConfig.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\assimp\assimpConfigVersion.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\assimp\assimpTargets-debug.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\assimp\assimpTargets-release.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\assimp\assimpTargets.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glad\gladConfig.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glad\gladConfigVersion.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glad\gladTargets-debug.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glad\gladTargets-release.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glad\gladTargets.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glfw3\glfw3Config.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glfw3\glfw3ConfigVersion.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glfw3\glfw3Targets-debug.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glfw3\glfw3Targets-release.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glfw3\glfw3Targets.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glm\glmConfig-debug.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glm\glmConfig-release.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glm\glmConfig.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glm\glmConfigVersion.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\imgui\imgui-config.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\imgui\imgui-targets-debug.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\imgui\imgui-targets-release.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\imgui\imgui-targets.cmake;H:\graphsis\graphsis\build\CMakeFiles\4.2.0-rc1\CMakeCXXCompiler.cmake;H:\graphsis\graphsis\build\CMakeFiles\4.2.0-rc1\CMakeRCCompiler.cmake;H:\graphsis\graphsis\build\CMakeFiles\4.2.0-rc1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">H:\graphsis\graphsis\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule H:/graphsis/graphsis/WaterTown/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SH:/graphsis/graphsis/WaterTown -BH:/graphsis/graphsis/build --check-stamp-file H:/graphsis/graphsis/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeFindDependencyMacro.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\WindowsPaths.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\assimp\assimpConfig.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\assimp\assimpConfigVersion.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\assimp\assimpTargets-debug.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\assimp\assimpTargets-release.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\assimp\assimpTargets.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glad\gladConfig.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glad\gladConfigVersion.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glad\gladTargets-debug.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glad\gladTargets-release.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glad\gladTargets.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glfw3\glfw3Config.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glfw3\glfw3ConfigVersion.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glfw3\glfw3Targets-debug.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glfw3\glfw3Targets-release.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glfw3\glfw3Targets.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glm\glmConfig-debug.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glm\glmConfig-release.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glm\glmConfig.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\glm\glmConfigVersion.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\imgui\imgui-config.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\imgui\imgui-targets-debug.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\imgui\imgui-targets-release.cmake;H:\graphsis\graphsis\WaterTown\vcpkg_installed\x64-windows\share\imgui\imgui-targets.cmake;H:\graphsis\graphsis\build\CMakeFiles\4.2.0-rc1\CMakeCXXCompiler.cmake;H:\graphsis\graphsis\build\CMakeFiles\4.2.0-rc1\CMakeRCCompiler.cmake;H:\graphsis\graphsis\build\CMakeFiles\4.2.0-rc1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">H:\graphsis\graphsis\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="H:\graphsis\graphsis\WaterTown\src\Core\Application.cpp" />
+    <ClInclude Include="H:\graphsis\graphsis\WaterTown\src\Core\Application.h" />
+    <ClCompile Include="H:\graphsis\graphsis\WaterTown\src\Core\Window.cpp" />
+    <ClInclude Include="H:\graphsis\graphsis\WaterTown\src\Core\Window.h" />
+    <ClCompile Include="H:\graphsis\graphsis\WaterTown\src\Editor\EditorUI.cpp" />
+    <ClInclude Include="H:\graphsis\graphsis\WaterTown\src\Editor\EditorUI.h" />
+    <ClCompile Include="H:\graphsis\graphsis\WaterTown\src\Editor\SceneEditor.cpp" />
+    <ClInclude Include="H:\graphsis\graphsis\WaterTown\src\Editor\SceneEditor.h" />
+    <ClInclude Include="H:\graphsis\graphsis\WaterTown\src\Editor\TerrainRenderer.h" />
+    <ClCompile Include="H:\graphsis\graphsis\WaterTown\src\Physics\Boat.cpp" />
+    <ClInclude Include="H:\graphsis\graphsis\WaterTown\src\Physics\Boat.h" />
+    <ClCompile Include="H:\graphsis\graphsis\WaterTown\src\Render\BoatRenderer.cpp" />
+    <ClInclude Include="H:\graphsis\graphsis\WaterTown\src\Render\BoatRenderer.h" />
+    <ClCompile Include="H:\graphsis\graphsis\WaterTown\src\Render\Camera.cpp" />
+    <ClInclude Include="H:\graphsis\graphsis\WaterTown\src\Render\Camera.h" />
+    <ClCompile Include="H:\graphsis\graphsis\WaterTown\src\Render\FollowCamera.cpp" />
+    <ClInclude Include="H:\graphsis\graphsis\WaterTown\src\Render\FollowCamera.h" />
+    <ClInclude Include="H:\graphsis\graphsis\WaterTown\src\Render\GeometryGenerator.h" />
+    <ClCompile Include="H:\graphsis\graphsis\WaterTown\src\Render\ModelLoader.cpp" />
+    <ClInclude Include="H:\graphsis\graphsis\WaterTown\src\Render\ModelLoader.h" />
+    <ClCompile Include="H:\graphsis\graphsis\WaterTown\src\Render\ObjectRenderer.cpp" />
+    <ClInclude Include="H:\graphsis\graphsis\WaterTown\src\Render\ObjectRenderer.h" />
+    <ClCompile Include="H:\graphsis\graphsis\WaterTown\src\Render\OrbitCamera.cpp" />
+    <ClInclude Include="H:\graphsis\graphsis\WaterTown\src\Render\OrbitCamera.h" />
+    <ClCompile Include="H:\graphsis\graphsis\WaterTown\src\Render\OrthographicCamera.cpp" />
+    <ClInclude Include="H:\graphsis\graphsis\WaterTown\src\Render\OrthographicCamera.h" />
+    <ClCompile Include="H:\graphsis\graphsis\WaterTown\src\Render\Shader.cpp" />
+    <ClInclude Include="H:\graphsis\graphsis\WaterTown\src\Render\Shader.h" />
+    <ClCompile Include="H:\graphsis\graphsis\WaterTown\src\Render\TerrainRenderer.cpp" />
+    <ClInclude Include="H:\graphsis\graphsis\WaterTown\src\Render\TerrainRenderer.h" />
+    <ClCompile Include="H:\graphsis\graphsis\WaterTown\src\Water\BoatWake.cpp" />
+    <ClInclude Include="H:\graphsis\graphsis\WaterTown\src\Water\BoatWake.h" />
+    <ClCompile Include="H:\graphsis\graphsis\WaterTown\src\Water\WaterSurface.cpp" />
+    <ClInclude Include="H:\graphsis\graphsis\WaterTown\src\Water\WaterSurface.h" />
+    <ClCompile Include="H:\graphsis\graphsis\WaterTown\src\main.cpp" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="H:\graphsis\graphsis\build\ZERO_CHECK.vcxproj">
+      <Project>{3722B2D5-E119-37C4-ACAB-16AA4D52E0F7}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

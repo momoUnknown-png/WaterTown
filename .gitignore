@@ -1,4 +1,4 @@
-# Visual Studio
+# Visual Studio temporary files
 .vs/
 *.user
 *.aps
@@ -14,29 +14,9 @@
 *.cache
 *.ilk
 *.log
-*.lib
 *.sbr
 *.scc
-[Dd]ebug*/
-[Rr]elease*/
 Ankh.NoLoad
-
-# Build outputs
-build/
-out/
-bin/
-Debug/
-Release/
-x64/
-x86/
-
-# vcpkg installed packages
-vcpkg_installed/
-
-# CMake
-CMakeFiles/
-CMakeCache.txt
-cmake_install.cmake
 
 # IDE files
 .vscode/
@@ -51,6 +31,3 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
-
-# Dependencies (keep vcpkg.json but not installed packages)
-# vcpkg.json should be kept for dependency management

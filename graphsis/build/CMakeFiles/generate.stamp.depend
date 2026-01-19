@@ -1,0 +1,58 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeCXXInformation.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeCommonLanguageInclude.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindDependencyMacro.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeGenericSystem.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeInitializeConfigs.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeLanguageInformation.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeRCInformation.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeSystemSpecificInformation.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeSystemSpecificInitialize.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/CheckCXXSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/CheckIncludeFileCXX.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/CheckLibraryExists.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/Compiler/MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/Compiler/MSVC.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/FindThreads.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/Internal/CMakeCXXLinkerInformation.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/Internal/CMakeCommonLinkerInformation.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/Internal/CheckSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/Linker/MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/Linker/MSVC.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/Linker/Windows-MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/Linker/Windows-MSVC.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/Windows-Initialize.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/Windows-MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/Windows-MSVC.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/Windows.cmake
+C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/WindowsPaths.cmake
+H:/graphsis/graphsis/WaterTown/CMakeLists.txt
+H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/share/assimp/assimpConfig.cmake
+H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/share/assimp/assimpConfigVersion.cmake
+H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/share/assimp/assimpTargets-debug.cmake
+H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/share/assimp/assimpTargets-release.cmake
+H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/share/assimp/assimpTargets.cmake
+H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/share/glad/gladConfig.cmake
+H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/share/glad/gladConfigVersion.cmake
+H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/share/glad/gladTargets-debug.cmake
+H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/share/glad/gladTargets-release.cmake
+H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/share/glad/gladTargets.cmake
+H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/share/glfw3/glfw3Config.cmake
+H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/share/glfw3/glfw3ConfigVersion.cmake
+H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/share/glfw3/glfw3Targets-debug.cmake
+H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/share/glfw3/glfw3Targets-release.cmake
+H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/share/glfw3/glfw3Targets.cmake
+H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/share/glm/glmConfig-debug.cmake
+H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/share/glm/glmConfig-release.cmake
+H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/share/glm/glmConfig.cmake
+H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/share/glm/glmConfigVersion.cmake
+H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/share/imgui/imgui-config.cmake
+H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/share/imgui/imgui-targets-debug.cmake
+H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/share/imgui/imgui-targets-release.cmake
+H:/graphsis/graphsis/WaterTown/vcpkg_installed/x64-windows/share/imgui/imgui-targets.cmake
+H:/graphsis/graphsis/build/CMakeFiles/4.2.0-rc1/CMakeCXXCompiler.cmake
+H:/graphsis/graphsis/build/CMakeFiles/4.2.0-rc1/CMakeRCCompiler.cmake
+H:/graphsis/graphsis/build/CMakeFiles/4.2.0-rc1/CMakeSystem.cmake
