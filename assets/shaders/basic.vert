@@ -7,6 +7,9 @@ layout (location = 2) in vec3 aColor;
 uniform mat4 uModel;
 uniform mat4 uView;
 uniform mat4 uProjection;
+uniform bool uUseObjectScale;
+uniform float uObjectScale;
+uniform vec3 uObjectScaleOrigin;
 
 out vec3 FragPos;
 out vec3 Normal;
@@ -15,7 +18,11 @@ out vec3 VertexColor;
 void main()
 {
     // 计算世界空间中的片段位置
-    FragPos = vec3(uModel * vec4(aPos, 1.0));
+    vec3 worldPos = vec3(uModel * vec4(aPos, 1.0));
+    if (uUseObjectScale) {
+        worldPos = (worldPos - uObjectScaleOrigin) * uObjectScale + uObjectScaleOrigin;
+    }
+    FragPos = worldPos;
     
     // 将法线变换到世界空间（使用法线矩阵避免非均匀缩放问题）
     Normal = mat3(transpose(inverse(uModel))) * aNormal;

@@ -30,14 +30,11 @@ SceneEditor::SceneEditor()
       m_currentObjectType(ObjectType::HOUSE),
       m_objectsHiddenForGame(false),
       m_boatPlaced(false),
-      m_boatPlacedPosition(0.0f) {
+      m_boatPlacedPosition(0.0f),
+      m_currentGridZ(INITIAL_GRID_SIZE_Z) {
       
-    // 默认全空
-    for (int x = 0; x < GRID_SIZE; ++x) {
-        for (int z = 0; z < GRID_SIZE; ++z) {
-            m_terrainGrid[x][z] = TerrainType::EMPTY;
-        }
-    }
+    // 初始化动态网格为320x320，默认全空
+    m_terrainGrid.resize(GRID_SIZE_X, std::vector<TerrainType>(INITIAL_GRID_SIZE_Z, TerrainType::EMPTY));
 }
 
 SceneEditor::~SceneEditor() {
@@ -74,11 +71,13 @@ public:
 void SceneEditor::init(float aspectRatio) {
     // 创建三种相机
     m_orthoCamera = new OrthographicCamera(0.0f, 0.0f, 160.0f, 160.0f);
-    m_orthoCamera->setHeight(140.0f); // 拉高视角
-    
-    // 初始位置调整，使其能看到默认生成的江南水乡
-    m_orbitCamera = new OrbitCamera(glm::vec3(0.0f, 0.0f, 0.0f), 35.0f, 45.0f, aspectRatio);
-    m_orbitCamera->setAngles(45.0f, 55.0f);
+    m_orthoCamera->setHeight(140.0f);
+
+    // 建筑模式：更广 FOV、更远距离与更深远裁剪，营造真实空间感
+    m_orbitCamera = new OrbitCamera(glm::vec3(0.0f, 0.0f, 0.0f), 48.0f, 60.0f, aspectRatio);
+    m_orbitCamera->setDistanceLimits(8.0f, 120.0f);
+    m_orbitCamera->setClipPlanes(0.1f, 3200.0f);  // 适应扩展的Z尺寸
+    m_orbitCamera->setAngles(225.0f, 38.0f);
     
     m_followCamera = new FollowCamera(45.0f, aspectRatio);
     
@@ -88,17 +87,18 @@ void SceneEditor::init(float aspectRatio) {
     
     // 创建船只 (暂不初始化位置，等待放置或生成)
     m_boat = new Boat(glm::vec3(0.0f, -100.0f, 0.0f), 0.0f); // 初始藏起来
-    float halfExtent = GRID_SIZE * CELL_SIZE * 0.5f;
-    m_boat->setBounds(-halfExtent, halfExtent, -halfExtent, halfExtent);
+    float halfExtentX = GRID_SIZE_X * CELL_SIZE * 0.5f;
+    float halfExtentZ = INITIAL_GRID_SIZE_Z * CELL_SIZE * 0.5f;  // 初始Z尺寸
+    m_boat->setBounds(-halfExtentX, halfExtentX, -halfExtentZ, halfExtentZ);
     
     // 设置地形碰撞回调
     m_boat->setCollisionPredicate([this](float x, float z) {
         float cell = CELL_SIZE;
-        int gx = static_cast<int>(std::floor(x / cell + GRID_SIZE / 2.0f));
-        int gz = static_cast<int>(std::floor(z / cell + GRID_SIZE / 2.0f));
+        int gx = static_cast<int>(std::floor(x / cell + GRID_SIZE_X / 2.0f));
+        int gz = static_cast<int>(std::floor(z / cell + m_currentGridZ / 2.0f));
         
         // 越界视为碰撞
-        if (gx < 0 || gx >= GRID_SIZE || gz < 0 || gz >= GRID_SIZE) return false;
+        if (gx < 0 || gx >= GRID_SIZE_X || gz < 0 || gz >= m_currentGridZ) return false;
         
         // 只有 WATER 视为安全
         return m_terrainGrid[gx][gz] == TerrainType::WATER;
@@ -127,21 +127,21 @@ void SceneEditor::initializeTerrainLayout() {
     // 我们保留边缘为 EMPTY，中间为场景？
     // 为了匹配 Sec 的效果，我们将整个 GRID 填满。
     
-    for (int x = 0; x < GRID_SIZE; ++x) {
-        for (int z = 0; z < GRID_SIZE; ++z) {
+    for (int x = 0; x < GRID_SIZE_X; ++x) {
+        for (int z = 0; z < INITIAL_GRID_SIZE_Z; ++z) {
             m_terrainGrid[x][z] = TerrainType::WATER; // 先铺满水，类似威尼斯/江南
         }
     }
     
     // 定义河道宽度和岸线厚度
-    const int riverWidth = static_cast<int>(GRID_SIZE * 0.25f);   // 中央河道宽 25%
+    const int riverWidth = static_cast<int>(GRID_SIZE_X * 0.25f);   // 中央河道宽 25%
     const int bankWidth = 3;                                    // 石质河岸厚度
-    const int center = GRID_SIZE / 2;
+    const int center = GRID_SIZE_X / 2;
     m_riverStartColumn = center - riverWidth / 2;
     m_riverEndColumn = m_riverStartColumn + riverWidth;
     
     // 生成陆地
-    for (int x = 0; x < GRID_SIZE; ++x) {
+    for (int x = 0; x < GRID_SIZE_X; ++x) {
         TerrainType columnType;
         if (x >= m_riverStartColumn && x < m_riverEndColumn) {
             columnType = TerrainType::WATER; // 河道
@@ -154,43 +154,53 @@ void SceneEditor::initializeTerrainLayout() {
             columnType = TerrainType::GRASS; // 城镇陆地
         }
         
-        for (int z = 0; z < GRID_SIZE; ++z) {
+        for (int z = 0; z < INITIAL_GRID_SIZE_Z; ++z) {
             m_terrainGrid[x][z] = columnType;
         }
     }
     
     // 在石岸上加几段码头/广场
-    int plazaDepth = GRID_SIZE / 5;
-    for (int z = GRID_SIZE / 3; z < GRID_SIZE / 3 + plazaDepth; ++z) {
+    int plazaDepth = INITIAL_GRID_SIZE_Z / 5;
+    for (int z = INITIAL_GRID_SIZE_Z / 3; z < INITIAL_GRID_SIZE_Z / 3 + plazaDepth; ++z) {
         for (int x = m_riverStartColumn - bankWidth - 3; x < m_riverStartColumn - bankWidth; ++x) {
             if (x >= 0) m_terrainGrid[x][z] = TerrainType::STONE;
         }
         for (int x = m_riverEndColumn + bankWidth; x < m_riverEndColumn + bankWidth + 3; ++x) {
-            if (x < GRID_SIZE) m_terrainGrid[x][z] = TerrainType::STONE;
+            if (x < GRID_SIZE_X) m_terrainGrid[x][z] = TerrainType::STONE;
         }
     }
     
+    // 扩展Z方向10倍，复制模式
+    int newZ = INITIAL_GRID_SIZE_Z * 10;
+    for (int x = 0; x < GRID_SIZE_X; ++x) {
+        m_terrainGrid[x].resize(newZ);
+        for (int z = INITIAL_GRID_SIZE_Z; z < newZ; ++z) {
+            m_terrainGrid[x][z] = m_terrainGrid[x][z % INITIAL_GRID_SIZE_Z];  // 复制地形模式
+        }
+    }
+    m_currentGridZ = newZ;
+
+    // 按需求：保留船前方全部，删除船后方 4/5
+    trimBackSection();
+    
     // 标记船只放置状态（默认场景没有船，或者我们可以放一艘？）
     // Sec 在 init 里 placeBoat。我们可以放一艘在河中心。
-    float riverCenterX = (m_riverStartColumn + m_riverEndColumn) * 0.5f * CELL_SIZE - (GRID_SIZE / 2.0f * CELL_SIZE) + CELL_SIZE * 0.5f;
+    float riverCenterX = (m_riverStartColumn + m_riverEndColumn) * 0.5f * CELL_SIZE - (GRID_SIZE_X / 2.0f * CELL_SIZE) + CELL_SIZE * 0.5f;
     float centerZ = 0.0f;
     
     // 初始放置船只在河中心
     glm::vec3 initialBoatPos(riverCenterX, 0.2f, centerZ);
-    float initialBoatRot = 270.0f; // 船头沿河道方向
+    float initialBoatRot = 0.0f; // 船头右转90度
     
     m_boat->setPosition(initialBoatPos);
     m_boat->setRotation(initialBoatRot);
     m_boatPlaced = true;
     m_boatPlacedPosition = initialBoatPos;
     m_boatPlacedRotation = initialBoatRot;
-    // 同时添加到对象列表以便渲染（如果是 ObjectType::BOAT）
-    // 但 BoatRenderer 单独处理 boat，这里 m_boat 是物理对象。
-    // 我们需要在 ObjectRenderer 里渲染它吗？
-    // BoatRenderer 负责渲染 m_boat 实例。
-    // 但是 placeObject(BOAT) 会添加一个静态模型标记？
-    // WaterTown 中，placeObject(BOAT) 会更新 m_boatPlaced。
-    // 这里我们直接设置好物理船。
+    // 更新船只边界以适应扩展的网格
+    float halfExtentX = GRID_SIZE_X * CELL_SIZE * 0.5f;
+    float halfExtentZ = m_currentGridZ * CELL_SIZE * 0.5f;
+    m_boat->setBounds(-halfExtentX, halfExtentX, -halfExtentZ, halfExtentZ);
     
     // 清空历史记录
     m_terrainHistory.clear();
@@ -255,14 +265,15 @@ void SceneEditor::updateWaterMesh() {
     // 收集所有 WATER 类型的格子，生成网格数据传给 WaterSurface
     std::vector<float> vertices; 
     
-    float halfSize = GRID_SIZE / 2.0f;
+    float halfSizeX = GRID_SIZE_X / 2.0f;
+    float halfSizeZ = m_currentGridZ / 2.0f;
     float uvScale = 0.1f; // UV 缩放因子
     
-    for (int x = 0; x < GRID_SIZE; ++x) {
-        for (int z = 0; z < GRID_SIZE; ++z) {
+    for (int x = 0; x < GRID_SIZE_X; ++x) {
+        for (int z = 0; z < m_currentGridZ; ++z) {
             if (m_terrainGrid[x][z] == TerrainType::WATER) {
-                float x0 = (x - halfSize) * CELL_SIZE;
-                float z0 = (z - halfSize) * CELL_SIZE;
+                float x0 = (x - halfSizeX) * CELL_SIZE;
+                float z0 = (z - halfSizeZ) * CELL_SIZE;
                 float x1 = x0 + CELL_SIZE;
                 float z1 = z0 + CELL_SIZE;
                 float y = 0.0f; // Base level
@@ -351,6 +362,7 @@ void SceneEditor::switchMode(EditorMode mode) {
         }
     }
     else if (mode == EditorMode::GAME) {
+        snapObjectsToTerrain();
         if (m_boat && m_followCamera) {
             m_followCamera->setTarget(m_boat->getPosition(), m_boat->getRotation());
             // 使用 getDesiredPosition 计算考虑船朝向后的正确相机位置
@@ -387,9 +399,9 @@ void SceneEditor::updateAspectRatio(float aspectRatio) {
 void SceneEditor::removeObjectsOnWaterExceptBoat() {
     auto isWaterCell = [&](const glm::vec3& p) {
         float cell = CELL_SIZE;
-        int gx = static_cast<int>(std::floor(p.x / cell + GRID_SIZE / 2.0f));
-        int gz = static_cast<int>(std::floor(p.z / cell + GRID_SIZE / 2.0f));
-        if (gx < 0 || gx >= GRID_SIZE || gz < 0 || gz >= GRID_SIZE) return false;
+        int gx = static_cast<int>(std::floor(p.x / cell + GRID_SIZE_X / 2.0f));
+        int gz = static_cast<int>(std::floor(p.z / cell + m_currentGridZ / 2.0f));
+        if (gx < 0 || gx >= GRID_SIZE_X || gz < 0 || gz >= m_currentGridZ) return false;
         return m_terrainGrid[gx][gz] == TerrainType::WATER;
     };
 
@@ -417,7 +429,7 @@ void SceneEditor::removeObjectsOnWaterExceptBoat() {
 }
 
 void SceneEditor::placeTerrain(int gridX, int gridZ, TerrainType type) {
-    if (gridX < 0 || gridX >= GRID_SIZE || gridZ < 0 || gridZ >= GRID_SIZE) return;
+    if (gridX < 0 || gridX >= GRID_SIZE_X || gridZ < 0 || gridZ >= m_currentGridZ) return;
     
     TerrainType oldType = m_terrainGrid[gridX][gridZ];
     if (oldType == type) return; // 无变化
@@ -436,26 +448,37 @@ void SceneEditor::placeTerrain(int gridX, int gridZ, TerrainType type) {
 }
 
 void SceneEditor::placeObject(ObjectType type, const glm::vec3& position) {
+    // 仅允许陆地建筑类型
+    const bool isAllowed = (type == ObjectType::HOUSE ||
+                            type == ObjectType::HOUSE_STYLE_1 ||
+                            type == ObjectType::HOUSE_STYLE_2 ||
+                            type == ObjectType::HOUSE_STYLE_3 ||
+                            type == ObjectType::HOUSE_STYLE_4 ||
+                            type == ObjectType::HOUSE_STYLE_5 ||
+                            type == ObjectType::WALL ||
+                            type == ObjectType::TREE ||
+                            type == ObjectType::BAMBOO ||
+                            type == ObjectType::PLANT_1 ||
+                            type == ObjectType::PLANT_2 ||
+                            type == ObjectType::PLANT_4 ||
+                            type == ObjectType::TEMPLE);
+    if (!isAllowed) {
+        std::cout << "Object type is disabled by building rules." << std::endl;
+        return;
+    }
+
     // 检查是否允许放置
     int gridX, gridZ;
     // 反算 grid
     float cell = CELL_SIZE;
-    gridX = static_cast<int>(std::floor(position.x / cell + GRID_SIZE / 2.0f));
-    gridZ = static_cast<int>(std::floor(position.z / cell + GRID_SIZE / 2.0f));
+    gridX = static_cast<int>(std::floor(position.x / cell + GRID_SIZE_X / 2.0f));
+    gridZ = static_cast<int>(std::floor(position.z / cell + m_currentGridZ / 2.0f));
     
-    if (gridX >= 0 && gridX < GRID_SIZE && gridZ >= 0 && gridZ < GRID_SIZE) {
+    if (gridX >= 0 && gridX < GRID_SIZE_X && gridZ >= 0 && gridZ < m_currentGridZ) {
         TerrainType tType = m_terrainGrid[gridX][gridZ];
         bool isWater = (tType == TerrainType::WATER);
         
-        bool canBeOnWater = (type == ObjectType::BOAT || 
-                             type == ObjectType::BRIDGE || 
-                             type == ObjectType::ARCH_BRIDGE ||
-                             type == ObjectType::WATER_PAVILION ||
-                             type == ObjectType::PIER ||
-                             type == ObjectType::LOTUS_POND ||
-                             type == ObjectType::FISHING_BOAT);
-                             
-        if (isWater && !canBeOnWater) {
+        if (isWater) {
             std::cout << "Cannot place this object on water!" << std::endl;
             return;
         }
@@ -464,7 +487,9 @@ void SceneEditor::placeObject(ObjectType type, const glm::vec3& position) {
     // 记录撤销
     m_objectHistory.push_back({type, position, true}); // isAdd = true
     
-    m_placedObjects.push_back({type, position});
+    glm::vec3 adjustedPos = position;
+    adjustedPos.y = getTerrainHeightAt(position.x, position.z);
+    m_placedObjects.push_back({type, adjustedPos});
     
     if (type == ObjectType::BOAT) {
         m_boat->setPosition(position);
@@ -577,7 +602,7 @@ Camera* SceneEditor::getCurrentCamera() {
 }
 
 TerrainType SceneEditor::getTerrainAt(int gridX, int gridZ) const {
-    if (gridX < 0 || gridX >= GRID_SIZE || gridZ < 0 || gridZ >= GRID_SIZE) return TerrainType::EMPTY;
+    if (gridX < 0 || gridX >= GRID_SIZE_X || gridZ < 0 || gridZ >= m_currentGridZ) return TerrainType::EMPTY;
     return m_terrainGrid[gridX][gridZ];
 }
 
@@ -587,7 +612,62 @@ bool SceneEditor::isWaterAt(int gridX, int gridZ) const {
 
 float SceneEditor::getRiverCenterWorldX() const {
     float centerColumn = (m_riverStartColumn + m_riverEndColumn) * 0.5f;
-    return (centerColumn - GRID_SIZE / 2.0f) * CELL_SIZE;
+    return (centerColumn - GRID_SIZE_X / 2.0f) * CELL_SIZE;
+}
+
+float SceneEditor::getTerrainHeightForType(TerrainType type) const {
+    switch (type) {
+        case TerrainType::GRASS:
+            return 1.0f;
+        case TerrainType::STONE:
+            return 1.1f;
+        case TerrainType::WATER:
+            return WATER_LEVEL;
+        case TerrainType::EMPTY:
+        default:
+            return 0.0f;
+    }
+}
+
+float SceneEditor::getTerrainHeightAt(float worldX, float worldZ) const {
+    float cell = CELL_SIZE;
+    int gridX = static_cast<int>(std::floor(worldX / cell + GRID_SIZE_X / 2.0f));
+    int gridZ = static_cast<int>(std::floor(worldZ / cell + m_currentGridZ / 2.0f));
+    if (gridX < 0 || gridX >= GRID_SIZE_X || gridZ < 0 || gridZ >= m_currentGridZ) {
+        return 0.0f;
+    }
+    return getTerrainHeightForType(getTerrainAt(gridX, gridZ));
+}
+
+void SceneEditor::snapObjectsToTerrain() {
+    for (auto& obj : m_placedObjects) {
+        obj.second.y = getTerrainHeightAt(obj.second.x, obj.second.z);
+    }
+}
+
+void SceneEditor::trimBackSection() {
+    const float totalLengthZ = m_currentGridZ * CELL_SIZE;
+    const float keepMinZ = -0.1f * totalLengthZ; // 后半段保留 1/5
+
+    // 裁剪地形：将后方 4/5 置为空
+    for (int z = 0; z < m_currentGridZ; ++z) {
+        float worldZ = (z - m_currentGridZ / 2.0f) * CELL_SIZE + CELL_SIZE * 0.5f;
+        if (worldZ < keepMinZ) {
+            for (int x = 0; x < GRID_SIZE_X; ++x) {
+                m_terrainGrid[x][z] = TerrainType::EMPTY;
+            }
+        }
+    }
+
+    // 移除被裁剪区域的建筑
+    auto it = std::remove_if(m_placedObjects.begin(), m_placedObjects.end(),
+        [keepMinZ](const std::pair<ObjectType, glm::vec3>& obj) {
+            return obj.second.z < keepMinZ;
+        });
+    m_placedObjects.erase(it, m_placedObjects.end());
+
+    // 更新水面
+    updateWaterMesh();
 }
 
 void SceneEditor::handleGameInput(float forward, float turn) {
@@ -626,10 +706,10 @@ bool SceneEditor::raycastToGround(float screenX, float screenY, int screenWidth,
     glm::vec3 hit = glm::vec3(rayStart) + dir * t;
     
     float cell = CELL_SIZE;
-    outGridX = static_cast<int>(std::floor(hit.x / cell + GRID_SIZE / 2.0f));
-    outGridZ = static_cast<int>(std::floor(hit.z / cell + GRID_SIZE / 2.0f));
+    outGridX = static_cast<int>(std::floor(hit.x / cell + GRID_SIZE_X / 2.0f));
+    outGridZ = static_cast<int>(std::floor(hit.z / cell + m_currentGridZ / 2.0f));
     
-    return (outGridX >= 0 && outGridX < GRID_SIZE && outGridZ >= 0 && outGridZ < GRID_SIZE);
+    return (outGridX >= 0 && outGridX < GRID_SIZE_X && outGridZ >= 0 && outGridZ < m_currentGridZ);
 }
 
 void SceneEditor::handleMouseClick(float screenX, float screenY, int screenWidth, int screenHeight) {
@@ -639,9 +719,10 @@ void SceneEditor::handleMouseClick(float screenX, float screenY, int screenWidth
             placeTerrain(gx, gz, m_currentTerrainType);
         } else if (m_currentMode == EditorMode::BUILDING) {
             float cell = CELL_SIZE;
-            float wx = (gx - GRID_SIZE / 2.0f) * cell + cell * 0.5f; // Center of tile
-            float wz = (gz - GRID_SIZE / 2.0f) * cell + cell * 0.5f;
-            placeObject(m_currentObjectType, glm::vec3(wx, 0.0f, wz));
+            float wx = (gx - GRID_SIZE_X / 2.0f) * cell + cell * 0.5f; // Center of tile
+            float wz = (gz - m_currentGridZ / 2.0f) * cell + cell * 0.5f;
+            float wy = getTerrainHeightForType(getTerrainAt(gx, gz));
+            placeObject(m_currentObjectType, glm::vec3(wx, wy, wz));
         }
     }
 }
@@ -696,9 +777,9 @@ bool SceneEditor::saveScene(const std::string& filename) {
     // 简化实现
     std::ofstream out(filename);
     if (!out) return false;
-    out << GRID_SIZE << "\n";
-    for(int i=0; i<GRID_SIZE; ++i) {
-        for(int j=0; j<GRID_SIZE; ++j) {
+    out << GRID_SIZE_X << " " << m_currentGridZ << "\n";
+    for(int i=0; i<GRID_SIZE_X; ++i) {
+        for(int j=0; j<m_currentGridZ; ++j) {
             out << (int)m_terrainGrid[i][j] << " ";
         }
         out << "\n";
@@ -713,11 +794,11 @@ bool SceneEditor::saveScene(const std::string& filename) {
 bool SceneEditor::loadScene(const std::string& filename) {
     std::ifstream in(filename);
     if (!in) return false;
-    int size;
-    in >> size;
-    if (size != GRID_SIZE) return false;
-    for(int i=0; i<GRID_SIZE; ++i) {
-        for(int j=0; j<GRID_SIZE; ++j) {
+    int sizeX, sizeZ;
+    in >> sizeX >> sizeZ;
+    if (sizeX != GRID_SIZE_X || sizeZ > m_currentGridZ) return false;  // 只加载兼容的
+    for(int i=0; i<sizeX; ++i) {
+        for(int j=0; j<sizeZ; ++j) {
             int t; in >> t; m_terrainGrid[i][j] = (TerrainType)t;
         }
     }
@@ -729,6 +810,8 @@ bool SceneEditor::loadScene(const std::string& filename) {
         in >> t >> x >> y >> z;
         m_placedObjects.push_back({(ObjectType)t, glm::vec3(x,y,z)});
     }
+    trimBackSection();
+    snapObjectsToTerrain();
     updateWaterMesh();
     return true;
 }

@@ -21,6 +21,12 @@ uniform vec2 uBoatForwardXZ;
 uniform vec2 uBoatHalfExtentsXZ;
 uniform float uBoatCutoutFeather;
 
+// 船尾波浪粒子系统
+uniform int uWakeCount;
+uniform vec3 uWakePos[20];
+uniform float uWakeAmplitude[20];
+uniform float uBoatSpeed;  // 船速，用于动态调整wake影响范围
+
 out vec4 FragColor;
 
 const vec3 deepWaterColor = vec3(0.0, 0.1, 0.3);
@@ -33,6 +39,25 @@ float fresnelSchlick(float cosTheta, float F0) {
 }
 
 void main() {
+    // 应用船尾波浪粒子效果（范围随船速变化，使用四次方）
+    vec3 wakeAdjustedPos = FragPos;
+    float speedFactor = clamp(uBoatSpeed / 15.0, 0.0, 1.0);
+    speedFactor = speedFactor * speedFactor * speedFactor * speedFactor;  // 四次方
+    
+    if (uBoatSpeed > 4.0) {  // 超过4 m/s显示wake效果
+        // 从0.01开始映射
+        float scaledFactor = 0.01 + speedFactor * 0.99;  // 0.01 -> 1.0
+        float wakeRange = scaledFactor * 10.0;  // 最小0.1m，最大10m
+        
+        for (int i = 0; i < uWakeCount; i++) {
+            float dist = distance(FragPos.xz, uWakePos[i].xz);
+            if (dist < wakeRange) {
+                float wakeHeight = uWakeAmplitude[i] * scaledFactor * 2.0 * exp(-dist * 0.3);
+                wakeAdjustedPos.y += wakeHeight;
+            }
+        }
+    }
+    
     // 船只附近水面裁剪：避免水出现在船板/船舱视线里
     float cutoutMask = 1.0;
     if (uUseBoatCutout == 1) {
@@ -69,7 +94,7 @@ void main() {
     }
 
     vec3 norm = normalize(Normal);
-    vec3 viewDir = normalize(uViewPos - FragPos);
+    vec3 viewDir = normalize(uViewPos - wakeAdjustedPos);
     vec3 lightDir = normalize(uLightDir);
     
     // === 1. 菲涅尔效应 ===
@@ -104,8 +129,14 @@ void main() {
     // 透明度（基于菲涅尔效应）
     float alpha = mix(0.7, 0.95, fresnel);
     if (uUseBoatCutout == 1) {
+        // 在cutout边缘区域平滑混合颜色
+        // cutoutMask接近0时增加深水颜色，使边界不那么明显
+        if (cutoutMask < 0.8) {
+            float edgeFactor = cutoutMask / 0.8;
+            color = mix(deepWaterColor * 0.5, color, edgeFactor);
+        }
         alpha *= cutoutMask;
-        if (alpha <= 0.01) discard;
+        if (alpha <= 0.02) discard;
     }
     
     FragColor = vec4(color, alpha);

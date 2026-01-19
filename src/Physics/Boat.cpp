@@ -9,7 +9,7 @@
 namespace WaterTown {
 
 Boat::Boat(const glm::vec3& position, float rotation)
-    : m_position(position), m_rotation(rotation), m_speed(0.0f),
+    : m_position(position), m_lastSafePosition(position), m_hasLastSafePosition(true), m_rotation(rotation), m_speed(0.0f),
       m_angularVelocity(0.0f), m_pitch(0.0f), m_roll(0.0f),
       m_forwardInput(0.0f), m_turnInput(0.0f), m_hasBounds(false),
       m_minX(-100.0f), m_maxX(100.0f), m_minZ(-100.0f), m_maxZ(100.0f) {
@@ -17,10 +17,11 @@ Boat::Boat(const glm::vec3& position, float rotation)
 
 void Boat::update(float deltaTime, WaterSurface* waterSurface, float currentTime) {
     // 更新运动
+    glm::vec3 prevPos = m_position;
     updateMotion(deltaTime);
     
     // 检查碰撞
-    handleCollisions();
+    handleCollisions(prevPos);
     
     // 更新浮力和姿态
     if (waterSurface) {
@@ -35,30 +36,41 @@ void Boat::processInput(float forward, float turn) {
 }
 
 void Boat::updateMotion(float deltaTime) {
-    // 加速/减速
+    // 目标速度（油门）+ 平滑响应
+    float targetSpeed = m_forwardInput * MAX_SPEED;
+    float throttleLerp = 1.0f - std::exp(-THROTTLE_SMOOTH * deltaTime);
+    float desiredSpeed = m_speed + (targetSpeed - m_speed) * throttleLerp;
+
+    // 推进/阻力
     if (std::abs(m_forwardInput) > 0.01f) {
-        float targetSpeed = m_forwardInput * MAX_SPEED;
-        float accel = (targetSpeed > m_speed) ? ACCELERATION : DECELERATION;
-        m_speed += (targetSpeed - m_speed) * accel * deltaTime;
+        float accel = (desiredSpeed > m_speed) ? ACCELERATION : DECELERATION;
+        m_speed += (desiredSpeed - m_speed) * accel * deltaTime;
     } else {
         // 水阻力减速
-        m_speed *= exp(-DRAG * deltaTime);
+        m_speed *= std::exp(-DRAG * deltaTime);
         if (std::abs(m_speed) < 0.01f) m_speed = 0.0f;
     }
-    
-    // 转向（转向速度与前进速度相关）
+
+    // 转向惯性（更真实）
     float speedFactor = std::min(std::abs(m_speed) / MAX_SPEED, 1.0f);
-    m_angularVelocity = m_turnInput * TURN_SPEED * speedFactor;
+    float desiredYawRate = m_turnInput * TURN_SPEED * speedFactor;
+    float yawAccel = (desiredYawRate - m_angularVelocity) * TURN_ACCEL;
+    m_angularVelocity += yawAccel * deltaTime;
+    m_angularVelocity *= std::exp(-TURN_DAMPING * deltaTime);
     m_rotation += m_angularVelocity * deltaTime;
     
     // 保持旋转角度在 [0, 360) 范围
     if (m_rotation < 0.0f) m_rotation += 360.0f;
     if (m_rotation >= 360.0f) m_rotation -= 360.0f;
     
+    // 转弯时限速，避免“滑轨”感
+    float turnPenalty = 1.0f - std::min(std::abs(m_angularVelocity) / TURN_SPEED, 1.0f) * TURN_SPEED_FACTOR;
+    float effectiveSpeed = m_speed * std::max(0.35f, turnPenalty);
+
     // 更新位置
     float rotRad = glm::radians(m_rotation);
     glm::vec3 forward(sin(rotRad), 0.0f, cos(rotRad));
-    m_position += forward * m_speed * deltaTime;
+    m_position += forward * effectiveSpeed * deltaTime;
     
     // 轻微的左右摇晃（前进时）
     if (std::abs(m_speed) > 0.1f) {
@@ -120,7 +132,7 @@ void Boat::syncToWaterSurface(WaterSurface* waterSurface, float currentTime) {
     updateBuoyancy(waterSurface, currentTime);
 }
 
-void Boat::handleCollisions() {
+void Boat::handleCollisions(const glm::vec3& prevPosition) {
     // 地形碰撞检测 (回调)
     if (m_collisionPredicate) {
         // 多点检测：船头、船尾、左舷、右舷
@@ -139,31 +151,28 @@ void Boat::handleCollisions() {
             m_position + right * checkDistSide     // Starboard
         };
 
-        bool collided = false;
-        glm::vec3 collisionNormal(0.0f);
+        bool inWater = true;
 
         for(int i=0; i<4; ++i) {
             if (!m_collisionPredicate(checkPoints[i].x, checkPoints[i].z)) {
-                collided = true;
-                // 推算反向法线：该点相对于中心的相反方向
-                collisionNormal -= glm::normalize(checkPoints[i] - m_position);
+                inWater = false;
+                break;
             }
         }
-        
-        if (collided) {
-            if (glm::length(collisionNormal) > 0.001f) {
-                collisionNormal = glm::normalize(collisionNormal);
-            } else {
-                // 如果法线抵消（也可能嵌入），默认反向移动
-                float sign = (m_speed >= 0.0f) ? 1.0f : -1.0f;
-                collisionNormal = -forward * sign;
-            }
 
-            // 强力推回
-            m_position += collisionNormal * 0.5f; 
-            
-            // 反弹
-            m_speed *= -0.5f;
+        if (inWater) {
+            m_lastSafePosition = m_position;
+            m_hasLastSafePosition = true;
+        } else {
+            // 不允许上岸：回退到最近安全位置
+            if (m_hasLastSafePosition) {
+                m_position = m_lastSafePosition;
+            } else {
+                m_position = prevPosition;
+            }
+            m_speed = 0.0f;
+            m_angularVelocity = 0.0f;
+            return;
         }
     }
 
@@ -208,6 +217,31 @@ void Boat::handleCollisions() {
             float pushAmount = minDist - distance;
             m_position += pushDir * pushAmount;
             m_speed *= 0.3f;  // 碰撞后减速
+        }
+    }
+
+    // 障碍物/边界处理后再次验证是否仍在水域
+    if (m_collisionPredicate) {
+        float rotRad = glm::radians(m_rotation);
+        glm::vec3 forward(sin(rotRad), 0.0f, cos(rotRad));
+        glm::vec3 right(cos(rotRad), 0.0f, -sin(rotRad));
+        float checkDistLong = BOAT_LENGTH * 0.6f;
+        float checkDistSide = BOAT_WIDTH * 0.8f;
+        glm::vec3 checkPoints[4] = {
+            m_position + forward * checkDistLong,
+            m_position - forward * checkDistLong,
+            m_position - right * checkDistSide,
+            m_position + right * checkDistSide
+        };
+        for (int i = 0; i < 4; ++i) {
+            if (!m_collisionPredicate(checkPoints[i].x, checkPoints[i].z)) {
+                if (m_hasLastSafePosition) {
+                    m_position = m_lastSafePosition;
+                }
+                m_speed = 0.0f;
+                m_angularVelocity = 0.0f;
+                break;
+            }
         }
     }
 }

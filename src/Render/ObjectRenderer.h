@@ -93,6 +93,9 @@ private:
     void renderLongHouse(const glm::vec3& position, float rotation, Shader* shader);
     void renderBridge(const glm::vec3& position, float rotation, Shader* shader);
     void renderTree(const glm::vec3& position, float rotation, Shader* shader);
+    void renderPlant1(const glm::vec3& position, float rotation, Shader* shader);
+    void renderPlant2(const glm::vec3& position, float rotation, Shader* shader);
+    void renderPlant4(const glm::vec3& position, float rotation, Shader* shader);
     void renderWall(const glm::vec3& position, float rotation, Shader* shader);
     void renderPavilion(const glm::vec3& position, float rotation, Shader* shader);
     void renderArchBridge(const glm::vec3& position, float rotation, Shader* shader);

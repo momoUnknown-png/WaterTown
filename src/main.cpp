@@ -12,6 +12,8 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <imgui.h>
 #include <iostream>
+#include <vector>
+#include <cmath>
 
 using namespace WaterTown;
 
@@ -35,9 +37,12 @@ protected:
         // 加载着色器
         m_shader = new Shader("assets/shaders/basic.vert", "assets/shaders/basic.frag");
         m_waterShader = new Shader("assets/shaders/water.vert", "assets/shaders/water.frag");
+        m_skyShader = new Shader("assets/shaders/sky.vert", "assets/shaders/sky.frag");
+        m_cloudShader = new Shader("assets/shaders/clouds.vert", "assets/shaders/clouds.frag");
         
-        // 创建水面
-        m_waterSurface = new WaterSurface(0.0f, 0.0f, 160.0f, 160.0f, 100); // 320 * 0.5 = 160
+        // 创建水面 - 适应扩展的网格 (X:160, Z:1600)
+        // 降低分辨率从 100 到 40 以提升性能
+        m_waterSurface = new WaterSurface(0.0f, 0.0f, 160.0f, 1600.0f, 40);
         m_waterSurface->setBaseHeight(SceneEditor::WATER_LEVEL);  // 水面高度
         
         // 创建场景编辑器
@@ -50,10 +55,14 @@ protected:
         m_boatRenderer = new BoatRenderer();
         
         // 创建地形渲染器
-        m_terrainRenderer = new TerrainRenderer(SceneEditor::GRID_SIZE);
+        m_terrainRenderer = new TerrainRenderer(SceneEditor::GRID_SIZE_X, SceneEditor::INITIAL_GRID_SIZE_Z);
         
         // 创建物体渲染器
         m_objectRenderer = new ObjectRenderer();
+
+        // 创建云朵网格与实例
+        createCloudQuad();
+        initClouds();
         
         // 创建编辑器 UI
         m_editorUI = new EditorUI();
@@ -243,10 +252,76 @@ protected:
             m_sceneEditor->update(deltaTime);
             m_camera = m_sceneEditor->getCurrentCamera();  // 更新当前相机
         }
+
+        // 更新船尾波浪效果
+        if (m_sceneEditor->getBoat()) {
+            auto boat = m_sceneEditor->getBoat();
+            m_waterSurface->updateWake(
+                deltaTime,
+                boat->getPosition(),
+                glm::vec2(sin(glm::radians(boat->getRotation())), 
+                          cos(glm::radians(boat->getRotation()))),
+                boat->getSpeed()  // 获取速度大小
+            );
+        }
+
+        updateClouds(deltaTime);
     }
     
     void onRender() override {
         if (!m_shader || !m_camera) return;
+
+        // === 渲染天空盒 ===
+        if (m_skyShader && m_cubeVAO) {
+            glDepthFunc(GL_LEQUAL);
+            glDepthMask(GL_FALSE);
+
+            m_skyShader->use();
+            glm::mat4 view = glm::mat4(glm::mat3(m_camera->getViewMatrix()));
+            m_skyShader->setMat4("uView", view);
+            m_skyShader->setMat4("uProjection", m_camera->getProjectionMatrix());
+
+            glBindVertexArray(m_cubeVAO);
+            glDrawArrays(GL_TRIANGLES, 0, 36);
+            glBindVertexArray(0);
+
+            glDepthMask(GL_TRUE);
+            glDepthFunc(GL_LESS);
+        }
+
+        // === 渲染云朵 ===
+        if (m_cloudShader && m_cloudVAO) {
+            glEnable(GL_BLEND);
+            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+            glDepthMask(GL_FALSE);
+            glDisable(GL_DEPTH_TEST);
+
+            m_cloudShader->use();
+            m_cloudShader->setMat4("uView", m_camera->getViewMatrix());
+            m_cloudShader->setMat4("uProjection", m_camera->getProjectionMatrix());
+
+            glm::vec3 camPos = m_camera->getPosition();
+            for (const auto& cloud : m_clouds) {
+                glm::vec3 worldPos(camPos.x + cloud.offsetXZ.x, cloud.height, camPos.z + cloud.offsetXZ.y);
+                glm::vec3 toCam = glm::normalize(glm::vec3(camPos.x - worldPos.x, 0.0f, camPos.z - worldPos.z));
+                float yaw = std::atan2(toCam.x, toCam.z);
+
+                glm::mat4 model(1.0f);
+                model = glm::translate(model, worldPos);
+                model = glm::rotate(model, yaw, glm::vec3(0.0f, 1.0f, 0.0f));
+                model = glm::scale(model, glm::vec3(cloud.size, cloud.size * 0.6f, 1.0f));
+                m_cloudShader->setMat4("uModel", model);
+                m_cloudShader->setFloat("uAlpha", cloud.alpha);
+
+                glBindVertexArray(m_cloudVAO);
+                glDrawArrays(GL_TRIANGLES, 0, 6);
+                glBindVertexArray(0);
+            }
+
+            glDepthMask(GL_TRUE);
+            glDisable(GL_BLEND);
+            glEnable(GL_DEPTH_TEST);
+        }
         
         // === 旋转立方体已注释 ===
         // m_shader->use();
@@ -285,7 +360,63 @@ protected:
         // === 渲染水面(仅在非地形编辑模式) ===
         if (m_waterSurface && m_waterShader && m_sceneEditor) {
             if (m_sceneEditor->getCurrentMode() != EditorMode::TERRAIN) {
-                m_waterSurface->render(m_waterShader, m_camera, static_cast<float>(glfwGetTime()));
+                glm::vec3 boatPos(0.0f);
+                glm::vec2 boatForwardXZ(0.0f, 1.0f);
+                glm::vec2 boatHalfExtentsXZ(0.0f);
+                float boatFeather = 0.0f;
+                float boatSpeed = 0.0f;
+
+                EditorMode mode = m_sceneEditor->getCurrentMode();
+                
+                // 获取船速
+                if (mode == EditorMode::GAME && m_sceneEditor->getBoat()) {
+                    boatSpeed = m_sceneEditor->getBoat()->getSpeed();
+                }
+                
+                // 裁剪区域大小与速度成正比，使用四次方让低速时区域极小
+                float speedFactor = glm::clamp(boatSpeed / 15.0f, 0.0f, 1.0f);
+                speedFactor = speedFactor * speedFactor * speedFactor * speedFactor;  // 四次方
+                
+                if (m_boatRenderer && boatSpeed > 4.0f) {  // 超过4 m/s显示
+                    // 超过6 m/s后，从0.01开始映射到1.0
+                    float scaledFactor = 0.01f + speedFactor * 0.99f;  // 0.01 -> 1.0
+                    boatHalfExtentsXZ = m_boatRenderer->getWaterCutoutHalfExtentsXZ(0.35f * scaledFactor);
+                    boatFeather = 0.3f + scaledFactor * 0.5f;
+                } else {
+                    // 速度低于6 m/s时完全禁用
+                    boatHalfExtentsXZ = glm::vec2(0.0f);
+                    boatFeather = 0.0f;
+                }
+
+                if (mode == EditorMode::GAME && m_sceneEditor->getBoat()) {
+                    boatPos = m_sceneEditor->getBoat()->getPosition();
+                    float rot = m_sceneEditor->getBoat()->getRotation();
+                    float rotRad = glm::radians(rot);
+                    boatForwardXZ = glm::vec2(std::sin(rotRad), std::cos(rotRad));
+                } else if (mode == EditorMode::BUILDING && m_sceneEditor->hasBoatPlaced()) {
+                    boatPos = m_sceneEditor->getBoatPlacedPosition();
+                    float rot = m_sceneEditor->getBoatPlacedRotation();
+                    float rotRad = glm::radians(rot);
+                    boatForwardXZ = glm::vec2(std::sin(rotRad), std::cos(rotRad));
+                    // 放置模式下使用固定大小
+                    boatHalfExtentsXZ = m_boatRenderer->getWaterCutoutHalfExtentsXZ(0.35f);
+                    boatFeather = 0.8f;
+                } else {
+                    boatHalfExtentsXZ = glm::vec2(0.0f);
+                    boatFeather = 0.0f;
+                }
+
+                m_waterSurface->render(
+                    m_waterShader,
+                    m_camera,
+                    static_cast<float>(glfwGetTime()),
+                    boatPos,
+                    0.0f,
+                    0.0f,
+                    boatForwardXZ,
+                    boatHalfExtentsXZ,
+                    boatFeather
+                );
             }
         }
         
@@ -322,9 +453,15 @@ protected:
             glDeleteVertexArrays(1, &m_cubeVAO);
             glDeleteBuffers(1, &m_cubeVBO);
         }
+        if (m_cloudVAO) {
+            glDeleteVertexArrays(1, &m_cloudVAO);
+            glDeleteBuffers(1, &m_cloudVBO);
+        }
         
         delete m_shader;
         delete m_waterShader;
+        delete m_skyShader;
+        delete m_cloudShader;
         delete m_waterSurface;
         delete m_sceneEditor;
         delete m_editorUI;
@@ -339,6 +476,8 @@ protected:
 private:
     Shader* m_shader = nullptr;
     Shader* m_waterShader = nullptr;
+    Shader* m_skyShader = nullptr;
+    Shader* m_cloudShader = nullptr;
     WaterSurface* m_waterSurface = nullptr;
     SceneEditor* m_sceneEditor = nullptr;
     EditorUI* m_editorUI = nullptr;
@@ -349,6 +488,18 @@ private:
     
     unsigned int m_cubeVAO = 0;
     unsigned int m_cubeVBO = 0;
+
+    unsigned int m_cloudVAO = 0;
+    unsigned int m_cloudVBO = 0;
+
+    struct CloudInstance {
+        glm::vec2 offsetXZ;
+        float height;
+        float size;
+        float alpha;
+        glm::vec2 velocityXZ;
+    };
+    std::vector<CloudInstance> m_clouds;
     
     bool m_firstMouse = true;
     float m_lastX = 640.0f;
@@ -427,6 +578,57 @@ private:
         glBindVertexArray(0);
         
         std::cout << "Cube VAO/VBO created successfully." << std::endl;
+    }
+
+    void createCloudQuad() {
+        float quad[] = {
+            // positions        // uv
+            -0.5f, 0.0f, 0.0f,  0.0f, 0.0f,
+             0.5f, 0.0f, 0.0f,  1.0f, 0.0f,
+             0.5f, 1.0f, 0.0f,  1.0f, 1.0f,
+
+            -0.5f, 0.0f, 0.0f,  0.0f, 0.0f,
+             0.5f, 1.0f, 0.0f,  1.0f, 1.0f,
+            -0.5f, 1.0f, 0.0f,  0.0f, 1.0f
+        };
+
+        glGenVertexArrays(1, &m_cloudVAO);
+        glGenBuffers(1, &m_cloudVBO);
+
+        glBindVertexArray(m_cloudVAO);
+        glBindBuffer(GL_ARRAY_BUFFER, m_cloudVBO);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(quad), quad, GL_STATIC_DRAW);
+
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+        glEnableVertexAttribArray(0);
+        glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+        glEnableVertexAttribArray(1);
+
+        glBindVertexArray(0);
+    }
+
+    void initClouds() {
+        m_clouds.clear();
+        m_clouds.push_back({glm::vec2(-60.0f, -80.0f), 55.0f, 28.0f, 0.75f, glm::vec2(0.8f, 0.25f)});
+        m_clouds.push_back({glm::vec2(50.0f, -90.0f), 60.0f, 30.0f, 0.7f, glm::vec2(0.6f, 0.2f)});
+        m_clouds.push_back({glm::vec2(-90.0f, -30.0f), 65.0f, 24.0f, 0.65f, glm::vec2(0.7f, 0.3f)});
+        m_clouds.push_back({glm::vec2(70.0f, -40.0f), 58.0f, 26.0f, 0.7f, glm::vec2(0.65f, 0.22f)});
+        m_clouds.push_back({glm::vec2(-30.0f, 60.0f), 62.0f, 32.0f, 0.7f, glm::vec2(0.55f, 0.28f)});
+        m_clouds.push_back({glm::vec2(60.0f, 80.0f), 56.0f, 26.0f, 0.65f, glm::vec2(0.75f, 0.18f)});
+        m_clouds.push_back({glm::vec2(-75.0f, 90.0f), 68.0f, 34.0f, 0.7f, glm::vec2(0.62f, 0.26f)});
+        m_clouds.push_back({glm::vec2(20.0f, 95.0f), 64.0f, 28.0f, 0.65f, glm::vec2(0.58f, 0.2f)});
+    }
+
+    void updateClouds(float deltaTime) {
+        const float bounds = 120.0f;
+        for (auto& cloud : m_clouds) {
+            cloud.offsetXZ += cloud.velocityXZ * deltaTime;
+
+            if (cloud.offsetXZ.x > bounds) cloud.offsetXZ.x = -bounds;
+            if (cloud.offsetXZ.x < -bounds) cloud.offsetXZ.x = bounds;
+            if (cloud.offsetXZ.y > bounds) cloud.offsetXZ.y = -bounds;
+            if (cloud.offsetXZ.y < -bounds) cloud.offsetXZ.y = bounds;
+        }
     }
 };
 

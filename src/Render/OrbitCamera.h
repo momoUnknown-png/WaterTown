@@ -78,6 +78,13 @@ public:
     float getDistance() const { return m_distance; }
     float getYawDegrees() const { return m_yaw; }
     float getPitchDegrees() const { return m_pitch; }
+    void setFov(float fovDegrees) { m_fov = fovDegrees; }
+    float getFov() const { return m_fov; }
+    void setClipPlanes(float nearPlane, float farPlane) { m_near = nearPlane; m_far = farPlane; }
+    void setDistanceLimits(float minDistance, float maxDistance) {
+        m_minDistance = minDistance;
+        m_maxDistance = maxDistance;
+    }
 
 private:
     glm::vec3 m_target;          // 目标点

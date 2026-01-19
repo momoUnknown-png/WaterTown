@@ -4,7 +4,7 @@ namespace WaterTown {
 
 FollowCamera::FollowCamera(float fov, float aspectRatio)
     : m_position(0.0f), m_targetPos(0.0f), m_targetRotation(0.0f),
-      m_offset(0.0f, 12.0f, -25.0f),  // 默认：后上方
+    m_offset(0.0f, 3.0f, -14.0f),  // 默认：降低视角形成仰视感
       m_smoothSpeed(5.0f),
       m_yawOffset(0.0f), m_pitchOffset(0.0f), // 初始化
       m_fov(fov), m_aspectRatio(aspectRatio),

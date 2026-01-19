@@ -56,6 +56,9 @@ enum class ObjectType {
     PIER,           // 码头
     TEMPLE,         // 寺庙
     BAMBOO,         // 竹子
+    PLANT_1,        // 植物1
+    PLANT_2,        // 植物2
+    PLANT_4,        // 植物4
     LOTUS_POND,     // 荷花池
     FISHING_BOAT,   // 渔船
     LANTERN,        // 灯笼
@@ -67,7 +70,8 @@ enum class ObjectType {
  */
 class SceneEditor {
 public:
-    static constexpr int GRID_SIZE = 320;   // 扩大到 320x320
+    static constexpr int GRID_SIZE_X = 320;   // X方向固定尺寸
+    static constexpr int INITIAL_GRID_SIZE_Z = 320; // 初始Z方向尺寸
     static constexpr float CELL_SIZE = 0.5f;
     static constexpr float WATER_LEVEL = 0.0f;
 
@@ -270,9 +274,19 @@ public:
     float getCellSize() const { return CELL_SIZE; }
 
     /**
+     * @brief 获取地形网格尺寸（X 方向）
+     */
+    int getGridSizeX() const { return GRID_SIZE_X; }
+
+    /**
+     * @brief 获取地形网格尺寸（Z 方向，动态扩展）
+     */
+    int getGridSizeZ() const { return m_currentGridZ; }
+
+    /**
      * @brief 获取地形整体世界尺寸（宽/深）
      */
-    float getTerrainWorldSize() const { return GRID_SIZE * CELL_SIZE; }
+    float getTerrainWorldSize() const { return GRID_SIZE_X * CELL_SIZE; }
 
     /**
      * @brief 获取河道世界坐标宽度
@@ -283,6 +297,26 @@ public:
      * @brief 获取河道中心在世界坐标中的X位置
      */
     float getRiverCenterWorldX() const;
+
+    /**
+     * @brief 根据地形类型获取地面高度
+     */
+    float getTerrainHeightForType(TerrainType type) const;
+
+    /**
+     * @brief 根据世界坐标获取地面高度
+     */
+    float getTerrainHeightAt(float worldX, float worldZ) const;
+
+    /**
+     * @brief 将已放置物体贴合到地面
+     */
+    void snapObjectsToTerrain();
+
+    /**
+     * @brief 缩短场景后半段（以船为中心，保留前方全部，删除后方的 4/5）
+     */
+    void trimBackSection();
 
 private:
     /**
@@ -306,8 +340,9 @@ private:
     // 物体渲染器
     ObjectRenderer* m_objectRenderer;
 
-    // 网格数据（简化的地形系统）
-    TerrainType m_terrainGrid[GRID_SIZE][GRID_SIZE];
+    // 动态网格数据（简化的地形系统）
+    std::vector<std::vector<TerrainType>> m_terrainGrid;
+    int m_currentGridZ;  // 当前Z方向尺寸
     
     // 河道范围
     int m_riverStartColumn; // 河道起始列

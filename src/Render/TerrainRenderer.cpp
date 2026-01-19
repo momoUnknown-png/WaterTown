@@ -8,8 +8,8 @@
 
 namespace WaterTown {
 
-TerrainRenderer::TerrainRenderer(int gridSize)
-    : m_gridSize(gridSize), m_planeVAO(0), m_planeVBO(0) {
+TerrainRenderer::TerrainRenderer(int gridSizeX, int gridSizeZ)
+    : m_gridSizeX(gridSizeX), m_gridSizeZ(gridSizeZ), m_planeVAO(0), m_planeVBO(0) {
     glGenVertexArrays(1, &m_planeVAO);
     glGenBuffers(1, &m_planeVBO);
 }
@@ -47,7 +47,7 @@ float TerrainRenderer::getTerrainHeight(TerrainType type) const {
     }
 }
 
-void TerrainRenderer::buildTerrainVertices(SceneEditor* editor, std::vector<TerrainVertex>& outVertices) {
+void TerrainRenderer::buildTerrainVertices(SceneEditor* editor, std::vector<TerrainVertex>& outVertices, const glm::vec3& cameraPos) {
     const float cellSize = SceneEditor::CELL_SIZE;
     const float expand = cellSize * 0.05f; // slight overlap to avoid cracks on the plane
     const glm::vec3 upNormal(0.0f, 1.0f, 0.0f);
@@ -65,9 +65,13 @@ void TerrainRenderer::buildTerrainVertices(SceneEditor* editor, std::vector<Terr
     const glm::vec3 wallColorLight(0.45f, 0.45f, 0.45f);
 
     outVertices.clear();
-    outVertices.reserve(m_gridSize * m_gridSize * 18);
+    outVertices.reserve(m_gridSizeX * m_gridSizeZ * 18);
 
-    auto addQuad = [&](const glm::vec3& v0, const glm::vec3& v1, const glm::vec3& v2, const glm::vec3& v3,
+    const float worldLengthZ = m_gridSizeZ * cellSize;
+    const float renderDistance = worldLengthZ; // 覆盖全部长度，避免远处缺失陆地
+    const float renderDistanceSq = renderDistance * renderDistance;
+
+    auto addQuad = [this, &outVertices](const glm::vec3& v0, const glm::vec3& v1, const glm::vec3& v2, const glm::vec3& v3,
                        const glm::vec3& normal, const glm::vec3& color) {
         outVertices.push_back({v0, normal, color});
         outVertices.push_back({v1, normal, color});
@@ -77,7 +81,7 @@ void TerrainRenderer::buildTerrainVertices(SceneEditor* editor, std::vector<Terr
         outVertices.push_back({v3, normal, color});
     };
 
-    auto addBox = [&](const glm::vec3& minCorner, const glm::vec3& maxCorner, const glm::vec3& color) {
+    auto addBox = [this, &outVertices, &addQuad](const glm::vec3& minCorner, const glm::vec3& maxCorner, const glm::vec3& color) {
         glm::vec3 v000(minCorner.x, minCorner.y, minCorner.z);
         glm::vec3 v001(minCorner.x, minCorner.y, maxCorner.z);
         glm::vec3 v010(minCorner.x, maxCorner.y, minCorner.z);
@@ -95,7 +99,7 @@ void TerrainRenderer::buildTerrainVertices(SceneEditor* editor, std::vector<Terr
         addQuad(v000, v100, v101, v001, glm::vec3(0.0f, -1.0f, 0.0f), color);  // bottom (-Y)
     };
 
-    auto addWallBricks = [&](float minX, float maxX, float minZ, float maxZ, float topHeight, bool alongZ) {
+    auto addWallBricks = [this, &outVertices, &addBox, wallBase, brickScale, wallThickness, verticalGap, horizontalGap, scaledBrickHeight, scaledBrickLength, wallColorDark, wallColorLight](float minX, float maxX, float minZ, float maxZ, float topHeight, bool alongZ) {
         float usableHeight = topHeight - wallBase;
         if (usableHeight <= 0.05f) {
             return;
@@ -147,8 +151,18 @@ void TerrainRenderer::buildTerrainVertices(SceneEditor* editor, std::vector<Terr
         }
     };
 
-    for (int z = 0; z < m_gridSize; ++z) {
-        for (int x = 0; x < m_gridSize; ++x) {
+    for (int z = 0; z < m_gridSizeZ; ++z) {
+        for (int x = 0; x < m_gridSizeX; ++x) {
+            // 距离剔除：只渲染距离相机较近的网格
+            float centerX = (x - m_gridSizeX / 2.0f) * cellSize + cellSize * 0.5f;
+            float centerZ = (z - m_gridSizeZ / 2.0f) * cellSize + cellSize * 0.5f;
+            glm::vec3 tileCenter(centerX, 0.0f, centerZ);
+            glm::vec3 diff = tileCenter - cameraPos;
+            float distSq = glm::dot(diff, diff);
+            if (distSq > renderDistanceSq) {
+                continue;
+            }
+
             TerrainType type = editor->getTerrainAt(x, z);
             // 修改点：同时跳过 WATER 和 EMPTY
             if (type == TerrainType::WATER || type == TerrainType::EMPTY) {
@@ -158,8 +172,8 @@ void TerrainRenderer::buildTerrainVertices(SceneEditor* editor, std::vector<Terr
             float height = getTerrainHeight(type);
             glm::vec3 color = getTerrainColor(type);
 
-            float tileX0 = (x - m_gridSize / 2.0f) * cellSize;
-            float tileZ0 = (z - m_gridSize / 2.0f) * cellSize;
+            float tileX0 = (x - m_gridSizeX / 2.0f) * cellSize;
+            float tileZ0 = (z - m_gridSizeZ / 2.0f) * cellSize;
             float tileX1 = tileX0 + cellSize;
             float tileZ1 = tileZ0 + cellSize;
 
@@ -215,24 +229,67 @@ void TerrainRenderer::render(SceneEditor* editor, Shader* shader, Camera* camera
         return;
     }
 
-    std::vector<TerrainVertex> vertices;
-    buildTerrainVertices(editor, vertices);
-    if (vertices.empty()) {
+    // 同步动态网格尺寸（用于河岸/陆地加长）
+    int newGridSizeX = editor->getGridSizeX();
+    int newGridSizeZ = editor->getGridSizeZ();
+    
+    if (newGridSizeX != m_gridSizeX || newGridSizeZ != m_gridSizeZ) {
+        m_gridSizeX = newGridSizeX;
+        m_gridSizeZ = newGridSizeZ;
+        m_terrainDirty = true;
+    }
+
+    // 在地形编辑模式下强制每帧更新，否则按相机移动更新
+    glm::vec3 cameraPos = camera->getPosition();
+    bool isTerrainEditMode = (editor->getCurrentMode() == EditorMode::TERRAIN);
+    
+    if (isTerrainEditMode) {
+        // 地形编辑模式：每帧更新以实时显示编辑结果
+        m_terrainDirty = true;
+    } else {
+        // 非编辑模式：只在相机移动足够远时更新（性能优化）
+        float cameraMoveDistSq = glm::dot(cameraPos - m_lastCameraPos, cameraPos - m_lastCameraPos);
+        const float rebuildThreshold = 25.0f;  // 相机移动5单位以上才重建
+        
+        if (cameraMoveDistSq > rebuildThreshold * rebuildThreshold) {
+            m_terrainDirty = true;
+            m_lastCameraPos = cameraPos;
+        }
+    }
+
+    // 只有在地形脏时才重建顶点
+    if (m_terrainDirty) {
+        buildTerrainVertices(editor, m_cachedVertices, cameraPos);
+        m_terrainDirty = false;
+    }
+    
+    if (m_cachedVertices.empty()) {
         return;
     }
 
     shader->use();
     shader->setBool("uUseVertexColor", true);
+    shader->setBool("uUseObjectScale", false);
+    shader->setFloat("uObjectScale", 1.0f);
+    shader->setVec3("uObjectScaleOrigin", 0.0f, 0.0f, 0.0f);
+    shader->setVec3("uLightDir", -0.3f, -1.0f, -0.2f);
+    shader->setVec3("uLightColor", 1.0f, 0.98f, 0.95f);
+    shader->setVec3("uSkyColor", 0.6f, 0.75f, 0.95f);
+    shader->setVec3("uGroundColor", 0.35f, 0.3f, 0.25f);
+    shader->setFloat("uAmbientStrength", 0.35f);
+    shader->setBool("uUseFog", true);
+    shader->setVec3("uFogColor", 0.7f, 0.8f, 0.9f);
+    shader->setFloat("uFogDensity", 0.0025f);
+    shader->setVec3("uBottomTintColor", 0.2f, 0.45f, 0.65f);
+    shader->setFloat("uBottomTintStrength", 0.0f);
     shader->setMat4("uModel", glm::mat4(1.0f));
     shader->setMat4("uView", camera->getViewMatrix());
     shader->setMat4("uProjection", camera->getProjectionMatrix());
     shader->setVec3("uViewPos", camera->getPosition());
-    shader->setVec3("uLightPos", 10.0f, 50.0f, 10.0f);
-    shader->setVec3("uLightColor", 1.0f, 1.0f, 1.0f);
 
     glBindVertexArray(m_planeVAO);
     glBindBuffer(GL_ARRAY_BUFFER, m_planeVBO);
-    glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(TerrainVertex), vertices.data(), GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, m_cachedVertices.size() * sizeof(TerrainVertex), m_cachedVertices.data(), GL_DYNAMIC_DRAW);
 
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(TerrainVertex), (void*)0);
     glEnableVertexAttribArray(0);
@@ -241,7 +298,7 @@ void TerrainRenderer::render(SceneEditor* editor, Shader* shader, Camera* camera
     glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(TerrainVertex), (void*)(2 * sizeof(glm::vec3)));
     glEnableVertexAttribArray(2);
 
-    glDrawArrays(GL_TRIANGLES, 0, static_cast<GLsizei>(vertices.size()));
+    glDrawArrays(GL_TRIANGLES, 0, static_cast<GLsizei>(m_cachedVertices.size()));
 
     glBindVertexArray(0);
     shader->setBool("uUseVertexColor", false);

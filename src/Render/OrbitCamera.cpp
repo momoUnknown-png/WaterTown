@@ -7,7 +7,7 @@ OrbitCamera::OrbitCamera(glm::vec3 target, float distance, float fov, float aspe
     : m_target(target), m_distance(distance), m_fov(fov), m_aspectRatio(aspectRatio),
       m_yaw(45.0f), m_pitch(30.0f),
       m_near(0.1f), m_far(1000.0f),
-      m_minDistance(2.0f), m_maxDistance(50.0f),
+    m_minDistance(2.0f), m_maxDistance(120.0f),
       m_minPitch(5.0f), m_maxPitch(85.0f) {
 }
 

@@ -1,4 +1,5 @@
 #include "WaterSurface.h"
+#include "BoatWake.h"
 #include "../Render/Shader.h"
 #include "../Render/Camera.h"
 #include <glm/gtc/matrix_transform.hpp>
@@ -11,7 +12,8 @@ namespace WaterTown {
 WaterSurface::WaterSurface(float centerX, float centerZ, float width, float height, int resolution)
     : m_centerX(centerX), m_centerZ(centerZ), m_width(width), m_height(height),
       m_baseHeight(0.0f), m_resolution(resolution), m_VAO(0), m_VBO(0), m_EBO(0),
-      m_vertexCount(0), m_indexCount(0), m_useCustomMesh(false) {
+      m_vertexCount(0), m_indexCount(0), m_useCustomMesh(false),
+      m_wakeSystem(std::make_unique<BoatWake>()) {
     
     // 初始化默认波浪参数（4 个不同方向的波浪）
     m_waves.push_back({glm::vec2(1.0f, 0.0f), 0.15f, 2.0f, 1.0f, 0.3f});
@@ -185,6 +187,22 @@ void WaterSurface::render(Shader* shader,
     shader->setVec2("uBoatHalfExtentsXZ", boatHalfExtentsXZ);
     shader->setFloat("uBoatCutoutFeather", boatCutoutFeather);
     
+    // 船尾波浪粒子系统
+    if (m_wakeSystem) {
+        const auto& particles = m_wakeSystem->getParticles();
+        int wakeCount = std::min(static_cast<int>(particles.size()), 20);
+        shader->setInt("uWakeCount", wakeCount);
+        shader->setFloat("uBoatSpeed", m_wakeSystem->getCurrentBoatSpeed());
+        
+        for (int i = 0; i < wakeCount; ++i) {
+            shader->setVec3("uWakePos[" + std::to_string(i) + "]", particles[i].position);
+            shader->setFloat("uWakeAmplitude[" + std::to_string(i) + "]", particles[i].amplitude);
+        }
+    } else {
+        shader->setInt("uWakeCount", 0);
+        shader->setFloat("uBoatSpeed", 0.0f);
+    }
+    
     // 启用混合（半透明效果）
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -234,6 +252,23 @@ void WaterSurface::setWaveParameters(int waveCount, float amplitude, float wavel
         wave.speed = speed * (1.0f - i * 0.15f);
         wave.steepness = 0.3f;
         m_waves.push_back(wave);
+    }
+}
+
+} // namespace WaterTown
+
+namespace WaterTown {
+
+void WaterSurface::updateWake(float deltaTime, const glm::vec3& boatPos, 
+                                const glm::vec2& boatForward, float boatSpeed) {
+    if (m_wakeSystem) {
+        m_wakeSystem->update(deltaTime, boatPos, boatForward, boatSpeed);
+    }
+}
+
+void WaterSurface::clearWake() {
+    if (m_wakeSystem) {
+        m_wakeSystem->clear();
     }
 }
 

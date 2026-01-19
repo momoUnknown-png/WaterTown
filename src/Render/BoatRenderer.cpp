@@ -197,6 +197,19 @@ void BoatRenderer::render(const Boat* boat, Shader* shader, Camera* camera) {
     }
     
     shader->use();
+    shader->setBool("uUseObjectScale", false);
+    shader->setFloat("uObjectScale", 1.0f);
+    shader->setVec3("uObjectScaleOrigin", boat->getPosition());
+    shader->setVec3("uLightDir", -0.3f, -1.0f, -0.2f);
+    shader->setVec3("uLightColor", 1.0f, 0.98f, 0.95f);
+    shader->setVec3("uSkyColor", 0.6f, 0.75f, 0.95f);
+    shader->setVec3("uGroundColor", 0.35f, 0.3f, 0.25f);
+    shader->setFloat("uAmbientStrength", 0.35f);
+    shader->setBool("uUseFog", true);
+    shader->setVec3("uFogColor", 0.7f, 0.8f, 0.9f);
+    shader->setFloat("uFogDensity", 0.0025f);
+    shader->setVec3("uBottomTintColor", 0.2f, 0.45f, 0.65f);
+    shader->setFloat("uBottomTintStrength", 0.6f);
     
     // 获取船只位置和旋转
     glm::vec3 position = boat->getPosition();

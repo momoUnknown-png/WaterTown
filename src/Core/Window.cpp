@@ -26,6 +26,9 @@ Window::Window(int width, int height, const char* title)
     
     glfwMakeContextCurrent(m_window);
     
+    // 启用 VSync (垂直同步) 以限制帧率
+    glfwSwapInterval(1);
+    
     // 初始化 GLAD
     if (!initGLAD()) {
         glfwDestroyWindow(m_window);

@@ -3,11 +3,13 @@
 #include <glad/glad.h>
 #include <glm/glm.hpp>
 #include <vector>
+#include <memory>
 
 namespace WaterTown {
 
 class Shader;
 class Camera;
+class BoatWake;
 
 /**
  * @brief 水面渲染类，实现 Gerstner Waves 波浪效果
@@ -35,6 +37,20 @@ public:
     WaterSurface(const WaterSurface&) = delete;
     WaterSurface& operator=(const WaterSurface&) = delete;
     
+    /**
+     * @brief 更新船只尾流系统
+     * @param deltaTime 时间增量
+     * @param boatPos 船只位置
+     * @param boatForward 船只前向（2D归一化向量）
+     * @param boatSpeed 船只速度
+     */
+    void updateWake(float deltaTime, const glm::vec3& boatPos, const glm::vec2& boatForward, float boatSpeed);
+
+    /**
+     * @brief 清空尾流粒子
+     */
+    void clearWake();
+
     /**
      * @brief 渲染水面
      * @param shader 水面着色器
@@ -120,6 +136,9 @@ private:
      * @brief 计算 Gerstner Wave 在指定点的高度
      */
     float calculateGerstnerHeight(float x, float z, float time) const;
+    
+    // 船只尾流系统
+    std::unique_ptr<BoatWake> m_wakeSystem;
 };
 
 } // namespace WaterTown

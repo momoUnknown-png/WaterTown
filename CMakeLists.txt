@@ -8,9 +8,18 @@ cmake_minimum_required(VERSION 3.15)
 project(WaterTown VERSION 1.0.0 LANGUAGES CXX)
 
 # 设置C++标准
-set(CMAKE_CXX_STANDARD 14) #因为我自己的g++版本不够，这里改成了14
+set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
+
+# MSVC 特定设置
+if(MSVC)
+    add_compile_options(
+        /std:c++14           # 明确指定 C++14 标准
+        /utf-8               # 使用 UTF-8 编码，解决中文注释问题
+        /permissive-         # 符合标准模式
+    )
+endif()
 
 # 输出构建信息
 message(STATUS "========================================")
@@ -33,6 +42,12 @@ message(STATUS "All packages found successfully!")
 file(GLOB_RECURSE SOURCES
     "${CMAKE_SOURCE_DIR}/src/*.cpp"
     "${CMAKE_SOURCE_DIR}/src/*.h"
+)
+
+# 确保包含 BoatWake 源文件
+list(APPEND SOURCES
+    "${CMAKE_SOURCE_DIR}/src/Water/BoatWake.cpp"
+    "${CMAKE_SOURCE_DIR}/src/Water/BoatWake.h"
 )
 
 # 显示找到的源文件

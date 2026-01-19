@@ -114,6 +114,8 @@ public:
 private:
     // 物理参数
     glm::vec3 m_position;       // 位置
+    glm::vec3 m_lastSafePosition; // 最近一次安全水域位置
+    bool m_hasLastSafePosition = false;
     float m_rotation;           // 旋转（Y 轴，度）
     float m_speed;              // 速度（m/s）
     float m_angularVelocity;    // 角速度（度/s）
@@ -127,11 +129,15 @@ private:
     float m_turnInput;          // 转向输入
     
     // 物理常数
-    const float MAX_SPEED = 5.0f;           // 最大速度
-    const float ACCELERATION = 2.0f;        // 加速度
-    const float DECELERATION = 1.0f;        // 减速度
-    const float TURN_SPEED = 60.0f;         // 转向速度（度/s）
+    const float MAX_SPEED = 10.0f;          // 最大速度
+    const float ACCELERATION = 3.0f;        // 加速度
+    const float DECELERATION = 2.5f;        // 减速度
+    const float TURN_SPEED = 60.0f;         // 转向速度
     const float DRAG = 0.5f;                // 水阻力
+    const float TURN_ACCEL = 120.0f;        // 转向加速度
+    const float TURN_DAMPING = 4.0f;        // 转向阻尼
+    const float THROTTLE_SMOOTH = 4.0f;     // 油门平滑
+    const float TURN_SPEED_FACTOR = 0.7f;   // 转弯时限速系数
     const float BOAT_LENGTH = 1.0f;         // 船长
     const float BOAT_WIDTH = 0.4f;          // 船宽
     const float BOAT_RADIUS = 0.5f;         // 碰撞半径
@@ -161,7 +167,7 @@ private:
     /**
      * @brief 检查并处理碰撞
      */
-    void handleCollisions();
+    void handleCollisions(const glm::vec3& prevPosition);
 };
 
 } // namespace WaterTown

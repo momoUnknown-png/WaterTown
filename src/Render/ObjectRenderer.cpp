@@ -269,13 +269,50 @@ void ObjectRenderer::render(Shader* shader, Camera* camera) {
     if (!shader || !camera) return;
     
     shader->use();
+    shader->setBool("uUseVertexColor", false);
+    shader->setBool("uUseObjectScale", true);
+    shader->setVec3("uLightDir", -0.3f, -1.0f, -0.2f);
+    shader->setVec3("uLightColor", 1.0f, 0.98f, 0.95f);
+    shader->setVec3("uSkyColor", 0.6f, 0.75f, 0.95f);
+    shader->setVec3("uGroundColor", 0.35f, 0.3f, 0.25f);
+    shader->setFloat("uAmbientStrength", 0.35f);
+    shader->setBool("uUseFog", true);
+    shader->setVec3("uFogColor", 0.7f, 0.8f, 0.9f);
+    shader->setFloat("uFogDensity", 0.0025f);
+    shader->setVec3("uBottomTintColor", 0.2f, 0.45f, 0.65f);
+    shader->setFloat("uBottomTintStrength", 0.0f);
     shader->setMat4("uView", camera->getViewMatrix());
     shader->setMat4("uProjection", camera->getProjectionMatrix());
     shader->setVec3("uViewPos", camera->getPosition());
-    shader->setVec3("uLightPos", 10.0f, 10.0f, 10.0f);
-    shader->setVec3("uLightColor", 1.0f, 1.0f, 1.0f);
+
+    const glm::vec3 cameraPos = camera->getPosition();
+    const float renderDistance = 350.0f; // 物体渲染半径
+    const float renderDistanceSq = renderDistance * renderDistance;
     
     for (const auto& obj : m_objects) {
+        const bool isBuilding = (obj.type == ObjectType::HOUSE ||
+                                 obj.type == ObjectType::HOUSE_STYLE_1 ||
+                                 obj.type == ObjectType::HOUSE_STYLE_2 ||
+                                 obj.type == ObjectType::HOUSE_STYLE_3 ||
+                                 obj.type == ObjectType::HOUSE_STYLE_4 ||
+                                 obj.type == ObjectType::HOUSE_STYLE_5 ||
+                                 obj.type == ObjectType::BRIDGE ||
+                                 obj.type == ObjectType::WALL ||
+                                 obj.type == ObjectType::PAVILION ||
+                                 obj.type == ObjectType::LONG_HOUSE ||
+                                 obj.type == ObjectType::ARCH_BRIDGE ||
+                                 obj.type == ObjectType::PAIFANG ||
+                                 obj.type == ObjectType::WATER_PAVILION ||
+                                 obj.type == ObjectType::PIER ||
+                                 obj.type == ObjectType::TEMPLE ||
+                                 obj.type == ObjectType::LOTUS_POND);
+
+        shader->setFloat("uObjectScale", isBuilding ? 7.5f : 5.0f);
+        shader->setVec3("uObjectScaleOrigin", obj.position);
+        glm::vec3 diff = obj.position - cameraPos;
+        if (glm::dot(diff, diff) > renderDistanceSq) {
+            continue;
+        }
         switch (obj.type) {
             case ObjectType::HOUSE:
                 renderHouse(obj.position, obj.rotation, shader);
@@ -300,6 +337,15 @@ void ObjectRenderer::render(Shader* shader, Camera* camera) {
                 break;
             case ObjectType::TREE:
                 renderTree(obj.position, obj.rotation, shader);
+                break;
+            case ObjectType::PLANT_1:
+                renderPlant1(obj.position, obj.rotation, shader);
+                break;
+            case ObjectType::PLANT_2:
+                renderPlant2(obj.position, obj.rotation, shader);
+                break;
+            case ObjectType::PLANT_4:
+                renderPlant4(obj.position, obj.rotation, shader);
                 break;
             case ObjectType::BOAT:
                 // 船由 BoatRenderer 单独处理
@@ -353,8 +399,8 @@ void ObjectRenderer::renderHouse(const glm::vec3& position, float rotation, Shad
     // 基础尺寸
     float wallWidth = 3.0f;    // 墙体宽度（更宽敞）
     float wallDepth = 2.0f;    // 墙体深度
-    float wallHeight = 2.2f;   // 墙体高度（更高）
-    float roofHeight = 1.0f;   // 屋顶高度
+    float wallHeight = 2.6f;   // 墙体高度（更高）
+    float roofHeight = 1.1f;   // 屋顶高度
     float roofOverhang = 0.5f; // 屋檐伸出长度（更大）
     float doorWidth = 0.6f;    // 门宽度
     float doorHeight = 1.8f;   // 门高度
@@ -367,7 +413,7 @@ void ObjectRenderer::renderHouse(const glm::vec3& position, float rotation, Shad
     model = glm::scale(model, glm::vec3(wallWidth, wallHeight, wallDepth));
     
     shader->setMat4("uModel", model);
-    shader->setVec3("uObjectColor", 0.95f, 0.95f, 0.9f);  // 白灰墙
+    shader->setVec3("uObjectColor", 0.9f, 0.86f, 0.78f);  // 暖米墙
     
     glBindVertexArray(m_cubeVAO);
     glDrawArrays(GL_TRIANGLES, 0, 36);
@@ -496,8 +542,8 @@ void ObjectRenderer::renderHouseStyle4(const glm::vec3& position, float rotation
     // 基础尺寸
     float baseWidth = 4.0f;   // 别墅宽度
     float baseDepth = 3.0f;   // 别墅深度
-    float floorHeight = 2.5f; // 每层高度
-    float roofHeight = 1.2f;  // 屋顶高度
+    float floorHeight = 2.8f; // 每层高度
+    float roofHeight = 1.25f; // 屋顶高度
     
     // 1. 主楼（两层）
     for (int floor = 0; floor < 2; floor++) {
@@ -509,15 +555,45 @@ void ObjectRenderer::renderHouseStyle4(const glm::vec3& position, float rotation
         model = glm::scale(model, glm::vec3(baseWidth, floorHeight, baseDepth));
         
         shader->setMat4("uModel", model);
-        shader->setVec3("uObjectColor", 0.85f, 0.85f, 0.8f);  // 浅米色墙
+        shader->setVec3("uObjectColor", 0.9f, 0.82f, 0.78f);  // 浅暖色墙
         
+        glBindVertexArray(m_cubeVAO);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+    }
+
+    glm::mat4 model = glm::mat4(1.0f);
+
+    // 门和窗户
+    float doorWidth = 0.9f;
+    float doorHeight = 1.6f;
+    float windowSize = 0.6f;
+
+    // 门（首层）
+    model = glm::mat4(1.0f);
+    model = glm::translate(model, position + glm::vec3(0, doorHeight * 0.5f, baseDepth * 0.51f));
+    model = glm::rotate(model, glm::radians(rotation), glm::vec3(0, 1, 0));
+    model = glm::scale(model, glm::vec3(doorWidth, doorHeight, 0.06f));
+    shader->setMat4("uModel", model);
+    shader->setVec3("uObjectColor", 0.4f, 0.25f, 0.15f);
+    glBindVertexArray(m_cubeVAO);
+    glDrawArrays(GL_TRIANGLES, 0, 36);
+
+    // 二层窗户
+    for (int i = 0; i < 2; ++i) {
+        float side = (i == 0) ? 1.0f : -1.0f;
+        model = glm::mat4(1.0f);
+        model = glm::translate(model, position + glm::vec3(baseWidth * 0.3f * side, floorHeight * 1.6f, baseDepth * 0.51f));
+        model = glm::rotate(model, glm::radians(rotation), glm::vec3(0, 1, 0));
+        model = glm::scale(model, glm::vec3(windowSize, windowSize, 0.05f));
+        shader->setMat4("uModel", model);
+        shader->setVec3("uObjectColor", 0.55f, 0.75f, 0.9f);
         glBindVertexArray(m_cubeVAO);
         glDrawArrays(GL_TRIANGLES, 0, 36);
     }
     
     // 2. 现代中式屋顶（平顶+翘角）
     // 主屋顶
-    glm::mat4 model = glm::mat4(1.0f);
+    model = glm::mat4(1.0f);
     model = glm::translate(model, position + glm::vec3(0, floorHeight * 2 + roofHeight * 0.3f, 0));
     model = glm::rotate(model, glm::radians(rotation), glm::vec3(0, 1, 0));
     model = glm::scale(model, glm::vec3(baseWidth + 0.5f, roofHeight * 0.6f, baseDepth + 0.5f));
@@ -581,8 +657,8 @@ void ObjectRenderer::renderHouseStyle5(const glm::vec3& position, float rotation
     // 基础尺寸
     float shedWidth = 2.5f;   // 农舍宽度
     float shedDepth = 2.0f;   // 农舍深度
-    float shedHeight = 1.8f;  // 农舍高度
-    float roofHeight = 1.5f;  // 茅草屋顶高度
+    float shedHeight = 2.1f;  // 农舍高度
+    float roofHeight = 1.6f;  // 茅草屋顶高度
     
     // 1. 石砌基础
     glm::mat4 model = glm::mat4(1.0f);
@@ -603,7 +679,7 @@ void ObjectRenderer::renderHouseStyle5(const glm::vec3& position, float rotation
     model = glm::scale(model, glm::vec3(shedWidth, shedHeight, shedDepth));
     
     shader->setMat4("uModel", model);
-    shader->setVec3("uObjectColor", 0.6f, 0.4f, 0.2f);  // 深木色
+    shader->setVec3("uObjectColor", 0.75f, 0.45f, 0.25f);  // 浅木墙色
     
     glBindVertexArray(m_cubeVAO);
     glDrawArrays(GL_TRIANGLES, 0, 36);
@@ -631,6 +707,19 @@ void ObjectRenderer::renderHouseStyle5(const glm::vec3& position, float rotation
     
     glBindVertexArray(m_cubeVAO);
     glDrawArrays(GL_TRIANGLES, 0, 36);
+
+    // 4. 窗户
+    for (int i = 0; i < 2; ++i) {
+        float side = (i == 0) ? 1.0f : -1.0f;
+        model = glm::mat4(1.0f);
+        model = glm::translate(model, position + glm::vec3(shedWidth * 0.25f * side, shedHeight * 0.6f + 0.1f, shedDepth * 0.51f));
+        model = glm::rotate(model, glm::radians(rotation), glm::vec3(0, 1, 0));
+        model = glm::scale(model, glm::vec3(0.35f, 0.35f, 0.05f));
+        shader->setMat4("uModel", model);
+        shader->setVec3("uObjectColor", 0.5f, 0.7f, 0.9f);
+        glBindVertexArray(m_cubeVAO);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+    }
     
     // 5. 烟囱（小砖砌）
     model = glm::mat4(1.0f);
@@ -691,9 +780,9 @@ void ObjectRenderer::renderTree(const glm::vec3& position, float rotation, Shade
     float treeHeight = 3.0f;     // 树干高度
     float treeCrownScale = 2.0f; // 树冠尺寸
     
-    // 树干（圆柱）- 底部在地面上
+    // 树干（圆柱）- 底部贴地（圆柱模型 y=0..1）
     glm::mat4 model = glm::mat4(1.0f);
-    model = glm::translate(model, position + glm::vec3(0, treeHeight * 0.5f, 0));
+    model = glm::translate(model, position);
     model = glm::rotate(model, glm::radians(rotation), glm::vec3(0, 1, 0));
     model = glm::scale(model, glm::vec3(treeScale, treeHeight, treeScale));
     
@@ -705,7 +794,7 @@ void ObjectRenderer::renderTree(const glm::vec3& position, float rotation, Shade
     
     // 树冠（球体）- 放在树干顶部
     model = glm::mat4(1.0f);
-    model = glm::translate(model, position + glm::vec3(0, treeHeight + treeCrownScale * 0.3f, 0));
+    model = glm::translate(model, position + glm::vec3(0, treeHeight, 0));
     model = glm::rotate(model, glm::radians(rotation), glm::vec3(0, 1, 0));
     model = glm::scale(model, glm::vec3(treeCrownScale, treeCrownScale, treeCrownScale));
     
@@ -715,6 +804,84 @@ void ObjectRenderer::renderTree(const glm::vec3& position, float rotation, Shade
     glBindVertexArray(m_sphereVAO);
     glDrawArrays(GL_TRIANGLES, 0, m_sphereVertexCount);
     
+    glBindVertexArray(0);
+}
+
+void ObjectRenderer::renderPlant1(const glm::vec3& position, float rotation, Shader* shader) {
+    // 灌木：低矮圆球
+    float shrubSize = 1.2f;
+
+    glm::mat4 model = glm::mat4(1.0f);
+    model = glm::translate(model, position + glm::vec3(0, shrubSize * 0.35f, 0));
+    model = glm::rotate(model, glm::radians(rotation), glm::vec3(0, 1, 0));
+    model = glm::scale(model, glm::vec3(shrubSize, shrubSize * 0.7f, shrubSize));
+
+    shader->setMat4("uModel", model);
+    shader->setVec3("uObjectColor", 0.2f, 0.6f, 0.2f);
+
+    glBindVertexArray(m_sphereVAO);
+    glDrawArrays(GL_TRIANGLES, 0, m_sphereVertexCount);
+
+    glBindVertexArray(0);
+}
+
+void ObjectRenderer::renderPlant2(const glm::vec3& position, float rotation, Shader* shader) {
+    // 花丛：扁平花盘 + 花心
+    float flowerRadius = 0.8f;
+
+    glm::mat4 model = glm::mat4(1.0f);
+    model = glm::translate(model, position + glm::vec3(0, 0.1f, 0));
+    model = glm::rotate(model, glm::radians(rotation), glm::vec3(0, 1, 0));
+    model = glm::scale(model, glm::vec3(flowerRadius, 0.2f, flowerRadius));
+
+    shader->setMat4("uModel", model);
+    shader->setVec3("uObjectColor", 0.9f, 0.5f, 0.7f);
+
+    glBindVertexArray(m_sphereVAO);
+    glDrawArrays(GL_TRIANGLES, 0, m_sphereVertexCount);
+
+    model = glm::mat4(1.0f);
+    model = glm::translate(model, position + glm::vec3(0, 0.32f, 0));
+    model = glm::scale(model, glm::vec3(0.25f, 0.25f, 0.25f));
+
+    shader->setMat4("uModel", model);
+    shader->setVec3("uObjectColor", 0.95f, 0.85f, 0.3f);
+
+    glBindVertexArray(m_sphereVAO);
+    glDrawArrays(GL_TRIANGLES, 0, m_sphereVertexCount);
+
+    glBindVertexArray(0);
+}
+
+void ObjectRenderer::renderPlant4(const glm::vec3& position, float rotation, Shader* shader) {
+    // 松树：细干 + 高锥树冠
+    float trunkHeight = 3.0f;
+    float trunkRadius = 0.15f;
+    float crownHeight = 2.8f;
+    float crownRadius = 1.5f;
+
+    glm::mat4 model = glm::mat4(1.0f);
+    model = glm::translate(model, position);
+    model = glm::rotate(model, glm::radians(rotation), glm::vec3(0, 1, 0));
+    model = glm::scale(model, glm::vec3(trunkRadius, trunkHeight, trunkRadius));
+
+    shader->setMat4("uModel", model);
+    shader->setVec3("uObjectColor", 0.33f, 0.2f, 0.12f);
+
+    glBindVertexArray(m_cylinderVAO);
+    glDrawArrays(GL_TRIANGLES, 0, m_cylinderVertexCount);
+
+    model = glm::mat4(1.0f);
+    model = glm::translate(model, position + glm::vec3(0, trunkHeight - crownHeight * 0.1f, 0));
+    model = glm::rotate(model, glm::radians(rotation), glm::vec3(0, 1, 0));
+    model = glm::scale(model, glm::vec3(crownRadius, crownHeight, crownRadius));
+
+    shader->setMat4("uModel", model);
+    shader->setVec3("uObjectColor", 0.18f, 0.45f, 0.2f);
+
+    glBindVertexArray(m_coneVAO);
+    glDrawArrays(GL_TRIANGLES, 0, m_coneVertexCount);
+
     glBindVertexArray(0);
 }
 
@@ -816,8 +983,8 @@ void ObjectRenderer::renderHouseStyle1(const glm::vec3& position, float rotation
     // 基础尺寸
     float wallWidth = 3.0f;    // 墙体宽度
     float wallDepth = 2.0f;    // 墙体深度
-    float wallHeight = 1.5f;   // 墙体高度
-    float roofHeight = 0.6f;   // 屋顶高度
+    float wallHeight = 1.7f;   // 墙体高度
+    float roofHeight = 0.7f;   // 屋顶高度
     float roofOverhang = 0.4f; // 屋檐伸出长度
     
     // 1. 底层墙体（白墙）
@@ -827,7 +994,7 @@ void ObjectRenderer::renderHouseStyle1(const glm::vec3& position, float rotation
     model = glm::scale(model, glm::vec3(wallWidth, wallHeight, wallDepth));
     
     shader->setMat4("uModel", model);
-    shader->setVec3("uObjectColor", 0.9f, 0.9f, 0.85f);  // 白墙
+    shader->setVec3("uObjectColor", 0.82f, 0.9f, 0.86f);  // 淡青墙
     
     glBindVertexArray(m_cubeVAO);
     glDrawArrays(GL_TRIANGLES, 0, 36);
@@ -841,6 +1008,34 @@ void ObjectRenderer::renderHouseStyle1(const glm::vec3& position, float rotation
     shader->setMat4("uModel", model);
     glBindVertexArray(m_cubeVAO);
     glDrawArrays(GL_TRIANGLES, 0, 36);
+
+    // 门和窗户（底层）
+    float doorWidth = 0.7f;
+    float doorHeight = 1.2f;
+    float windowSize = 0.45f;
+
+    // 门
+    model = glm::mat4(1.0f);
+    model = glm::translate(model, position + glm::vec3(0, doorHeight * 0.5f, wallDepth * 0.51f));
+    model = glm::rotate(model, glm::radians(rotation), glm::vec3(0, 1, 0));
+    model = glm::scale(model, glm::vec3(doorWidth, doorHeight, 0.05f));
+    shader->setMat4("uModel", model);
+    shader->setVec3("uObjectColor", 0.35f, 0.2f, 0.1f);  // 木门
+    glBindVertexArray(m_cubeVAO);
+    glDrawArrays(GL_TRIANGLES, 0, 36);
+
+    // 窗户
+    for (int i = 0; i < 2; ++i) {
+        float side = (i == 0) ? 1.0f : -1.0f;
+        model = glm::mat4(1.0f);
+        model = glm::translate(model, position + glm::vec3(wallWidth * 0.25f * side, wallHeight * 0.6f, wallDepth * 0.51f));
+        model = glm::rotate(model, glm::radians(rotation), glm::vec3(0, 1, 0));
+        model = glm::scale(model, glm::vec3(windowSize, windowSize, 0.05f));
+        shader->setMat4("uModel", model);
+        shader->setVec3("uObjectColor", 0.45f, 0.65f, 0.9f);  // 玻璃
+        glBindVertexArray(m_cubeVAO);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+    }
     
     // 3. 屋顶（黑瓦）
     model = glm::mat4(1.0f);
@@ -892,7 +1087,7 @@ void ObjectRenderer::renderHouseStyle2(const glm::vec3& position, float rotation
     // 基础尺寸
     float mainWidth = 4.0f;   // 主建筑宽度
     float mainDepth = 2.5f;   // 主建筑深度
-    float mainHeight = 2.0f;  // 主建筑高度
+    float mainHeight = 2.4f;  // 主建筑高度
     float wingWidth = 2.0f;   // 侧翼宽度
     float wingDepth = 1.5f;   // 侧翼深度
     float roofHeight = 0.7f;  // 屋顶高度
@@ -904,7 +1099,7 @@ void ObjectRenderer::renderHouseStyle2(const glm::vec3& position, float rotation
     model = glm::scale(model, glm::vec3(mainWidth, mainHeight, mainDepth));
     
     shader->setMat4("uModel", model);
-    shader->setVec3("uObjectColor", 0.85f, 0.85f, 0.8f);  // 浅白墙
+    shader->setVec3("uObjectColor", 0.9f, 0.83f, 0.92f);  // 淡紫墙
     
     glBindVertexArray(m_cubeVAO);
     glDrawArrays(GL_TRIANGLES, 0, 36);
@@ -918,6 +1113,34 @@ void ObjectRenderer::renderHouseStyle2(const glm::vec3& position, float rotation
     shader->setMat4("uModel", model);
     glBindVertexArray(m_cubeVAO);
     glDrawArrays(GL_TRIANGLES, 0, 36);
+
+    // 门和窗户（主立面）
+    float doorWidth = 0.8f;
+    float doorHeight = 1.3f;
+    float windowSize = 0.5f;
+
+    // 门
+    model = glm::mat4(1.0f);
+    model = glm::translate(model, position + glm::vec3(0, doorHeight * 0.5f, mainDepth * 0.51f));
+    model = glm::rotate(model, glm::radians(rotation), glm::vec3(0, 1, 0));
+    model = glm::scale(model, glm::vec3(doorWidth, doorHeight, 0.05f));
+    shader->setMat4("uModel", model);
+    shader->setVec3("uObjectColor", 0.4f, 0.25f, 0.15f);
+    glBindVertexArray(m_cubeVAO);
+    glDrawArrays(GL_TRIANGLES, 0, 36);
+
+    // 窗户（左右翼前侧）
+    for (int i = 0; i < 2; ++i) {
+        float xOffset = (i == 0) ? -mainWidth * 0.6f : mainWidth * 0.6f;
+        model = glm::mat4(1.0f);
+        model = glm::translate(model, position + glm::vec3(xOffset, mainHeight * 0.6f, wingDepth * 0.51f));
+        model = glm::rotate(model, glm::radians(rotation), glm::vec3(0, 1, 0));
+        model = glm::scale(model, glm::vec3(windowSize, windowSize, 0.05f));
+        shader->setMat4("uModel", model);
+        shader->setVec3("uObjectColor", 0.5f, 0.7f, 0.9f);
+        glBindVertexArray(m_cubeVAO);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+    }
     
     // 3. 右侧翼
     model = glm::mat4(1.0f);
@@ -975,8 +1198,8 @@ void ObjectRenderer::renderHouseStyle3(const glm::vec3& position, float rotation
     // 基础尺寸
     float hallWidth = 5.0f;   // 大厅宽度
     float hallDepth = 3.0f;   // 大厅深度
-    float hallHeight = 2.5f;  // 大厅高度
-    float roofHeight = 1.0f;  // 屋顶高度
+    float hallHeight = 2.9f;  // 大厅高度
+    float roofHeight = 1.1f;  // 屋顶高度
     float porchWidth = 2.0f;  // 门廊宽度
     float porchDepth = 1.0f;  // 门廊深度
     
@@ -987,7 +1210,7 @@ void ObjectRenderer::renderHouseStyle3(const glm::vec3& position, float rotation
     model = glm::scale(model, glm::vec3(hallWidth, hallHeight, hallDepth));
     
     shader->setMat4("uModel", model);
-    shader->setVec3("uObjectColor", 0.8f, 0.8f, 0.75f);  // 古旧白墙
+    shader->setVec3("uObjectColor", 0.86f, 0.78f, 0.65f);  // 土黄墙
     
     glBindVertexArray(m_cubeVAO);
     glDrawArrays(GL_TRIANGLES, 0, 36);
@@ -1026,6 +1249,34 @@ void ObjectRenderer::renderHouseStyle3(const glm::vec3& position, float rotation
     shader->setMat4("uModel", model);
     glBindVertexArray(m_cubeVAO);
     glDrawArrays(GL_TRIANGLES, 0, 36);
+
+    // 门和窗户
+    float doorWidth = 1.0f;
+    float doorHeight = 1.6f;
+    float windowSize = 0.5f;
+
+    // 门（门廊内）
+    model = glm::mat4(1.0f);
+    model = glm::translate(model, position + glm::vec3(0, doorHeight * 0.5f, hallDepth * 0.62f));
+    model = glm::rotate(model, glm::radians(rotation), glm::vec3(0, 1, 0));
+    model = glm::scale(model, glm::vec3(doorWidth, doorHeight, 0.06f));
+    shader->setMat4("uModel", model);
+    shader->setVec3("uObjectColor", 0.35f, 0.2f, 0.1f);
+    glBindVertexArray(m_cubeVAO);
+    glDrawArrays(GL_TRIANGLES, 0, 36);
+
+    // 窗户（左右）
+    for (int i = 0; i < 2; ++i) {
+        float side = (i == 0) ? 1.0f : -1.0f;
+        model = glm::mat4(1.0f);
+        model = glm::translate(model, position + glm::vec3(hallWidth * 0.3f * side, hallHeight * 0.6f, hallDepth * 0.52f));
+        model = glm::rotate(model, glm::radians(rotation), glm::vec3(0, 1, 0));
+        model = glm::scale(model, glm::vec3(windowSize, windowSize, 0.05f));
+        shader->setMat4("uModel", model);
+        shader->setVec3("uObjectColor", 0.45f, 0.65f, 0.85f);
+        glBindVertexArray(m_cubeVAO);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+    }
     
     // 4. 柱子（粗壮的木柱）
     for (int i = 0; i < 6; i++) {
@@ -1157,7 +1408,7 @@ void ObjectRenderer::renderTemple(const glm::vec3& position, float rotation, Sha
     model = glm::scale(model, glm::vec3(templeSize, templeHeight * 0.8f, templeSize));
     
     shader->setMat4("uModel", model);
-    shader->setVec3("uObjectColor", 0.8f, 0.8f, 0.6f);  // 米色
+    shader->setVec3("uObjectColor", 0.75f, 0.72f, 0.68f);  // 石灰色
     
     glBindVertexArray(m_cubeVAO);
     glDrawArrays(GL_TRIANGLES, 0, 36);
@@ -1173,38 +1424,67 @@ void ObjectRenderer::renderTemple(const glm::vec3& position, float rotation, Sha
     
     glBindVertexArray(m_cubeVAO);
     glDrawArrays(GL_TRIANGLES, 0, 36);
+
+    // 门与窗户
+    float doorWidth = 1.0f;
+    float doorHeight = 1.8f;
+    float windowSize = 0.5f;
+
+    // 门
+    model = glm::mat4(1.0f);
+    model = glm::translate(model, position + glm::vec3(0, doorHeight * 0.5f, templeSize * 0.51f));
+    model = glm::rotate(model, glm::radians(rotation), glm::vec3(0, 1, 0));
+    model = glm::scale(model, glm::vec3(doorWidth, doorHeight, 0.06f));
+    shader->setMat4("uModel", model);
+    shader->setVec3("uObjectColor", 0.4f, 0.25f, 0.15f);
+    glBindVertexArray(m_cubeVAO);
+    glDrawArrays(GL_TRIANGLES, 0, 36);
+
+    // 窗户
+    for (int i = 0; i < 2; ++i) {
+        float side = (i == 0) ? 1.0f : -1.0f;
+        model = glm::mat4(1.0f);
+        model = glm::translate(model, position + glm::vec3(templeSize * 0.25f * side, templeHeight * 0.5f, templeSize * 0.51f));
+        model = glm::rotate(model, glm::radians(rotation), glm::vec3(0, 1, 0));
+        model = glm::scale(model, glm::vec3(windowSize, windowSize, 0.05f));
+        shader->setMat4("uModel", model);
+        shader->setVec3("uObjectColor", 0.5f, 0.7f, 0.9f);
+        glBindVertexArray(m_cubeVAO);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+    }
     
     glBindVertexArray(0);
 }
 
 void ObjectRenderer::renderBamboo(const glm::vec3& position, float rotation, Shader* shader) {
-    // 竹子 = 绿色细长圆柱，带关节
-    float bambooHeight = 2.5f;      // 竹子高度
-    float bambooDensity = 0.8f;     // 竹子密度
-    
+    // 树B（松树风格）：棕色树干 + 绿色锥形树冠
+    float trunkHeight = 2.8f;
+    float trunkRadius = 0.18f;
+    float crownHeight = 2.6f;
+    float crownRadius = 1.6f;
+
     glm::mat4 model = glm::mat4(1.0f);
-    model = glm::translate(model, position + glm::vec3(0, bambooHeight * 0.5f, 0));
+    model = glm::translate(model, position);
     model = glm::rotate(model, glm::radians(rotation), glm::vec3(0, 1, 0));
-    model = glm::scale(model, glm::vec3(bambooDensity * 0.1f, bambooHeight, bambooDensity * 0.1f));
-    
+    model = glm::scale(model, glm::vec3(trunkRadius, trunkHeight, trunkRadius));
+
     shader->setMat4("uModel", model);
-    shader->setVec3("uObjectColor", 0.3f, 0.8f, 0.3f);  // 竹绿色
-    
+    shader->setVec3("uObjectColor", 0.35f, 0.22f, 0.12f);  // 树干棕色
+
     glBindVertexArray(m_cylinderVAO);
     glDrawArrays(GL_TRIANGLES, 0, m_cylinderVertexCount);
-    
-    // 竹节（环状装饰）
-    for (int i = 1; i < 4; i++) {
-        float y = i * bambooHeight * 0.25f;
-        model = glm::mat4(1.0f);
-        model = glm::translate(model, position + glm::vec3(0, y, 0));
-        model = glm::scale(model, glm::vec3(bambooDensity * 0.12f, bambooDensity * 0.02f, bambooDensity * 0.12f));
-        
-        shader->setMat4("uModel", model);
-        glBindVertexArray(m_cylinderVAO);
-        glDrawArrays(GL_TRIANGLES, 0, m_cylinderVertexCount);
-    }
-    
+
+    model = glm::mat4(1.0f);
+    model = glm::translate(model, position + glm::vec3(0, trunkHeight - crownHeight * 0.1f, 0));
+    model = glm::rotate(model, glm::radians(rotation), glm::vec3(0, 1, 0));
+    model = glm::scale(model, glm::vec3(crownRadius, crownHeight, crownRadius));
+
+    shader->setMat4("uModel", model);
+    shader->setVec3("uObjectColor", 0.15f, 0.5f, 0.2f);  // 深绿树冠
+
+    glBindVertexArray(m_coneVAO);
+    glDrawArrays(GL_TRIANGLES, 0, m_coneVertexCount);
+
     glBindVertexArray(0);
 }
 
